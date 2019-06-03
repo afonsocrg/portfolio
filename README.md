@@ -1,4 +1,4 @@
-# afonsocrg Portfolio (October 2017 - ???)
+# afonsocrg Portfolio (May 2015 - ???)
 
 Hello, dear visitor! Welcome to my portfolio!
 

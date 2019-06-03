@@ -1,4 +1,4 @@
-# Game 31 (May 2015)
+# 31 Game (May 2015)
 This is a simple 2 player game my grandfather taught me when I was a kid (I'm using his version instead of other versions available online).
 
 It starts with one of the players saying one number between 1 and 3 (inclusive). Then, each player adds to the previous value 1, 2 or 3. The player who says 31 wins the game.

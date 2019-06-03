@@ -18,3 +18,5 @@ I'm trying to keep these projects readable to most of you, therefore I'm doing m
 |March 2019|[Network Analysis](https://github.com/afonsocrg/portfolio/tree/master/networkAnalysis)|
 |April-May 2019|[Max Flows](https://github.com/afonsocrg/portfolio/tree/master/maxFlows)|
 |March-May 2019|[iGo](https://github.com/afonsocrg/portfolio/tree/master/iGo)|
+
+{% include_relative timeline.html %}

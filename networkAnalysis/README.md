@@ -1,4 +1,4 @@
-# networkAnalysis (March 2019)
+# Network Analysis (March 2019)
 
 In this project, we ([Daniel](https://github.com/Beu-Wolf) and me) were challenged to analyse a router network. There's a chance that some routers won't be able to reach others upon the removal of some critical routers. We had to find all those routers and also tell how many sub-networks would exist if they were removed.
 

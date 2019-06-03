@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+
+<html>
+  <head>
+    <title>iGo</title>
+    <link rel="stylesheet" href="../../styles/global.css" type="text/css">
+    <link rel="stylesheet" href="self.css" type="text/css">
+    <script type="text/javascript" src="../../scripts/global.js" async></script>
+    <script type="text/javascript" src="self.js" async></script>
+
+</head>
+<body>
+  <div id="content">
+    <div class="holder">
+      <div id="leftArrow">
+        <img src="../../images/arrowhead-thin-outline-to-the-left.svg">
+      </div>
+      <div class="iGo">   
+        <div id="screen">
+          <div id="confirmationPopUp">
+            <div>
+              <div id="messageTitle">
+                <b>Por Favor confirme o que disse:</b>
+              </div>
+              <div id="userInputDiv"><span id="userInput"></span> </div>
+              <div id="options">
+                <div id="tryButton" class="small-button">
+                    <span><b>Cancelar</b></span>
+                </div>
+                <div id="confirmButton" class="small-button">
+                    <span><b>Confirmar</b></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div  id="description">
+          <b>Por Favor diga o seu nome</b>
+          </div>
+          <div id="microphone"><img class="image" src="../../images/microphone.svg"></div>
+          <div id="okButton" class="small-button">
+            Ok
+          </div>
+        </div>
+        
+      </div>
+    </div>
+      
+  </div>
+  <label id="textField">Falar:
+  <input type="text" id="insertText"/>
+  </label>
+</body>
+</html>

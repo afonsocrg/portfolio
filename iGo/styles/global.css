@@ -1,0 +1,113 @@
+body {
+    font-family:arial; 
+    text-align: center;
+    background-color:#ffffff; /*prettier logo color background*/
+}
+
+/* #content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+} */
+
+#content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: fixed;
+	top: 50%;
+
+	left: 50%;
+	
+	transform: translate(-50%, -50%);
+	
+}
+
+
+.iGo{
+    height: 5.37cm;
+    width:5.37cm;
+    border: 5px solid black;
+    border-radius: 5%;
+    /* margin-top: 5.29cm; */
+    overflow: hidden;
+    position: relative;
+}
+
+#notifscreen {
+    background-color: #474747;
+    border-top: 3px solid #474747;
+    border-bottom: 1.5px solid #474747;
+    color: #EEE;
+    font-size: 10pt;
+    text-justify: auto;
+    display: inline-grid;
+    grid-template-columns: 33% 33% 33%;
+    width: 100%;
+}
+
+#notifscreen #name {
+    text-align: left;
+    margin-left: 5%;
+}
+
+
+#notifscreen #battery {
+    text-align: right;
+    margin-right: 5%;
+}
+
+#screen {
+    height: 89%;
+    width: 100%;
+    overflow: hidden;
+    /*! overflow-x: hidden; */ 
+    position: relative;
+}
+
+.small-button {
+	cursor: pointer;
+	background-color: #EEE;
+	border: 2px solid #AAA;
+	font-weight: bold;
+	/* height: 0.5cm; */
+	/* width: 40%; */
+	border-radius: 3px;
+    padding: 2px;
+    color: #333;
+}
+
+.holder {
+	display: grid;
+	grid-template-columns: 25% 50% 25%;
+	justify-items: center;
+	align-items: center;
+}
+
+#leftArrow, #rightArrow {
+    height: 25%;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#leftArrow:hover {
+    transform: translateX(-15%)
+}
+
+#rightArrow:hover {
+    transform: translateX(15%)
+}
+
+
+
+
+
+#leftArrow img, #rightArrow img {
+    width: 100%;
+    height: 100%;
+}
+

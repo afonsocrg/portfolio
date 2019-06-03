@@ -1,0 +1,304 @@
+
+
+#selectMethod {
+	height: 70%;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-gap: 15%;
+	align-content: center;
+	margin: 5% 0%;
+}
+
+#languages {
+	display: grid;
+	grid-template-columns: 35% 20% 35%;
+	grid-gap: 5%;
+	align-content: center;
+	margin: 5% 5% 0% 5%;
+	height: 55%;
+}
+
+#selectMethod {
+    margin: 0;
+    height: 100%;
+    grid-gap: 2px;
+}
+
+#manual-container {
+	display: grid;
+	grid-template-columns: 100%;
+    overflow: auto;
+    max-height: 100%;
+    scrollbar-width: none;
+    align-items: center;
+    justify-items: center;
+    grid-gap: 10%;
+    margin: 0% 5%;
+}
+
+#manual-container::before {
+    content: "";
+    height: 2px;
+}
+
+#manual-container::after {
+	content: "boo";
+	height: 2px;
+	color: white;
+	font-size: 2px;
+}
+
+#buttons, #translating-buttons, #translation-buttons {
+	position: absolute;
+	width: 100%;
+	height: 35%;
+	text-align: center;
+    bottom: 5%;
+}
+
+#translating-buttons {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: 5%;
+	justify-content: center;
+	align-content: center;
+}
+
+#translation-buttons {
+    display: grid;
+    grid-template-columns: auto;
+	justify-content: center;
+	align-content: center;
+}
+
+.small-button-container {
+    display: inline-block;
+    width: 50%;
+    cursor: pointer;
+}
+
+#translate-mic-container, #backspace-container, #TTSContainer {
+	height: 90%;
+	cursor: pointer;
+	width: 100%;
+	margin: auto;
+}
+
+.flag-container {
+    /* display: inline-block;
+    vertical-align: middle; */
+}
+
+.flag {
+    vertical-align: middle;
+    height: 100%;
+    width: 100%;
+}
+
+.opt-box {
+    width: 80%;
+    height: 85%;
+	display: inline-grid;
+	grid-template-columns: 20% auto;
+    border: 2px solid black;
+    border-radius: 3px;
+    padding: 2%;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lang-box {
+	width: 93%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: 20% auto;
+	border: 2px solid #AAA;
+	border-radius: 4%;
+	padding: 2%;
+	align-items: center;
+	cursor: pointer;
+	background-color: #EEE;
+}
+
+#swapLang {
+    cursor: pointer;
+}
+
+.selected-lang {
+    width: 93%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.opt-box {
+    height: 70%;
+}
+
+.separator {
+	width: 100%;
+	border: 1px solid #DDD;
+	margin: 0%;
+}
+
+.lang-name , .lang-label {
+    margin: 0% 5%;
+    /* font-size: 10px; */
+    font-size: 12px;
+    text-align: center;
+    display: table;
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    /* text-align: left; */
+}
+
+.lang-label {
+    font-size: 10px;
+}
+
+/* .lang-name:after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    z-index: -1;
+    left: 50%;
+    top:0;
+    bottom: 0;
+    margin-left: -20px;
+} */
+
+#input-zone {
+    overflow: scroll;
+    scrollbar-width: none;
+    width: 90%;
+    height: 50%;
+    margin: auto;
+}
+
+#doTranslate {
+    display: none;
+    margin-top: 5%;
+}
+
+#speak-field {
+    position: absolute;
+    bottom: 5%;
+}
+
+.input-word, .translationWord{
+    margin: 3px;
+    display: inline-block;
+}
+
+.input-word {
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 3px;
+}
+
+.input-placeholder {
+    color: #888;
+}
+
+.ok-btn {
+	width: 40%;
+	display: inline-block;
+	color: white;
+    background-color: green;
+}
+
+#TTSButton{
+    margin: auto;
+    border-radius: 3px;
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+}
+
+.tts-button-container {
+    margin-top: 15%;
+}
+
+#changePopUp {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: none;
+    font-size: 10pt;
+}
+
+#options {
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    height: 35%;
+    bottom: 0%;
+}
+
+#changeButton, #tryButton, #eliminateButton{
+    font-size: 10pt;
+    height: 40%;
+    width: 43%;
+    margin-top: auto;
+    margin-bottom: auto;
+    line-height: 140%;
+}
+
+#confirmButton > span, #tryButton > span{
+    text-align: center;
+    vertical-align: middle;
+}
+
+#changeButton {
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+#tryButton {
+    background-color: #ce2029;
+    color: white;
+    margin-left: 0.5%;
+}
+
+#eliminateButton {
+    margin-right: 0.5%;
+}
+
+#changePopUp > div {
+    width: 90%;
+    height: 80%;
+    border-radius: 3px;
+    background: #fff;
+    margin: auto;
+    margin-top: 10%;
+    border: 2px solid black;
+	position: relative;
+}
+
+#wordDiv {
+    height: 45%;
+    display: table;
+    width: 100%;
+    
+}
+
+#word{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 15pt;
+}
+
+#messageTitle {
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+}

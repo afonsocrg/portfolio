@@ -1,0 +1,64 @@
+#slider-name {
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.slider-container {
+    position: relative;
+    top: 20%;
+    left: 5%;
+    height: 20%;
+    width: 90%;
+    background-color: #222222;
+    border-radius: 5px;
+}
+
+.slider {
+    position: absolute;
+    width: 10%;
+    height: 150%;
+    background-color: grey;
+    border-radius: 10%;
+    top: -25%;
+}
+
+#left-slider {
+    z-index: 1;
+    left: 10%;
+}
+
+#right-slider {
+    z-index: 1;
+    left: 80%;
+}
+
+#values-container {
+    position: relative;
+    top: 10%;
+    display: flex;
+}
+
+.value-container {
+    flex: 3;
+    border: solid 0.1cm;
+    border-radius: 0.05cm;
+}
+
+.value-container-space {
+    flex: 1;
+}
+
+.value {
+    display: block;
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.slider-space {
+    position: absolute;
+    z-index: 0;
+    background-color: green;
+    height: 100%;
+    width: 100%;
+    left: 0%;
+}

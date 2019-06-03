@@ -1,0 +1,134 @@
+#screen {
+	height: 90%;
+	position: relative;
+}
+
+#infoForm {
+	display: grid;
+	margin: 0% 5%;
+	overflow-y: auto;
+	scrollbar-width: none;
+	height: 80%;
+}
+
+#infoForm::before {
+	content: "";
+	height: 8px;
+}
+
+#infoForm::after {
+	content: "boo";
+	height: 2px;
+	color: white;
+	font-size: 2px;
+}
+
+.form-title {
+	margin-bottom: 4%;
+}
+
+#pinImg {
+	height: 100%;
+	padding-bottom: 7%;
+}
+
+#pinImg img {
+	display: block;
+	margin: auto;
+	width: 50%;
+	height: auto;
+}
+
+.detailsContainer {
+	display: inline-grid;
+	grid-template-columns: auto auto auto;
+	padding-bottom: 5%;
+}
+
+#detail1Title,
+#detail2Title {
+	text-align: left;
+}
+
+#detail1Content,
+#detail2Content {
+	text-align: right;
+}
+
+#directionsSection {
+	display: flex;
+	position: relative;
+	height: 20%;
+}
+
+#directionsContainer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+#directionsButton {
+	width: 70%;
+	margin: 2% auto;
+	display: block;
+}
+
+#changePopUp {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 99;
+	display: none;
+	font-size: 10pt;
+}
+
+#options {
+	display: flex;
+	position: absolute;
+	justify-content: center;
+	flex-direction: row;
+	width: 100%;
+	height: 35%;
+	bottom: 0%;
+}
+
+#transportButton,
+#footButton,
+#carButton {
+	font-size: 10pt;
+	height: 40%;
+	width: 43%;
+	margin-top: auto;
+	margin-bottom: auto;
+	line-height: 140%;
+}
+
+#carButton > span,
+#footButton > span {
+	text-align: center;
+	vertical-align: middle;
+}
+
+#transportButton {
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+#footButton {
+	margin-left: 0.5%;
+}
+
+#carButton {
+	margin-right: 0.5%;
+}
+
+#changePopUp > div {
+	width: 90%;
+	height: 80%;
+	border-radius: 3px;
+	background: #fff;
+	margin: auto;
+	margin-top: 10%;
+	border: 2px solid black;
+	position: relative;
+}

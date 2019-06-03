@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+
+<html>
+  <head>
+    <title>iGo</title>
+    <link rel="stylesheet" href="../../styles/global.css" type="text/css">
+    <link rel="stylesheet" href="translate.css" type="text/css">
+    <script type="text/javascript" src="translating.js" async></script>
+    <script type="text/javascript" src="../../scripts/global.js" async></script>
+  </head>
+  <body>
+    <div id="content">
+      <div class="holder">
+        <div id="leftArrow">
+          <img src="../../images/arrowhead-thin-outline-to-the-left.svg">
+        </div>
+
+        <div class="iGo">
+          <div id="notifscreen">
+            <span id="name"></span>
+            <span id="date"></span>
+            <span id="battery">80%</span>
+          </div>
+
+          <div id="screen">
+          <div id="changePopUp">
+              <div>
+                <div id="messageTitle">
+                  <b>Não foi isto que quis dizer?</b>
+                </div>
+                <div id="wordDiv"><span id="word"></span> </div>
+                <div id="options">
+                  <div id="tryButton" class="small-button">
+                      <span><b>Cancelar</b></span>
+                  </div>
+                  <div id="changeButton" class="small-button">
+                      <span><b>Alterar</b></span>
+                  </div>
+                  <div id="eliminateButton" class="small-button">
+                      <span><b>Eliminar</b></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="input-zone">
+              <div id="textBox"></div>
+              <div id="doTranslate">
+                <div class="small-button ok-btn">
+                  OK
+                </div>
+              </div>
+            </div>
+            <div id="translating-buttons">
+              <div id="translate-mic-container">
+                <img id="micImg" src="../../images/microphone.svg" style="height: 100%">
+              </div>
+              <div id="backspace-container">
+                <img id="backSpace" src="../../images/backspace.svg" style="height: 100%">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="speak-field">
+      <label id="textField">Falar:
+        <input type="text" id="insertText"/>
+      </label>
+    </div>
+  </body>
+
+</html>

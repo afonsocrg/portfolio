@@ -1,0 +1,115 @@
+#content {
+    flex-direction: column;
+}
+
+#content .iGo {
+    overflow: hidden;
+}
+
+#gestures {
+    margin-top: 3cm;
+    flex-direction: row;
+    margin-left:auto;
+}
+
+#Options {
+   display: flex;
+   position: relative;
+   justify-content: center;
+}
+
+.iGo_sos {
+    background-color: #ce2029;
+}
+
+
+#location_img, #file_img {
+	border: 2px solid #AAA;
+	border-radius: 25%;
+	background-color: #EEE;
+	padding: 6px;
+}
+
+#location, #file {
+    width: 38%;
+    margin: 3% 4% 0% 4%;
+}
+
+#location b, #file b {
+    font-size: 12px;
+    position: relative;
+    top: 0;
+}
+
+#duration {
+    margin-top: 2%;
+}
+
+#callTime, .message {
+    margin-top: 8%;
+    font-size: 53px;
+    color: #ce2029;
+}
+
+#hangUpButton, #callButton, #cancelButton {
+	margin: auto;
+	width: 20%;
+	height: 20%;
+	position: absolute;
+	bottom: 3%;
+	left: 0;
+	right: 0;
+	border: 2px solid #AAA;
+	border-radius: 25%;
+	background-color: #EEE;
+}
+
+.hangUp-button-container {
+    margin-top: 23%;
+}
+
+.call-button-container {
+    margin-top: 15%;
+}
+
+#file b {
+    white-space: nowrap;
+    margin-left: -5%;
+}
+
+#warningMessage {
+    font-size: 15px;
+    margin-top: 2%;
+}
+
+#warningTitle {
+    font-size: 20px;
+    margin-top: 2%;
+}
+
+#danger {
+    height: 35%;
+}
+
+#danger img {
+    height: 100%;
+    width: 100%;
+}
+
+#falseAlarmButton {
+    margin: auto;
+    border-radius: 3px;
+    font-size: 10pt;
+    height: 15px;
+    width: 60px;
+    position: absolute;
+    bottom: 3%;
+    left: 0;
+    right: 0;
+    color:  #ce2029;
+}
+
+#cancelHelp {
+    width: 40%;
+    margin: 20% auto 0 auto;
+}

@@ -1,0 +1,35 @@
+/* changing map's properties from here doesn't work */
+
+#screen {
+	overflow: scroll;
+	scrollbar-width: none;
+	height: 100%;
+	width: 100%;
+}
+
+.pin {
+    position: absolute;
+}
+
+#target {
+	position: absolute;
+	z-index: 2;
+	height: 16%;
+	bottom: 2%;
+	left: 2%;
+	background-color: #eee;
+	border-radius: 25%;
+	border: 2px solid #aaa;
+	padding: 2%;
+}
+#clearPath {
+	position: absolute;
+	z-index: 2;
+	height: 7%;
+	top: 12%;
+	right: 2%;
+	background-color: #eee;
+	border-radius: 25%;
+	border: 2px solid #aaa;
+	padding: 2%;
+}

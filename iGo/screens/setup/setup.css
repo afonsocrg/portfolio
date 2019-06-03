@@ -1,0 +1,157 @@
+#screen {
+	height: 100%;
+	position: relative;
+}
+
+#bioForm {
+	display: grid;
+	grid-gap: 2%;
+	margin: 0% 5%;
+	overflow-y: auto;
+	scrollbar-width: none;
+	height: 100%;
+}
+
+#bioForm::before {
+	content: "";
+	height: 8px;
+}
+
+#bioForm::after {
+	content: "boo";
+	height: 2px;
+	color: white;
+	font-size: 2px;
+}
+
+.form-title {
+	margin-bottom: 4%;
+}
+
+.input-field {
+	display: inline-grid;
+	grid-template-columns: 25% auto;
+	grid-column-gap: 9%;
+	cursor: pointer;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 6px;
+}
+
+.input-image {
+	display: block;
+	margin: auto;
+	width: 100%;
+	height: auto;
+}
+
+.data-field {
+	text-align: center;
+	position: relative;
+}
+
+.textInput {
+	position: absolute;
+	width: 100%;
+	bottom: 9%;
+	border-bottom: 2px solid black;
+}
+
+.empty-input {
+	color: gray;
+}
+
+.filling {
+	border-bottom: solid 1px black;
+	width: 75%;
+	margin-left: 0cm;
+}
+
+#sex {
+	display: flex;
+	align-content: center;
+	align-items: center;
+}
+
+#sex span {
+	display: inline-block;
+	margin: auto;
+	margin-left: 0.2cm;
+}
+
+#medicalButton {
+	width: 70%;
+	height: 0.75cm;
+	font-size: 9pt;
+	margin: auto;
+	margin-top: 4%;
+}
+
+#updateBloodPressure {
+	width: 70%;
+	font-size: 9pt;
+	margin: auto;
+	margin-top: 4%;
+}
+
+#okSection {
+	display: flex;
+	position: relative;
+	height: 20%;
+}
+
+#okContainer {
+	position: relative;
+	width: 50%;
+	height: 100%;
+}
+
+#cancelContainer {
+	position: relative;
+	height: 100%;
+	width: 50%;
+}
+
+#okButton {
+	width: 70%;
+	margin: auto;
+	margin-top: 5%;
+}
+
+#cancelButton {
+	width: 70%;
+	margin: auto;
+	margin-top: 5%;
+}
+
+input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+
+	border: 2px solid #999;
+	transition: 0.2s all linear;
+	outline: none;
+	margin-right: 5px;
+
+	position: relative;
+	top: 4px;
+}
+
+input:checked {
+	border: 50% solid #aaa;
+	background-color: #aaa;
+}
+
+#gestures {
+	margin-top: 3cm;
+	flex-direction: row;
+	margin-left: auto;
+}
+
+.clickable-field {
+	cursor: pointer;
+}

@@ -1,0 +1,15 @@
+#igo {
+    opacity: 0;
+    position: relative;
+    top: 0.5cm;
+    font-size: 2cm;
+    margin: auto;
+    transition: all 3s;
+}
+
+#welcome-msg {
+    opacity: 0;
+    position: relative;
+    top: 0.5cm;
+    transition: all 2s;
+}

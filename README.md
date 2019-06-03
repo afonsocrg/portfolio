@@ -12,7 +12,7 @@ I'm trying to keep these projects readable to most of you, therefore I'm doing m
 | Date|Project|
 |---	|---	|
 |October-November 2017|[MasterMind](https://github.com/afonsocrg/portfolio/tree/master/masterMind)|
-|April 2018|[Sparse Matrices](https://github.com/afonsocrg/portfolio/tree/master/sparseMatrices), [Thermometers puzzle solver](https://github.com/afonsocrg/portfolio/tree/master/thermProbSolver)|
+|April 2018|[Sparse Matrices](https://github.com/afonsocrg/portfolio/tree/master/sparseMatrices), [Thermometer puzzle solver](https://github.com/afonsocrg/portfolio/tree/master/thermProbSolver)|
 |May 2018|[Project Manager](https://github.com/afonsocrg/portfolio/tree/master/projectManager)|
 |October-November 2018|[Circuit Router](https://github.com/afonsocrg/portfolio/tree/master/circuitRouter), [School Manager](https://github.com/afonsocrg/portfolio/tree/master/schoolManager)|
 |March 2019|[Network Analysis](https://github.com/afonsocrg/portfolio/tree/master/networkAnalysis)|

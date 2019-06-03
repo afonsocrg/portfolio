@@ -1,4 +1,4 @@
-# Thermometers puzzle solver (April 2018)
+# Thermometer puzzle solver (April 2018)
 This prolog program solves thermometers puzzles, given the Puz argument:
 [
 [List of thermometers],

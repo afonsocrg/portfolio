@@ -1,4 +1,4 @@
-# maxFlows (April - May 2019)
+# Max Flows (April - May 2019)
 
 Made with love with [my boy <3](https://github.com/Beu-Wolf).
 

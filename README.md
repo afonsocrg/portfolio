@@ -11,6 +11,7 @@ I'm trying to keep these projects readable to most of you, therefore I'm doing m
 ## Project timeline
 | Date|Project|
 |---	|---	|
+|May 2015|[Thirty One Game](https://github.com/afonsocrg/portfolio/tree/master/thirtyOne)|
 |October-November 2017|[MasterMind](https://github.com/afonsocrg/portfolio/tree/master/masterMind), [Word Guru](https://github.com/afonsocrg/portfolio/tree/master/wordGuru)|
 |April 2018|[Sparse Matrices](https://github.com/afonsocrg/portfolio/tree/master/sparseMatrices), [Thermometer puzzle solver](https://github.com/afonsocrg/portfolio/tree/master/thermProbSolver)|
 |May 2018|[Project Manager](https://github.com/afonsocrg/portfolio/tree/master/projectManager)|

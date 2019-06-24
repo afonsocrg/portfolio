@@ -6,18 +6,18 @@ All the development of this device was planned (we made some prototypes and stor
 ## Some screenshots
 Here we leave some screenshots of the latest version:
 
-##### Main screen
+### Main screen
 ![main screen](https://github.com/afonsocrg/portfolio/blob/master/iGo/screenshots/iGo_main.png) ![setup screen](https://github.com/afonsocrg/portfolio/blob/master/iGo/screenshots/iGo_setup.png)
 
-##### SOS
+### SOS
 ![help countdown](https://github.com/afonsocrg/portfolio/blob/master/iGo/screenshots/sos_countdown.png)
 
-##### Translation
+### Translation
 ![Translation main screen](https://github.com/afonsocrg/portfolio/blob/master/iGo/screenshots/translate_main.png) ![Translation Select Language](https://github.com/afonsocrg/portfolio/blob/master/iGo/screenshots/translate_selectLanguage.png)
 
 ![Translation input](https://github.com/afonsocrg/portfolio/blob/master/iGo/screenshots/translate_text.png) ![Translation correct input](https://github.com/afonsocrg/portfolio/blob/master/iGo/screenshots/translate_correction.png) ![Translation Text to Speech](https://github.com/afonsocrg/portfolio/blob/master/iGo/screenshots/translate_TTS.png)
 
-##### GPS
+### GPS
 ![GPS filters](https://github.com/afonsocrg/portfolio/blob/master/iGo/screenshots/gps_filter.png) ![GPS friends](https://github.com/afonsocrg/portfolio/blob/master/iGo/screenshots/gps_friends.png) ![GPS route](https://github.com/afonsocrg/portfolio/blob/master/iGo/screenshots/gps_route.png)
 
 

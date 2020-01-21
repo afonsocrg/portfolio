@@ -16,8 +16,7 @@ A user can perform the following operations:
 Compile the project with `make`;
 
 Run the Server program with `./FS [-p FSport]`
-  
-  `FSport` is the port where the server accepts TCP and UDP requests (`58036` default)
+ \- `FSport` is the port where the server accepts TCP and UDP requests (`58036` default)
 
 Run the client with `./user [-n FSIP] [-p FSport]`
  \- `FSIP` is the IP where the server is running (`localhost` default).

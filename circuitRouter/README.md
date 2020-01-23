@@ -2,11 +2,11 @@
 
 Reuse and improvement of a previous Berkley Circuit Solver project in C language together with my [loyal project comrade](http://github.com/Beu-Wolf).
 The project was developed in 3 stages:
- * **CircuitRouter-SimpleShell:** A simple shell (as the name suggests) that accepts commands from the stdin. Each valid command generates a child process that executes a sequential circuit router (CircuitRouter-SeqSolver). On the exit command, the shell waits for every launched process to finish and displays every child exit status and respective PID. It is possible to specify the maximum number of child processes running simultaneously (with a flag)
+ * **CircuitRouter-SimpleShell:** A simple shell (as the name suggests) that accepts commands from the stdin. Each valid command generates a child process that executes a sequential circuit router (CircuitRouter-SeqSolver). On the exit command, the shell waits for every launched process to finish and displays every child exit status and respective PID. It is possible to specify the maximum number of child processes running simultaneously (with a flag);
 
- * **CircuitRouter-ParSolver:** A Parallel Circuit Solver, using threads and shared memory. To ensure the routing correctness, we had to use mutexes. It is possible to specify the number of threads to use. We also developed a shell script (doTest.sh) to measure the threading speedups that were logged to a csv file (results directory)
+ * **CircuitRouter-ParSolver:** A Parallel Circuit Solver, using threads and shared memory. To ensure the routing correctness, we had to use mutexes. It is possible to specify the number of threads to use. We also developed a shell script (doTest.sh) to measure the threading speedups that were logged to a csv file (results directory);
 
- * **CircuitRouter-AdvShell:** An improved shell that acts as a server too. Using named pipes we were able to have clients sending requests and getting responses back. It was used Inter Process Communication (IPC) we were able to improve the shell performance
+ * **CircuitRouter-AdvShell:** An improved shell that acts as a server too. Using named pipes we were able to have clients sending requests and getting responses back. It was used Inter Process Communication (IPC) we were able to improve the shell performance;
 
 ## Directory tree
 ``` bash

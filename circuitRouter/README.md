@@ -6,7 +6,7 @@ The project was developed in 3 stages:
 
  * **CircuitRouter-ParSolver:** A Parallel Circuit Solver, using threads and shared memory. To ensure the routing correctness, we had to use mutexes. It is possible to specify the number of threads to use. We also developed a shell script (doTest.sh) to measure the threading speedups that were logged to a csv file (results directory);
 
- * **CircuitRouter-AdvShell:** An improved shell that acts as a server too. Using named pipes we were able to have clients sending requests and getting responses back. It was used Inter Process Communication (IPC) we were able to improve the shell performance;
+ * **CircuitRouter-AdvShell:** An improved shell that acts as a server too. Using named pipes we were able to have clients sending requests and getting responses back. By using Inter Process Communication (IPC) we were able to improve the shell performance;
 
 ## Directory tree
 ``` bash

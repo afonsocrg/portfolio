@@ -12,7 +12,7 @@ Since the optimal path is the one that uses the less amount of tickets and each 
 
 This is an **admissible** heuristic since it never exceeds the optimal cost (in the best case, the agent follows the shortest path). It is also really close to the optimal cost: With an infinite amount of tickets, the algorithm will surely find the optimal path on its first try.
 
-This heuristic is also **consistent**: Since the heuristic is the minimum distance to the target, and each edge has a unitary cost, we have `h(N) = c(N, P)+h(P)` for each vertex `N`. This way we always preserve the consistency condition: `h(N) <= c(N,P)+h(P)`.
+This heuristic is also **consistent**: Since the heuristic is the minimum distance to the target, and each edge has a unitary cost, we have `h(N) = c(N, P)+h(P)` for each vertex `N` and each neighbour `P`. This way we always preserve the consistency condition: `h(N) <= c(N,P)+h(P)`.
 
 ### Directory Structure and Usage
 Run the project with `python3 go.py` in the project directory. This file runs several tests, using the developed solution (imported from `solve.py`). To better understand what the program was doing, we wrote some scripts that allowed us to see vertex adjacencies (`adjacency.sh` would filter the output from `listAdjacent.txt`, produced by`parseGraph.py`).

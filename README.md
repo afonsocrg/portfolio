@@ -20,5 +20,5 @@ I'm trying to keep these projects readable to most of you, therefore I'm doing m
 |April-May 2019|[Max Flows](https://github.com/afonsocrg/portfolio/tree/master/maxFlows)|
 |March-May 2019|[iGo](https://github.com/afonsocrg/portfolio/tree/master/iGo)|
 |September-October 2019|[qaForum](https://github.com/afonsocrg/portfolio/tree/master/qaForum)|
-|October-November 2019|[compGraphics](https://github.com/afonsocrg/portfolio/tree/master/compGraphics)[scotlandYardBot](https://github.com/afonsocrg/portfolio/tree/master/scotlandYardBot)|
+|October-November 2019|[compGraphics](https://github.com/afonsocrg/portfolio/tree/master/compGraphics), [scotlandYardBot](https://github.com/afonsocrg/portfolio/tree/master/scotlandYardBot)|
 |December 2019|[qlearnBot](https://github.com/afonsocrg/portfolio/tree/master/qlearnBot)|

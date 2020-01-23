@@ -19,4 +19,5 @@ Run the project with `python3 go.py` in the project directory. This file runs se
 
 ### Final notes
 The A* algorithm itself was implemented easily and quickly. It took, however, several attempts to find the best heuristic: minor changes/tweaks affected very significantly the performance of the agent. This was surely a good way to see the importance of a good heuristic.
+
 While trying to make the code run as fast as possible, we learned about list comprehension (it reduced several seconds in the runtime) and some python built-in functions. These optimizations made our project one of the 20 fastest of the entire course, granting us a bonus.

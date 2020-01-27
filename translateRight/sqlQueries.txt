@@ -1,0 +1,66 @@
+1.
+with local_anomalia_count(latitude, longitude, nome, anomalia_count)
+as (select L.latitude, L.longitude, L.nome, COUNT(*)
+    from (local_publico natural join item) as L, incidencia as I
+    where L.id = I.item_id
+    group by (latitude, longitude))
+ect latitude, longitude, nome
+from local_anomalia_count
+where anomalia_count = (select MAX(anomalia_count) from local_anomalia_count);
+
+
+2.
+with utilizador_regular_tmp(email, anomalia_count)
+     as (select I.email, COUNT(A.id)
+         from (utilizador_regular natural join incidencia) as I, anomalia A
+         where I.anomalia_id = A.id
+               and A.tem_anomalia_redacao = false
+               and TIMESTAMP '2019-01-01' <= A.ts
+               and A.ts < TIMESTAMP '2019-07-01'
+         group by I.email)
+select email
+from utilizador_regular_tmp
+where anomalia_count = (select MAX(anomalia_count) from utilizador_regular_tmp);
+
+
+3.
+with norte_rio_maior as (select * from local_publico
+                         where latitude > 39.336775),
+     utilizador_local(email, latitude, longitude)
+       as (select I.email, LP.latitude, LP.longitude
+           from incidencia as I, anomalia A,
+                (item natural join local_publico) as LP
+           where I.item_id = LP.id
+                 and I.anomalia_id = A.id
+                 and TIMESTAMP '2019-01-01' <= A.ts
+                 and A.ts < TIMESTAMP '2020-01-01')
+select distinct email
+from utilizador_local U1
+where not exists (select latitude, longitude from norte_rio_maior
+                  except
+                  select latitude, longitude from utilizador_local U2
+                  where U1.email = U2.email);
+
+4.
+with south_corrections 
+as (select * 
+	from (proposta_de_correcao natural join correcao) as C 
+	natural join incidencia as I, item as B 
+	where I.item_id = B.id 
+	and latitude < 39.336775), 
+south_anomalies 
+as (select * 
+	from local_publico as L, 
+	anomalia as A, incidencia as I, item as B 
+	where A.id = I.anomalia_id 
+	and B.id = I.item_id 
+	and B.latitude = L.latitude 
+	and L.longitude = B.longitude 
+	and L.latitude < 39.336775) 
+select C.email 
+from south_corrections as C, south_anomalies as S 
+where S.email = C.email 
+and S.ts > '2019-01-01 00:00:00' 
+and S.ts < '2019-12-31 23:59:59' 
+group by C.email 
+having count(distinct C.anomalia_id) < count(distinct S.anomalia_id);

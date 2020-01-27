@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Anomalias</title>
+</head>
+<body>
+    <h3>Listar Anomalias:</h3>
+    <form action="anomaliathreemonth.php" method="post">
+        <p>Latitude: <input type="number" step="0.000001" name="latitude" required></p>
+        <p>Longitude: <input type="number" step="0.000001" name="longitude" required></p>
+        <p>dX: <input type="number" name="dX"  min="0" required></p>
+        <p>dY: <input type="number" name="dY" min="0" required></p>
+        <p><input type="submit" value="Submit"></p>
+    </form>
+    <a href="index.html">Voltar</a>
+</body>
+</html>

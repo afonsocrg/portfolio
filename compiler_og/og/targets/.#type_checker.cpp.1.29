@@ -1,0 +1,942 @@
+#include <string>
+#include <vector>
+#include "targets/type_checker.h"
+#include "ast/all.h"  // automatically generated
+#include <cdk/types/primitive_type.h>
+#include "og_parser.tab.h"
+
+#define ASSERT_UNSPEC { if (node->type() != nullptr && !node->is_typed(cdk::TYPE_UNSPEC)) return; }
+
+void og::type_checker::assert_not_global_initialization() {
+    // throws error if initializing global var with expression
+    if(_parent->in_global_initialization())
+        throw std::string("Cannot initialize global variable with expression");
+}
+
+//---------------------------------------------------------------------------
+
+void og::type_checker::do_sequence_node(cdk::sequence_node *const node, int lvl) {
+    for (size_t i = 0; i < node->size(); i++) {
+        node->node(i)->accept(this, lvl);
+    }
+}
+
+void og::type_checker::do_block_node(og::block_node *const node, int lvl) {
+    node->declarations()->accept(this,lvl+2);
+    node->instructions()->accept(this,lvl+2);
+}
+
+void og::type_checker::do_tuple_node(og::tuple_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    // TODO: Review this
+    
+    if(node->size() == 0) { // empty tuple is void
+        node->type(cdk::make_primitive_type(0, cdk::TYPE_VOID));
+        return; 
+    }
+
+    node->nodes()->accept(this,lvl+2);
+    if(node->size() == 1) {
+        // 1 element tuple is same type of its element
+        node->type(node->node(0)->type());
+    } else {
+        node->type(cdk::make_primitive_type(node->byteSize(), cdk::TYPE_STRUCT));
+    }
+}
+
+//---------------------------------------------------------------------------
+
+void og::type_checker::do_nil_node(cdk::nil_node *const node, int lvl) {
+    // EMPTY
+}
+void og::type_checker::do_data_node(cdk::data_node *const node, int lvl) {
+    // EMPTY
+}
+
+//---------------------------------------------------------------------------
+
+void og::type_checker::do_integer_node(cdk::integer_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    // TODO: MAKE ME TYPE DOUBLE/POINTER WHEN NEED TO CAST
+    // TODO: OVERRIDE TUPLE type() METHOD TO SET THE NEW TIPE
+    // TO ITS SINGLE CHILD
+    node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+}
+
+void og::type_checker::do_double_node(cdk::double_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    node->type(cdk::make_primitive_type(8, cdk::TYPE_DOUBLE));
+}
+
+void og::type_checker::do_string_node(cdk::string_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    node->type(cdk::make_primitive_type(4, cdk::TYPE_STRING));
+}
+
+void og::type_checker::do_nullptr_node(og::nullptr_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    // TODO: Review this
+    node->type(cdk::make_reference_type(4, cdk::make_primitive_type(0, cdk::TYPE_UNSPEC)));
+}
+
+
+//---------------------------------------------------------------------------
+
+void og::type_checker::do_not_node(cdk::not_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    node->argument()->accept(this, lvl + 2);
+
+    if (!node->argument()->is_typed(cdk::TYPE_INT))
+        throw std::string("wrong type in argument of unary expression");
+    
+    node->type(node->argument()->type());
+}
+
+void og::type_checker::do_neg_node(cdk::neg_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    node->argument()->accept(this, lvl + 2);
+
+    if (!(node->argument()->is_typed(cdk::TYPE_INT) 
+        || node->argument()->is_typed(cdk::TYPE_DOUBLE))) 
+        throw std::string("wrong type in argument of unary expression");
+    
+    node->type(node->argument()->type());
+}
+
+void og::type_checker::do_identity_node(og::identity_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    node->argument()->accept(this, lvl + 2);
+
+    if (!(node->argument()->is_typed(cdk::TYPE_INT) 
+        || node->argument()->is_typed(cdk::TYPE_DOUBLE))) 
+        throw std::string("wrong type in argument of unary expression");
+    
+    node->type(node->argument()->type());
+}
+
+void og::type_checker::do_sizeof_node(og::sizeof_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    node->argument()->accept(this, lvl + 2);
+    node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+}
+
+void og::type_checker::do_alloc_node(og::alloc_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    node->argument()->accept(this, lvl + 2);
+
+    if (!node->argument()->is_typed(cdk::TYPE_INT))
+        throw std::string("wrong type in argument of unary expression");
+
+    node->type(cdk::make_reference_type(4, cdk::make_primitive_type(0, cdk::TYPE_UNSPEC)));
+}
+
+//---------------------------------------------------------------------------
+
+void og::type_checker::do_IDExpression(cdk::binary_operation_node *const node, int lvl) {
+    // used by mul and div
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    node->left()->accept(this, lvl + 2);
+    node->right()->accept(this, lvl + 2);
+
+    // type possibilities
+    if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+
+    } else if(node->left()->is_typed(cdk::TYPE_DOUBLE) && node->right()->is_typed(cdk::TYPE_DOUBLE)) {
+        node->type(cdk::make_primitive_type(8, cdk::TYPE_DOUBLE));
+
+    } else if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_DOUBLE)) {
+        node->left()->type(node->right()->type());
+        node->type(cdk::make_primitive_type(8, cdk::TYPE_DOUBLE));
+    } else if(node->left()->is_typed(cdk::TYPE_DOUBLE) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->right()->type(node->left()->type());
+        node->type(cdk::make_primitive_type(8, cdk::TYPE_DOUBLE));
+
+    } else
+        throw std::string("wrong types in binary expression");
+}
+
+void og::type_checker::do_IExpression(cdk::binary_operation_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    node->left()->accept(this, lvl + 2);
+    node->right()->accept(this, lvl + 2);
+
+    if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+    } else 
+        throw std::string("wrong types in binary expression");
+}
+
+void og::type_checker::do_ComparisonExpression(cdk::binary_operation_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    node->left()->accept(this, lvl + 2);
+    node->right()->accept(this, lvl + 2);
+
+    if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+    } else if (node->left()->is_typed(cdk::TYPE_DOUBLE) && node->right()->is_typed(cdk::TYPE_DOUBLE)) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+    } else if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_DOUBLE)) {
+        node->left()->type(node->right()->type());
+        node->type(cdk::make_primitive_type(8, cdk::TYPE_INT));
+    } else if(node->left()->is_typed(cdk::TYPE_DOUBLE) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->right()->type(node->left()->type());
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));         
+    } else
+        throw std::string("wrong types in binary expression");
+}
+
+void og::type_checker::do_EqualityExpression(cdk::binary_operation_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    node->left()->accept(this, lvl + 2);
+    node->right()->accept(this, lvl + 2);
+
+
+    if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+    } else if (node->left()->is_typed(cdk::TYPE_DOUBLE) && node->right()->is_typed(cdk::TYPE_DOUBLE)) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+    } else if (node->left()->is_typed(cdk::TYPE_POINTER) && node->right()->is_typed(cdk::TYPE_POINTER)) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+    } else if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_DOUBLE)) {
+        node->left()->type(node->right()->type());
+        node->type(cdk::make_primitive_type(8, cdk::TYPE_INT));
+    } else if(node->left()->is_typed(cdk::TYPE_DOUBLE) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->right()->type(node->left()->type());
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+    } else if((node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_POINTER))
+            ||(node->left()->is_typed(cdk::TYPE_POINTER) && node->right()->is_typed(cdk::TYPE_INT))) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+    } else
+        throw std::string("wrong types in binary expression");
+}
+
+void og::type_checker::do_add_node(cdk::add_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    node->left()->accept(this, lvl + 2);
+    node->right()->accept(this, lvl + 2);
+
+    // type possibilities
+    if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+    } else if(node->left()->is_typed(cdk::TYPE_DOUBLE) && node->right()->is_typed(cdk::TYPE_DOUBLE)) {
+        node->type(cdk::make_primitive_type(8, cdk::TYPE_DOUBLE));
+    } else if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_DOUBLE)) {
+        node->left()->type(node->right()->type());
+        node->type(cdk::make_primitive_type(8, cdk::TYPE_DOUBLE));
+    } else if(node->left()->is_typed(cdk::TYPE_DOUBLE) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->right()->type(node->left()->type());
+        node->type(cdk::make_primitive_type(8, cdk::TYPE_DOUBLE));
+
+    } else if(node->left()->is_typed(cdk::TYPE_POINTER) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->type(node->left()->type());
+    } else if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_POINTER)) {
+        node->type(node->right()->type());
+
+    } else
+        throw std::string("wrong types in binary expression");
+}
+
+void og::type_checker::do_sub_node(cdk::sub_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    node->left()->accept(this, lvl + 2);
+    node->right()->accept(this, lvl + 2);
+
+    // type possibilities
+    if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT));
+    } else if(node->left()->is_typed(cdk::TYPE_DOUBLE) && node->right()->is_typed(cdk::TYPE_DOUBLE)) {
+        node->type(cdk::make_primitive_type(8, cdk::TYPE_DOUBLE));
+    } else if(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_DOUBLE)) {
+        node->left()->type(node->right()->type());
+        node->type(cdk::make_primitive_type(8, cdk::TYPE_DOUBLE));
+    } else if(node->left()->is_typed(cdk::TYPE_DOUBLE) && node->right()->is_typed(cdk::TYPE_INT)) {
+        node->right()->type(node->left()->type());
+        node->type(cdk::make_primitive_type(8, cdk::TYPE_DOUBLE));
+    } else if((node->left()->is_typed(cdk::TYPE_POINTER) && node->right()->is_typed(cdk::TYPE_INT))
+            // ||(node->left()->is_typed(cdk::TYPE_INT) && node->right()->is_typed(cdk::TYPE_POINTER))
+    ) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_POINTER));
+    } else if(node->left()->is_typed(cdk::TYPE_POINTER) && node->right()->is_typed(cdk::TYPE_POINTER)) {
+        node->type(cdk::make_primitive_type(4, cdk::TYPE_INT)); 
+    } else
+        throw std::string("wrong types in binary expression");
+}
+
+void og::type_checker::do_mul_node(cdk::mul_node *const node, int lvl) {
+    do_IDExpression(node, lvl);
+}
+
+void og::type_checker::do_div_node(cdk::div_node *const node, int lvl) {
+    do_IDExpression(node, lvl);
+}
+
+void og::type_checker::do_mod_node(cdk::mod_node *const node, int lvl) {
+    do_IExpression(node, lvl + 2);
+}
+
+void og::type_checker::do_lt_node(cdk::lt_node *const node, int lvl) {
+    do_ComparisonExpression(node, lvl);
+}
+
+void og::type_checker::do_le_node(cdk::le_node *const node, int lvl) {
+    do_ComparisonExpression(node, lvl);
+}
+
+void og::type_checker::do_ge_node(cdk::ge_node *const node, int lvl) {
+    do_ComparisonExpression(node, lvl);
+}
+
+void og::type_checker::do_gt_node(cdk::gt_node *const node, int lvl) {
+    do_ComparisonExpression(node, lvl);
+}
+
+void og::type_checker::do_ne_node(cdk::ne_node *const node, int lvl) {
+    do_EqualityExpression(node, lvl);
+}
+void og::type_checker::do_eq_node(cdk::eq_node *const node, int lvl) {
+    do_EqualityExpression(node, lvl);
+}
+
+void og::type_checker::do_and_node(cdk::and_node *const node, int lvl) {
+    do_IExpression(node, lvl + 2);
+}
+
+void og::type_checker::do_or_node(cdk::or_node *const node, int lvl) {
+    do_IExpression(node, lvl + 2);
+}
+
+//---------------------------------------------------------------------------
+
+void og::type_checker::do_variable_node(cdk::variable_node *const node, int lvl) {
+  ASSERT_UNSPEC;
+  const std::string &id = node->name();
+  std::shared_ptr<og::symbol> symbol = _symtab.find(id);
+
+  if (symbol != nullptr) {
+      if(symbol->is_function()) {
+          throw std::string("cannot use function as variable");
+      }
+      node->type(symbol->type());
+  } else {
+      throw id;
+  }
+}
+
+void og::type_checker::do_variable_declaration_node(og::variable_declaration_node *const node, int lvl) {
+    // WARNING: variable_declaration_nodes are associated with a non-unspec type.
+    // assert unspec would not visit this node and thus it would not declare the variables
+    // ASSERT_UNSPEC; // removed for now: this node is visited once.
+    
+    _parent->start_initializing_var();
+    if(node->initializer()) node->initializer()->accept(this, lvl+2);
+    _parent->stop_initializing_var();
+
+    if(node->qualifier() != tPRIVATE) {
+        if(_parent->in_function_args())
+            throw std::string("Cannot use modifiers in function arguments");
+        if(_parent->in_function_body()) {
+            throw std::string("Cannot use modifiers in function body");
+        }
+    }
+
+    if(_parent->in_function_args() && node->initializer())
+        throw std::string("Cannot initialize function arguments");
+
+    if(node->is_typed(cdk::TYPE_UNSPEC) || node->is_typed(cdk::TYPE_STRUCT)) { // AUTO DECLARATION
+        // auto declaration must be initialized
+        if(!node->initializer())
+            throw std::string("auto variable not initialized");
+
+        if(node->size() == 1) {
+            // declaring single auto variable
+            // auto a = 1, 2, 3 // is valid
+            if(node->initializer()->size() == 1) {
+                node->type(node->initializer()->type());
+
+                auto symbol = og::make_symbol(node->qualifier(), node->initializer()->type(), node->name(0));
+                if(!_symtab.insert(node->name(0), symbol)) {
+                    throw std::string("id " + node->name(0) + "redeclared!");
+                }
+            } else {
+                std::vector<std::shared_ptr<cdk::basic_type>> tuple_types;
+                for(size_t i = 0; i < node->initializer()->size(); i++) {
+                    tuple_types.push_back(node->initializer()->node(i)->type());
+                }
+
+                node->type(cdk::make_structured_type(tuple_types));
+                auto symbol = og::make_symbol(node->qualifier(), node->type(), node->name(0));
+                if(!_symtab.insert(node->name(0), symbol)) {
+                    throw std::string("id " + node->name(0) + "redeclared!");
+                }
+            }
+
+        } else {
+            // declaring multiple variables
+            // TODO: Tuple initializations! auto a, b, c = f()
+            if(!(node->size() == node->initializer()->size()))
+                throw std::string("number of variables and initializers don't match");
+
+
+            for(size_t i = 0; i < node->size(); i++) {
+                auto symbol = og::make_symbol(node->qualifier(), node->initializer()->node(i)->type(), node->name(i));
+                if(!_symtab.insert(node->name(i), symbol)) {
+                    throw std::string("id " + node->name(i) + "redeclared!");
+                }
+            }
+
+            node->type(cdk::make_primitive_type(node->initializer()->byteSize(), cdk::TYPE_STRUCT));
+        }
+
+        // may not be the exact type. we just need to set a type to the node
+        // std::cout << "[DBG] Initializing auto variable" << std::endl;
+        // node->type(node->initializer()->type());
+        // std::cout << "[DBG] Got type " << cdk::to_string(node->type()) << std::endl;
+
+    } else { // NON auto DECLARATION
+        if(!(node->size() == 1))
+            throw std::string("Cannot declare multiple non-auto variables");
+
+        if(node->initializer()) {
+            // initialized
+            // TODO: POINTER DECLARATIONS
+            // TODO: careful. cannot compare with ==
+            // int z = 3;
+            // ptr<int> b = z?
+            // ptr<auto> a = b;
+            if(node->is_typed(cdk::TYPE_DOUBLE) && node->initializer()->is_typed(cdk::TYPE_INT)) {
+                ((tuple_node*) node->initializer())->set_tuple_type(node->type());
+            } else if(!((do_checkAssignmentTypes(node->type(), node->initializer()->type()))))
+                throw std::string("initializer type does not match declared type");
+
+        }
+
+        // std::cout << "[DBG] Creating symbol with type " << cdk::to_string(node->type()) << std::endl;
+        auto symbol = og::make_symbol(node->qualifier(), node->type(), node->name(0));
+        if(!_symtab.insert(node->name(0), symbol))
+            throw std::string("id " + node->name(0) + " redeclared!");
+    }
+}
+
+
+void og::type_checker::do_rvalue_node(cdk::rvalue_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    try {
+        node->lvalue()->accept(this, lvl);
+        // TODO: RETHINK rvalue type is the referenced type of a lvalue
+        node->type(node->lvalue()->type());
+    } catch (const std::string &id) {
+        throw "undeclared variable '" + id + "'";
+  }
+}
+
+void og::type_checker::do_assignment_node(cdk::assignment_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+
+    node->lvalue()->accept(this, lvl);
+    node->rvalue()->accept(this, lvl);
+
+    // keeping these verifications verbose and pedantic on purpose.
+    // We know this is awful and hereby apologize for your eyes
+    // TODO: make type verifications with do_checkAssignmentTypes
+    if(node->lvalue()->is_typed(cdk::TYPE_INT)) {
+        if(!( // below are valid rvalue types for int lvalue
+            node->rvalue()->is_typed(cdk::TYPE_INT)
+        )) throw std::string("invalid rvalue type for type " + cdk::to_string(node->lvalue()->type()));
+
+    } else if(node->lvalue()->is_typed(cdk::TYPE_DOUBLE)) {
+        if(!( // below are valid rvalue types for double lvalue
+             node->rvalue()->is_typed(cdk::TYPE_DOUBLE)
+          || node->rvalue()->is_typed(cdk::TYPE_INT)
+        )) throw std::string("invalid rvalue type for type " + cdk::to_string(node->lvalue()->type()));
+
+    } else if(node->lvalue()->is_typed(cdk::TYPE_STRING)) {
+        if(!( // below are valid rvalue types for string lvalue
+             node->rvalue()->is_typed(cdk::TYPE_STRING)
+        )) throw std::string("invalid rvalue type for type " + cdk::to_string(node->lvalue()->type()));
+
+    } else if(node->lvalue()->is_typed(cdk::TYPE_POINTER)) {
+        if(!do_checkAssignmentTypes(node->lvalue()->type(), node->rvalue()->type()))
+            throw std::string("invalid rvalue type for type " + cdk::to_string(node->lvalue()->type()));
+    } else {
+        throw std::string("invalid type for lvalue");
+    }
+    
+    node->type(node->lvalue()->type());
+}
+
+bool og::type_checker::do_checkAssignmentTypes(
+        std::shared_ptr<cdk::basic_type> lv_type,
+        std::shared_ptr<cdk::basic_type> rv_type
+){
+    // std::cout << "[DBG] Comparing "
+              // << cdk::to_string(lv_type)
+              // << " with "
+              // << cdk::to_string(rv_type)
+              // << std::endl;
+
+    // pointer types require special checking
+    if(lv_type->name() == cdk::TYPE_POINTER && rv_type->name() == cdk::TYPE_POINTER) {
+        // std::cout << "[DBG] Got two pointers" << std::endl;
+
+        auto left_pointer = cdk::reference_type_cast(lv_type);
+        auto left_referenced = left_pointer->referenced();
+
+        auto right_pointer = cdk::reference_type_cast(rv_type);
+        auto right_referenced = right_pointer->referenced();
+
+        // go deep down the pointer hole
+        while(left_referenced->name() == cdk::TYPE_POINTER
+          && right_referenced->name() == cdk::TYPE_POINTER) {
+            left_pointer = cdk::reference_type_cast(left_referenced);
+            left_referenced = left_pointer->referenced();
+
+            right_pointer = cdk::reference_type_cast(right_referenced);
+            right_referenced = right_pointer->referenced();
+            // std::cout << "[DBG] Extracted "
+                      // << cdk::to_string(lv_type)
+                      // << " and "
+                      // << cdk::to_string(rv_type)
+                      // << std::endl;
+        }
+
+        // std::cout << "[DBG] After extraction: "
+                  // << cdk::to_string(left_referenced)
+                  // << " "
+                  // << cdk::to_string(right_referenced)
+                  // << std::endl;
+
+        if(left_referenced->name() == cdk::TYPE_UNSPEC
+        && right_referenced->name() == cdk::TYPE_UNSPEC
+        ){ // SHOULD NOT HAPPEN
+            std::cerr << "Scooby doo, what should we do??" << std::endl;
+            exit(1);
+        } else if(left_referenced == right_referenced) {
+            // std::cout << "[DBG] They are equal" << std::endl;
+            return true;
+
+        } else if(left_referenced->name() == cdk::TYPE_UNSPEC) {
+            // std::cout << "[DBG] Left is auto" << std::endl;
+            *left_pointer = *cdk::make_reference_type(4, right_referenced);
+            // std::cout << "[DBG] After assignment: "
+                      // << cdk::to_string(lv_type)
+                      // << ", "
+                      // << cdk::to_string(rv_type)
+                      // << std::endl;
+            return true;
+        } else if(right_referenced->name() == cdk::TYPE_UNSPEC) {
+            // std::cout << "[DBG] Right is auto" << std::endl;
+            *right_pointer = *cdk::make_reference_type(4, left_referenced);
+            // std::cout << "[DBG] After assignment: "
+                      // << cdk::to_string(lv_type)
+                      // << ", "
+                      // << cdk::to_string(rv_type)
+                      // << std::endl;
+            return true;
+        } else {
+            // std::cout << "[DBG] They differ" << std::endl;
+            return false;
+        }
+    }
+
+    return lv_type == rv_type;
+}
+
+//---------------------------------------------------------------------------
+
+
+void og::type_checker::do_evaluation_node(og::evaluation_node *const node, int lvl) {
+    assert_not_global_initialization();
+
+    node->argument()->accept(this, lvl + 2);
+}
+
+void og::type_checker::do_write_node(og::write_node *const node, int lvl) {
+    node->arguments()->accept(this, lvl + 2);
+
+    for(auto arg : node->arguments()->nodes()) {
+        cdk::expression_node* expr = (cdk::expression_node*)arg;
+        if(expr->is_typed(cdk::TYPE_POINTER))
+            throw std::string("Cannot print pointers");
+    }
+}
+
+//---------------------------------------------------------------------------
+/*=======================================================================================
+    BRAINSTORM
+
+    -> variable_declaration
+ * Nao podemos por qualificadores nos argumentos de funcoes
+     [ ] Bool _inFuncArgs
+ * Nao podemos usar qualificadores dentro do corpo da funcao
+     [ ] Bool _inFuncBody
+ * nao se pode definir/declarar funcoes dentro de funcoes!!!
+     [ ] Bool _inFuncBody
+ * Argumentos nao podem ser inicializados
+     [ ] Bool _inFuncArgs
+ * Argumentos nao podem ser do tipo auto (exceto no caso ptr<auto>)
+     [ ] Bool _inFuncArgs
+
+
+ * Nao podemos ter blocos nos argumentos de uma funcao
+ * O tipo retornado tem de corresponder ao tipo declarado
+
+
+ * function definition nao pode ser required (require int f() { ... })
+ * funcoes tem de saber se ja foram definidas ou nao (marosca do extern no pf)
+
+ * so se pode chamar funcoes ja declaradas (ou required)
+    * apanhar as funcoes que nao foram declaradas e fazer extern??
+        * "A função só pode ser invocada através de um identificador que refira uma função previamente declarada ou definida."
+    * fazer isso (extern) no postfix_target, depois de chamar o visitor que visita a arvore TODA
+      ( nao podemos fazer num no especifico porque nao ha nenhum no que seja visitado apenas uma vez )
+ * no function call o tipo e numero de argumentos tem de corresponder aos argumentos declarados (se assim o for)
+    * o symbol tem de guardar esta informacao!?
+    * nao podemos guardar os nomes dos argumentos: uma funcao pode ser redeclarada com nomes de args diferentes
+        * int f(int a); int f(int b); // f redeclarada, com a mesma assinatura
+
+
+ ? Podemos declarar uma funcao ja definida?
+ ? symtab.push() quando?
+ ? Como guardar os offsets das variaveis locais e argumentos?
+ ? change og function name to _main?
+
+    SUMMARY
+ [x] Symbol: Guardar o tipo da funcao
+ [ ] Symbol: Guardar os tipos dos argumentos na declaracao
+    Vetor de tipos (shared pointer de basic type), retornado pela declaracao/definicao
+ [ ] Symbol: Guardar os offsets (em bytes) (calculados no pfwriter?)
+
+========================================================================================== */
+
+// in function calls the calling types can be casted
+void og::type_checker::do_CheckFunctionCall(
+        std::vector<std::shared_ptr<cdk::basic_type>> declared_types,
+        std::vector<std::shared_ptr<cdk::basic_type>> call_types
+) {
+
+    if(declared_types.size() != call_types.size())
+        throw std::string("argument sizes do not match");
+
+    for(size_t i = 0; i < declared_types.size(); i++) {
+        if(declared_types.at(i)->name() == cdk::TYPE_DOUBLE && call_types.at(i)->name() == cdk::TYPE_INT) {
+            *call_types.at(i) = *declared_types.at(i);
+        } else if(!(declared_types.at(i) == call_types.at(i)))
+            throw std::string("given argument type (" 
+                    + cdk::to_string(call_types.at(i)) 
+                    + ") does not match declared type ("
+                    + cdk::to_string(declared_types.at(i)) + ")");
+    }
+}
+
+void og::type_checker::do_CheckFunctionArgs(
+        std::vector<std::shared_ptr<cdk::basic_type>> declared_types,
+        std::vector<std::shared_ptr<cdk::basic_type>> node_types
+) {
+
+    if(declared_types.size() != node_types.size())
+        throw std::string("argument sizes do not match");
+
+    for(size_t i = 0; i < declared_types.size(); i++) {
+        if(!(node_types.at(i) == declared_types.at(i)))
+            throw std::string("given argument type (" 
+                    + cdk::to_string(node_types.at(i)) 
+                    + ") does not match declared type ("
+                    + cdk::to_string(declared_types.at(i)) + ")");
+    }
+}
+
+void og::type_checker::do_function_declaration_node(og::function_declaration_node *const node, int lvl) {
+    // ASSERT_UNSPEC; // do not do this: function declaration's type is its return type
+    if(!_parent->in_global())
+        throw std::string("Cannot declare function inside function body");
+
+    if(node->is_typed(cdk::TYPE_UNSPEC))
+        throw std::string("auto functions cannot be declared without a body");
+
+
+    _parent->enter_function_args();
+    _symtab.push(); // verify variables in safe environment
+    node->args()->accept(this, lvl + 2); // FIXME: is this legal?
+    _symtab.pop(); // finish argument safe zone
+    _parent->reset_place();
+
+    const std::string id = node->name();
+    auto symbol = _symtab.find(id);
+
+    if(!symbol) { // new declaration
+        symbol = og::make_symbol(node->qualifier(), node->type(), id, true);
+        symbol->arg_types(node->arg_types()); // save argument types
+
+        if(!_symtab.insert(id, symbol))
+            throw std::string("error inserting in symbol table"); // should not happen
+    } else {
+        // existing declaration
+        // check qualifier
+        if(!(node->qualifier() == symbol->qualifier()))
+            throw std::string("Conflicting qualifiers for function declaration");
+
+        // check return type
+        // TODO: VERIFICAR SE OS TUPLOS TEM OS TIPOS CORRESPONDENTES
+        if(!(node->type() == symbol->type()))
+            throw std::string("Conflicting return types for function declaration");
+
+        // check args 
+        auto declared_types = symbol->arg_types();
+        auto node_types = node->arg_types();
+
+        do_CheckFunctionArgs(declared_types, node_types);
+    }
+}
+
+void og::type_checker::do_function_definition_node(og::function_definition_node *const node, int lvl) {
+    // ASSERT_UNSPEC; // do not do this: function declaration's type is its return type
+    // TODO: check if function returns something. after body visit, it must not be auto
+    if(!_parent->in_global())
+        throw std::string("Cannot define function inside function body");
+
+    enter_function_args();
+    _symtab.push(); // verify variables in safe environment
+    node->args()->accept(this, lvl + 2);
+    _symtab.pop(); // finish argument safe zone
+    reset_place();
+    
+    const std::string id = node->name();
+    auto symbol = _symtab.find(id);
+
+    if(!symbol) { // new definition
+        if(node->qualifier() == tREQUIRE)
+            throw std::string("Cannot define required function");
+
+        symbol = og::make_symbol(node->qualifier(), node->type(), id, true); // set defined type (even auto)
+        symbol->arg_types(node->arg_types()); // save argument types
+        symbol->set_defined();
+
+        if(!_symtab.insert(id, symbol))
+            throw std::string("error inserting in symbol table"); // should not happen
+    } else {
+        // already exists
+        if(symbol->is_defined())
+            throw std::string("Function with name '" + node->name() + "' already defined");
+
+        // check qualifier
+        if(!(node->qualifier() == symbol->qualifier()))
+            throw std::string("Conflicting types for " + node->name());
+
+        if(symbol->qualifier() == tREQUIRE)
+            throw std::string("Cannot define required function");
+
+        // check return type
+        if(!(node->type() == symbol->type()))
+            throw std::string("Conflicting return types for function declaration");
+
+        // check args 
+        auto declared_types = symbol->arg_types();
+        auto node_types = node->arg_types();
+
+        do_CheckFunctionArgs(declared_types, node_types);
+
+        // TODO: remove from extern set (used to import not defined functions)
+        symbol->set_defined();
+    }
+
+}
+
+void og::type_checker::do_function_call_node(og::function_call_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+    // TODO: check
+    // probably types will differ. It's possible to send a ptr<auto> to a declared ptr<int>
+
+    node->args()->accept(this, lvl + 2);
+
+    // check if function exists
+    auto symbol = _symtab.find(node->name());
+    if(!symbol)
+        throw std::string("undefined reference to " + node->name());
+
+    if(!symbol->is_function())
+        throw std::string("called object " + node->name() + "is not a function");
+
+    // check if args are compatible 
+    auto declared_types = symbol->arg_types();
+    auto node_types = node->arg_types();
+    do_CheckFunctionCall(declared_types, node_types);
+
+    // set node type
+    node->type(symbol->type());
+}
+
+void og::type_checker::do_return_node(og::return_node *const node, int lvl) {
+
+    node->returnValue()->accept(this, lvl+2);
+
+    if(!_parent->in_function_body())
+        throw std::string("Cannot return outside of a function");
+
+
+    // TODO: Tuple initializations! auto a, b, c = f()
+    auto func = _parent->func_symbol();
+    if(!func) {
+        std::cerr << "No function symbol set" << std::endl;
+        exit(1);
+    }
+
+    if(func->type()->name() == cdk::TYPE_UNSPEC) {
+        // function declared as auto. Setting its return value
+        func->type(node->returnValue()->type());
+    } else {
+        // already defined type: they must be the same
+        if(func->type()->name() == cdk::TYPE_DOUBLE && node->returnValue()->is_typed(cdk::TYPE_INT)) {
+            node->returnValue()->type(func->type());
+        } else if(!(func->type() == node->returnValue()->type()))
+            throw std::string("Return type does not match previously defined type");
+    }
+}
+
+
+//---------------------------------------------------------------------------
+
+void og::type_checker::do_read_node(og::read_node *const node, int lvl) {
+    // TODO
+  // try {
+  //   node->argument()->accept(this, lvl);
+  // } catch (const std::string &id) {
+  //   throw "undeclared variable '" + id + "'";
+  // }
+  // EMPTY
+}
+
+void og::type_checker::do_address_of_node(og::address_of_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+
+    // TODO: discuss
+    /*
+       a? = b; // invalid! address_of is not a left value
+       ptr<real> b = a? // address_of 'a?' must be ptr<real>
+    */
+
+    node->lvalue()->accept(this, lvl+2);
+
+    node->type(cdk::make_reference_type(4, node->lvalue()->type()));
+}
+
+void og::type_checker::do_ptr_indexation_node(og::ptr_indexation_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+
+    node->base()->accept(this, lvl+2);
+    node->offset()->accept(this, lvl+2);
+
+    if(!(node->base()->is_typed(cdk::TYPE_POINTER)))
+        throw std::string("pointer indexation base must be a reference");
+
+    if(!(node->offset()->is_typed(cdk::TYPE_INT)))
+        throw std::string("pointer index must be an integer");
+
+    node->type(cdk::reference_type_cast(node->base()->type())->referenced());
+}
+
+void og::type_checker::do_tpl_indexation_node(og::tpl_indexation_node *const node, int lvl) {
+    ASSERT_UNSPEC;
+    assert_not_global_initialization();
+
+
+    node->base()->accept(this, lvl+2);
+    node->offset()->accept(this, lvl+2);
+
+
+    if(!(node->base()->is_typed(cdk::TYPE_STRUCT)))
+        throw std::string("tuple indexation base must be a tuple");
+    
+    tuple_node* base = (tuple_node*)node->base();
+
+    if(!(node->offset()->is_typed(cdk::TYPE_INT)))
+        throw std::string("tuple index must be an integer");
+
+    size_t index = node->offset()->value();
+    if(!(index > 0 && index <= base->size()))
+        throw std::string("tuple index out of range");
+
+    node->type(cdk::structured_type_cast(base->type())->component(index - 1));
+}
+
+//---------------------------------------------------------------------------
+
+void og::type_checker::do_for_node(og::for_node *const node, int lvl) {
+    /*
+       Esta instrução tem comportamento idêntico ao da instrução for em C. Na zona de declaração de variáveis, apenas pode ser usada uma declaração auto, devendo ser, nesse caso, a única.
+    // TODO
+    */
+    // NAO FAZER TYPE CHECK DO INICIALIZADOR
+    // WARNING: cuidado para nao se fazer type check de break/continue
+    //      antes de se dizer que se esta num for
+    // init      ???
+    node->condition()->accept(this, lvl+2);
+    // increment will be type checked when generated
+    // block     will be type checked when generated
+
+    for(auto cond : node->condition()->nodes()) {
+        cdk::expression_node* expr = (cdk::expression_node*)cond;
+        if(!expr->is_typed(cdk::TYPE_INT))
+            throw std::string("non integer expression in for condition");
+    }
+}
+
+
+void og::type_checker::do_break_node(og::break_node *const node, int lvl) {
+    if(!_parent->inside_for())
+        throw std::string("Cannot break outside of a for loop");
+}
+
+void og::type_checker::do_continue_node(og::continue_node *const node, int lvl) {
+    if(!_parent->inside_for())
+        throw std::string("Cannot break outside of a for loop");
+}
+
+
+//---------------------------------------------------------------------------
+
+void og::type_checker::do_if_node(og::if_node *const node, int lvl) {
+  node->condition()->accept(this, lvl + 2);
+
+  if(!(node->condition()->is_typed(cdk::TYPE_INT)))
+      throw std::string("condition must be integer");
+}
+
+void og::type_checker::do_if_else_node(og::if_else_node *const node, int lvl) {
+  node->condition()->accept(this, lvl + 2);
+
+  if(!(node->condition()->is_typed(cdk::TYPE_INT)))
+      throw std::string("condition must be integer");
+}

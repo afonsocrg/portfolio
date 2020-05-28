@@ -13,6 +13,8 @@ In this project, we used several modules that allowed us to focus on the main as
  * libcdk15: Set of general classes and superclasses that represent the core elements used by most programming languages. Every OG element inherits from one of these classes.
  * pf2asm: postfix -> assembly compiler
  * librts: Base code for the compiler-generated programs
+ * yasm 1.3.0: convert .asm into .o
+ * GNU ld 2.34.50.20200508: link .o files
 
 
 ## OG Hello World!

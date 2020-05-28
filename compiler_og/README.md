@@ -1,4 +1,4 @@
-# OG Compiler
+# OG Compiler (February - May 2020)
 
 This project consisted of developing a compiler for the OG language, which was specified by our teacher (specification available at specification.pdf).
 This project was the most challenging and fun to develop, and it pushed me to my limits.
@@ -58,4 +58,4 @@ $ yasm -felf32 hello.asm      # .asm -> .o
 $ ld -melf_i386 hello.o -L${LIB_DIRECTORY} -lrts   # link the .o file
 $ ./a.out                     # execute it
 ```
-Where `LIB_DIRECTORY` is the directory where the librts is installed. (`${ROOT}/usr/lib`). You can copy this value from the last line of the output of the `make` command.
+Where `LIB_DIRECTORY` is the directory where the librts is installed. (`${ROOT}/usr/lib`). You can copy this value from the last line of the output of the og `make` command.

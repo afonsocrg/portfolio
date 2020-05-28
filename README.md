@@ -22,3 +22,4 @@ I'm trying to keep these projects readable to most of you, therefore I'm doing m
 |September-October 2019|[qaForum](https://github.com/afonsocrg/portfolio/tree/master/qaForum)|
 |October-November 2019|[compGraphics](https://github.com/afonsocrg/portfolio/tree/master/compGraphics), [scotlandYardBot](https://github.com/afonsocrg/portfolio/tree/master/scotlandYardBot)|
 |December 2019|[qlearnBot](https://github.com/afonsocrg/portfolio/tree/master/qlearnBot)|
+|February-May 2020|[OG Compiler](https://github.com/afonsocrg/portfolio/tree/master/compiler_og)|

@@ -1,0 +1,343 @@
+2020-04-12 17:36:55,977 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 17:36:55,980 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 17:36:55,980 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 17:36:55,980 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 17:36:55,980 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 17:36:55,980 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 17:36:55,980 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 17:36:55,980 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 17:36:55,980 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 17:36:55,980 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 17:36:55,981 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 17:36:55,981 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 17:36:55,981 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 17:36:55,981 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 17:36:55,981 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/spotter
+2020-04-12 17:36:55,981 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.free=74MB
+2020-04-12 17:36:55,982 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 17:36:55,982 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-12 17:36:55,987 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@20c71959
+2020-04-12 17:36:55,991 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 17:36:55,997 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 17:36:56,005 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 17:36:56,013 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-12 17:36:56,014 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 17:36:56,027 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:48738, server: localhost/127.0.0.1:2181
+2020-04-12 17:36:56,039 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1000153e064000f, negotiated timeout = 5000
+2020-04-12 17:36:56,155 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1618] - Session: 0x1000153e064000f closed
+2020-04-12 17:36:56,155 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e064000f
+2020-04-12 18:11:21,042 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:11:21,044 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:11:21,044 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:11:21,045 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/spotter
+2020-04-12 18:11:21,046 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.free=80MB
+2020-04-12 18:11:21,047 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:11:21,047 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.total=124MB
+2020-04-12 18:11:21,050 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@7b31b33b
+2020-04-12 18:11:21,053 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:11:21,058 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:11:21,063 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:11:21,074 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-12 18:11:21,074 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:11:21,084 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:49354, server: localhost/127.0.0.1:2181
+2020-04-12 18:11:21,089 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1000153e0640032, negotiated timeout = 5000
+2020-04-12 18:11:21,199 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1618] - Session: 0x1000153e0640032 closed
+2020-04-12 18:11:21,199 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e0640032
+2020-04-12 18:11:57,319 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:11:57,322 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:11:57,322 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:11:57,322 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:11:57,322 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:11:57,322 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:11:57,322 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:11:57,323 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:11:57,323 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:11:57,323 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:11:57,323 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:11:57,323 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:11:57,323 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:11:57,323 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:11:57,323 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/spotter
+2020-04-12 18:11:57,323 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.free=82MB
+2020-04-12 18:11:57,324 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:11:57,324 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.total=124MB
+2020-04-12 18:11:57,329 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@4a6343c1
+2020-04-12 18:11:57,333 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:11:57,339 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:11:57,347 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:11:57,362 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-12 18:11:57,362 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:11:57,373 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:34892, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-12 18:11:57,380 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x1000153e0640035, negotiated timeout = 5000
+2020-04-12 18:11:57,395 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x1000153e0640035.
+EndOfStreamException: Unable to read additional data from server sessionid 0x1000153e0640035, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-12 18:11:57,498 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1618] - Session: 0x1000153e0640035 closed
+2020-04-12 18:11:57,498 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e0640035
+2020-04-12 18:12:07,449 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:12:07,451 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:12:07,451 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:12:07,452 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:12:07,452 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:12:07,452 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:12:07,452 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:12:07,452 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:12:07,452 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:12:07,452 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:12:07,452 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:12:07,452 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:12:07,453 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:12:07,453 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:12:07,453 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/spotter
+2020-04-12 18:12:07,453 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.free=82MB
+2020-04-12 18:12:07,464 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:12:07,465 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.total=124MB
+2020-04-12 18:12:07,482 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@1fcda0f7
+2020-04-12 18:12:07,491 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:12:07,504 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:12:07,510 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:12:07,552 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-12 18:12:07,553 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:12:07,572 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:34896, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-12 18:12:07,580 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x1000153e0640036, negotiated timeout = 5000
+2020-04-12 18:12:07,617 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x1000153e0640036.
+EndOfStreamException: Unable to read additional data from server sessionid 0x1000153e0640036, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-12 18:12:07,734 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1618] - Session: 0x1000153e0640036 closed
+2020-04-12 18:12:07,734 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e0640036
+2020-04-12 18:13:17,195 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:13:17,197 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:13:17,198 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:13:17,198 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:13:17,198 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:13:17,198 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:13:17,198 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:13:17,198 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:13:17,198 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:13:17,198 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:13:17,198 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:13:17,199 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:13:17,199 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:13:17,199 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:13:17,199 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/spotter
+2020-04-12 18:13:17,199 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.free=88MB
+2020-04-12 18:13:17,200 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:13:17,200 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-12 18:13:17,204 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@1d3f1d7b
+2020-04-12 18:13:17,208 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:13:17,212 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:13:17,218 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:13:17,228 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-12 18:13:17,229 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:13:17,241 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:49384, server: localhost/127.0.0.1:2181
+2020-04-12 18:13:17,248 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1000153e064003b, negotiated timeout = 5000
+2020-04-12 18:13:17,255 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x1000153e064003b.
+EndOfStreamException: Unable to read additional data from server sessionid 0x1000153e064003b, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-12 18:13:17,358 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1618] - Session: 0x1000153e064003b closed
+2020-04-12 18:13:17,359 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e064003b
+2020-04-12 18:13:27,365 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:13:27,366 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:13:27,367 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:13:27,367 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:13:27,367 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:13:27,367 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:13:27,367 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:13:27,367 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:13:27,367 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:13:27,368 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:13:27,368 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:13:27,368 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:13:27,368 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:13:27,368 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:13:27,368 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/spotter
+2020-04-12 18:13:27,368 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.free=80MB
+2020-04-12 18:13:27,369 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:13:27,369 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.total=124MB
+2020-04-12 18:13:27,373 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@5d88206
+2020-04-12 18:13:27,376 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:13:27,381 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:13:27,387 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:13:27,399 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-12 18:13:27,400 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:13:27,409 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:34922, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-12 18:13:27,416 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x1000153e064003e, negotiated timeout = 5000
+2020-04-12 18:13:27,431 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x1000153e064003e.
+EndOfStreamException: Unable to read additional data from server sessionid 0x1000153e064003e, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-12 18:13:27,535 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1618] - Session: 0x1000153e064003e closed
+2020-04-12 18:13:27,535 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e064003e
+2020-04-12 18:23:27,564 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:23:27,566 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:23:27,566 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:23:27,566 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:23:27,566 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:23:27,566 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:23:27,566 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:23:27,566 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:23:27,566 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:23:27,566 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:23:27,566 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:23:27,567 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:23:27,567 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:23:27,567 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:23:27,567 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/spotter
+2020-04-12 18:23:27,567 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.free=105MB
+2020-04-12 18:23:27,567 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:23:27,568 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-12 18:23:27,571 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@4c3ba838
+2020-04-12 18:23:27,574 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:23:27,580 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:23:27,588 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:23:27,604 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-12 18:23:27,605 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:23:27,611 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:49522, server: localhost/127.0.0.1:2181
+2020-04-12 18:23:27,619 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1000153e0640051, negotiated timeout = 5000
+2020-04-12 18:23:27,741 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1618] - Session: 0x1000153e0640051 closed
+2020-04-12 18:23:27,741 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e0640051
+2020-04-12 18:23:43,183 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:23:43,185 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:23:43,185 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:23:43,185 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:23:43,185 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:23:43,185 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:23:43,185 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:23:43,185 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:23:43,185 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:23:43,185 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:23:43,186 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:23:43,186 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:23:43,186 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:23:43,186 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:23:43,186 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/spotter
+2020-04-12 18:23:43,186 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.free=105MB
+2020-04-12 18:23:43,187 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:23:43,187 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.total=150MB
+2020-04-12 18:23:43,191 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@4fe77a7b
+2020-04-12 18:23:43,195 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:23:43,199 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:23:43,205 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:23:43,221 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-12 18:23:43,221 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:23:43,233 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:35054, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-12 18:23:43,240 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x1000153e0640052, negotiated timeout = 5000
+2020-04-12 18:23:43,256 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x1000153e0640052.
+EndOfStreamException: Unable to read additional data from server sessionid 0x1000153e0640052, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-12 18:23:43,359 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1618] - Session: 0x1000153e0640052 closed
+2020-04-12 18:23:43,359 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e0640052
+2020-04-12 18:25:05,566 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:25:05,569 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:25:05,569 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:25:05,569 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:25:05,569 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:25:05,569 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:25:05,569 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:25:05,569 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:25:05,570 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:25:05,570 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:25:05,570 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:25:05,570 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:25:05,570 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:25:05,570 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:25:05,570 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/spotter
+2020-04-12 18:25:05,570 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.free=120MB
+2020-04-12 18:25:05,571 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:25:05,571 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.total=156MB
+2020-04-12 18:25:05,576 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@270fe839
+2020-04-12 18:25:05,580 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:25:05,584 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:25:05,590 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:25:05,597 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-12 18:25:05,598 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:25:05,605 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:49536, server: localhost/127.0.0.1:2181
+2020-04-12 18:25:05,613 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1000153e0640053, negotiated timeout = 5000
+2020-04-12 18:25:05,728 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1618] - Session: 0x1000153e0640053 closed
+2020-04-12 18:25:05,728 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e0640053
+2020-04-25 12:25:17,013 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-25 12:25:17,019 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-25 12:25:17,019 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-25 12:25:17,019 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-25 12:25:17,020 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-25 12:25:17,020 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-25 12:25:17,020 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-25 12:25:17,020 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-25 12:25:17,020 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-25 12:25:17,020 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-25 12:25:17,020 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-25 12:25:17,020 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.version=5.6.6-arch1-1
+2020-04-25 12:25:17,020 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-25 12:25:17,020 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-25 12:25:17,021 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/spotter
+2020-04-25 12:25:17,021 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.free=110MB
+2020-04-25 12:25:17,022 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-25 12:25:17,022 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-25 12:25:17,028 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@1ccf36a7
+2020-04-25 12:25:17,034 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-25 12:25:17,054 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-25 12:25:17,065 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-25 12:25:17,080 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-25 12:25:17,081 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-25 12:25:17,095 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:51376, server: localhost/127.0.0.1:2181
+2020-04-25 12:25:17,102 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x10001b4a78c00ee, negotiated timeout = 5000
+2020-04-25 12:25:17,127 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x10001b4a78c00ee.
+EndOfStreamException: Unable to read additional data from server sessionid 0x10001b4a78c00ee, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-25 12:25:17,231 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1618] - Session: 0x10001b4a78c00ee closed
+2020-04-25 12:25:17,231 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x10001b4a78c00ee
+2020-04-29 20:11:41,923 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-29 20:11:41,928 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-29 20:11:41,929 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-29 20:11:41,929 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-29 20:11:41,929 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-29 20:11:41,929 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-29 20:11:41,929 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-29 20:11:41,930 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-29 20:11:41,930 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-29 20:11:41,930 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-29 20:11:41,930 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-29 20:11:41,930 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.version=5.6.7-arch1-1
+2020-04-29 20:11:41,930 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-29 20:11:41,930 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-29 20:11:41,930 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/spotter
+2020-04-29 20:11:41,930 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.free=115MB
+2020-04-29 20:11:41,932 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-29 20:11:41,932 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():Environment@98] - Client environment:os.memory.total=150MB
+2020-04-29 20:11:41,945 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@a14c0cd
+2020-04-29 20:11:41,951 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-29 20:11:41,959 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-29 20:11:41,973 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-29 20:11:41,992 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-29 20:11:41,992 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-29 20:11:42,002 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:35060, server: localhost/127.0.0.1:2181
+2020-04-29 20:11:42,008 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x100020b06a0008f, negotiated timeout = 5000
+2020-04-29 20:11:42,032 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.spotter.SpotterApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x100020b06a0008f.
+EndOfStreamException: Unable to read additional data from server sessionid 0x100020b06a0008f, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-29 20:11:42,136 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main():ZooKeeper@1618] - Session: 0x100020b06a0008f closed
+2020-04-29 20:11:42,136 [myid:] - INFO  [pt.tecnico.sauron.spotter.SpotterApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x100020b06a0008f

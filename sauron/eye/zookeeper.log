@@ -1,0 +1,582 @@
+2020-04-12 17:33:03,372 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 17:33:03,374 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 17:33:03,374 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 17:33:03,375 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-12 17:33:03,376 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=69MB
+2020-04-12 17:33:03,377 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 17:33:03,377 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-12 17:33:03,380 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@4cfcb19a
+2020-04-12 17:33:03,383 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 17:33:03,388 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 17:33:03,394 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 17:33:03,403 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-12 17:33:03,403 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 17:33:03,413 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:48700, server: localhost/127.0.0.1:2181
+2020-04-12 17:33:03,418 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1000153e064000e, negotiated timeout = 5000
+2020-04-12 17:33:03,458 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x1000153e064000e.
+EndOfStreamException: Unable to read additional data from server sessionid 0x1000153e064000e, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-12 17:33:03,561 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x1000153e064000e closed
+2020-04-12 17:33:03,561 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e064000e
+2020-04-12 18:14:21,619 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:14:21,622 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:14:21,622 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:14:21,623 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:14:21,623 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:14:21,623 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:14:21,623 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:14:21,623 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:14:21,623 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:14:21,623 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:14:21,623 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:14:21,623 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:14:21,623 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:14:21,624 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:14:21,624 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-12 18:14:21,624 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=129MB
+2020-04-12 18:14:21,625 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:14:21,625 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=150MB
+2020-04-12 18:14:21,630 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@4b737827
+2020-04-12 18:14:21,634 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:14:21,640 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:14:21,648 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:14:21,660 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-12 18:14:21,662 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:14:21,677 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:49400, server: localhost/127.0.0.1:2181
+2020-04-12 18:14:21,682 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1000153e0640040, negotiated timeout = 5000
+2020-04-12 18:14:21,691 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x1000153e0640040.
+EndOfStreamException: Unable to read additional data from server sessionid 0x1000153e0640040, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-12 18:14:21,794 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x1000153e0640040 closed
+2020-04-12 18:14:21,794 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e0640040
+2020-04-12 18:15:05,836 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:15:05,839 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:15:05,839 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:15:05,839 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:15:05,839 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:15:05,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:15:05,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:15:05,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:15:05,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:15:05,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:15:05,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:15:05,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:15:05,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:15:05,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:15:05,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-12 18:15:05,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=79MB
+2020-04-12 18:15:05,842 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:15:05,842 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-12 18:15:05,847 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@64962cee
+2020-04-12 18:15:05,851 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:15:05,857 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:15:05,865 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:15:05,882 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-12 18:15:05,883 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:15:05,893 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:34938, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-12 18:15:05,900 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x1000153e0640041, negotiated timeout = 5000
+2020-04-12 18:15:06,015 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x1000153e0640041 closed
+2020-04-12 18:15:06,015 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e0640041
+2020-04-12 18:15:24,337 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:15:24,339 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:15:24,341 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:15:24,341 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:15:24,341 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:15:24,341 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:15:24,341 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:15:24,342 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:15:24,342 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:15:24,342 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:15:24,342 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:15:24,342 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:15:24,342 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:15:24,342 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:15:24,342 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-12 18:15:24,342 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=87MB
+2020-04-12 18:15:24,344 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:15:24,344 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-12 18:15:24,347 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@5d88206
+2020-04-12 18:15:24,350 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:15:24,354 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:15:24,360 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:15:24,378 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-12 18:15:24,378 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:15:24,390 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:49416, server: localhost/127.0.0.1:2181
+2020-04-12 18:15:24,396 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1000153e0640044, negotiated timeout = 5000
+2020-04-12 18:15:24,415 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x1000153e0640044.
+EndOfStreamException: Unable to read additional data from server sessionid 0x1000153e0640044, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-12 18:15:24,519 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x1000153e0640044 closed
+2020-04-12 18:15:24,519 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e0640044
+2020-04-12 18:19:57,442 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:19:57,445 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:19:57,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:19:57,447 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:19:57,447 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:19:57,447 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:19:57,447 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:19:57,447 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:19:57,447 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:19:57,447 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:19:57,447 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:19:57,447 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:19:57,448 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:19:57,448 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:19:57,448 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-12 18:19:57,448 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=130MB
+2020-04-12 18:19:57,449 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:19:57,449 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=150MB
+2020-04-12 18:19:57,454 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@326c3fb3
+2020-04-12 18:19:57,458 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:19:57,464 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:19:57,472 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:19:57,484 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-12 18:19:57,484 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:19:57,491 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:49476, server: localhost/127.0.0.1:2181
+2020-04-12 18:19:57,497 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1000153e064004c, negotiated timeout = 5000
+2020-04-12 18:19:57,615 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x1000153e064004c closed
+2020-04-12 18:19:57,615 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e064004c
+2020-04-12 18:21:01,870 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:21:01,872 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:21:01,873 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:21:01,873 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:21:01,873 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:21:01,873 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:21:01,873 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:21:01,873 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:21:01,873 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:21:01,873 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:21:01,873 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:21:01,874 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:21:01,874 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:21:01,874 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:21:01,874 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-12 18:21:01,874 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=87MB
+2020-04-12 18:21:01,875 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:21:01,875 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-12 18:21:01,879 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@20c71959
+2020-04-12 18:21:01,882 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:21:01,886 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:21:01,892 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:21:01,905 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-12 18:21:01,906 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:21:01,917 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:49488, server: localhost/127.0.0.1:2181
+2020-04-12 18:21:01,924 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1000153e064004d, negotiated timeout = 5000
+2020-04-12 18:21:01,942 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x1000153e064004d.
+EndOfStreamException: Unable to read additional data from server sessionid 0x1000153e064004d, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-12 18:21:02,046 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x1000153e064004d closed
+2020-04-12 18:21:02,046 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e064004d
+2020-04-12 18:21:35,192 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:21:35,194 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:21:35,194 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:21:35,194 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:21:35,194 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:21:35,195 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:21:35,195 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:21:35,195 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:21:35,195 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:21:35,195 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:21:35,195 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:21:35,195 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:21:35,195 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:21:35,195 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:21:35,195 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-12 18:21:35,195 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=128MB
+2020-04-12 18:21:35,197 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:21:35,197 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-12 18:21:35,200 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@4cfcb19a
+2020-04-12 18:21:35,203 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:21:35,207 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:21:35,213 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:21:35,223 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-12 18:21:35,224 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:21:35,233 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:35024, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-12 18:21:35,242 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x1000153e064004e, negotiated timeout = 5000
+2020-04-12 18:21:35,259 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x1000153e064004e.
+EndOfStreamException: Unable to read additional data from server sessionid 0x1000153e064004e, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-12 18:21:35,363 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x1000153e064004e closed
+2020-04-12 18:21:35,363 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e064004e
+2020-04-12 18:22:11,089 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:22:11,092 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:22:11,093 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:22:11,093 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:22:11,093 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:22:11,093 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:22:11,093 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:22:11,093 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:22:11,093 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:22:11,093 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:22:11,094 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:22:11,094 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:22:11,094 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:22:11,094 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:22:11,094 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-12 18:22:11,094 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=88MB
+2020-04-12 18:22:11,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:22:11,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-12 18:22:11,100 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@33e7855b
+2020-04-12 18:22:11,104 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:22:11,107 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:22:11,113 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:22:11,139 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-12 18:22:11,139 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:22:11,147 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:35032, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-12 18:22:11,152 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x1000153e064004f, negotiated timeout = 5000
+2020-04-12 18:22:11,266 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x1000153e064004f closed
+2020-04-12 18:22:11,266 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e064004f
+2020-04-12 18:22:45,442 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-12 18:22:45,445 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-12 18:22:45,445 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-12 18:22:45,445 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-12 18:22:45,445 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-12 18:22:45,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-12 18:22:45,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-12 18:22:45,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-12 18:22:45,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-12 18:22:45,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-12 18:22:45,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-12 18:22:45,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.3-arch1-1
+2020-04-12 18:22:45,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-12 18:22:45,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-12 18:22:45,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-12 18:22:45,446 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=75MB
+2020-04-12 18:22:45,448 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-12 18:22:45,448 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-12 18:22:45,452 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@4cfcb19a
+2020-04-12 18:22:45,457 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-12 18:22:45,462 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-12 18:22:45,470 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-12 18:22:45,481 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-12 18:22:45,487 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-12 18:22:45,496 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:49510, server: localhost/127.0.0.1:2181
+2020-04-12 18:22:45,502 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x1000153e0640050, negotiated timeout = 5000
+2020-04-12 18:22:45,519 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x1000153e0640050.
+EndOfStreamException: Unable to read additional data from server sessionid 0x1000153e0640050, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-12 18:22:45,622 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x1000153e0640050
+2020-04-12 18:22:45,622 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x1000153e0640050 closed
+2020-04-25 12:21:07,191 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-25 12:21:07,198 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-25 12:21:07,198 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-25 12:21:07,198 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-25 12:21:07,198 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-25 12:21:07,198 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-25 12:21:07,199 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-25 12:21:07,199 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-25 12:21:07,199 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-25 12:21:07,199 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-25 12:21:07,199 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-25 12:21:07,199 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.6-arch1-1
+2020-04-25 12:21:07,199 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-25 12:21:07,199 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-25 12:21:07,199 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-25 12:21:07,199 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=109MB
+2020-04-25 12:21:07,201 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-25 12:21:07,201 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-25 12:21:07,207 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@4c3ba838
+2020-04-25 12:21:07,212 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-25 12:21:07,219 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-25 12:21:07,228 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-25 12:21:07,250 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-25 12:21:07,251 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-25 12:21:07,273 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:51610, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-25 12:21:07,280 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x10001b4a78c00eb, negotiated timeout = 5000
+2020-04-25 12:21:07,422 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x10001b4a78c00eb closed
+2020-04-25 12:21:07,422 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x10001b4a78c00eb
+2020-04-25 12:23:16,091 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-25 12:23:16,094 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-25 12:23:16,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-25 12:23:16,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-25 12:23:16,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-25 12:23:16,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-25 12:23:16,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-25 12:23:16,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-25 12:23:16,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-25 12:23:16,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-25 12:23:16,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-25 12:23:16,095 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.6-arch1-1
+2020-04-25 12:23:16,096 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-25 12:23:16,096 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-25 12:23:16,096 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-25 12:23:16,096 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=114MB
+2020-04-25 12:23:16,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-25 12:23:16,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-25 12:23:16,103 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@27642006
+2020-04-25 12:23:16,108 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-25 12:23:16,114 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-25 12:23:16,123 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-25 12:23:16,132 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-25 12:23:16,133 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-25 12:23:16,145 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:51366, server: localhost/127.0.0.1:2181
+2020-04-25 12:23:16,153 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x10001b4a78c00ec, negotiated timeout = 5000
+2020-04-25 12:23:16,177 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x10001b4a78c00ec.
+EndOfStreamException: Unable to read additional data from server sessionid 0x10001b4a78c00ec, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-25 12:23:16,280 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x10001b4a78c00ec closed
+2020-04-25 12:23:16,280 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x10001b4a78c00ec
+2020-04-25 12:23:40,857 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-25 12:23:40,860 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-25 12:23:40,861 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-25 12:23:40,861 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-25 12:23:40,861 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-25 12:23:40,861 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-25 12:23:40,861 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-25 12:23:40,861 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-25 12:23:40,861 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-25 12:23:40,861 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-25 12:23:40,861 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-25 12:23:40,861 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.6-arch1-1
+2020-04-25 12:23:40,862 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-25 12:23:40,862 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-25 12:23:40,862 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-25 12:23:40,862 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=115MB
+2020-04-25 12:23:40,863 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-25 12:23:40,863 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-25 12:23:40,870 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@71c20949
+2020-04-25 12:23:40,875 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-25 12:23:40,881 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-25 12:23:40,890 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-25 12:23:40,905 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-25 12:23:40,906 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-25 12:23:40,922 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:51644, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-25 12:23:40,931 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x10001b4a78c00ed, negotiated timeout = 5000
+2020-04-25 12:23:41,059 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x10001b4a78c00ed closed
+2020-04-25 12:23:41,059 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x10001b4a78c00ed
+2020-04-25 12:29:20,837 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-25 12:29:20,840 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-25 12:29:20,841 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-25 12:29:20,841 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-25 12:29:20,841 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-25 12:29:20,841 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-25 12:29:20,841 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-25 12:29:20,841 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-25 12:29:20,841 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-25 12:29:20,842 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-25 12:29:20,842 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-25 12:29:20,842 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.6-arch1-1
+2020-04-25 12:29:20,842 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-25 12:29:20,842 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-25 12:29:20,842 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-25 12:29:20,842 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=114MB
+2020-04-25 12:29:20,844 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-25 12:29:20,844 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-25 12:29:20,849 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@529b9a5c
+2020-04-25 12:29:20,853 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-25 12:29:20,858 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-25 12:29:20,865 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-25 12:29:20,895 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-25 12:29:20,895 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-25 12:29:20,906 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:51774, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-25 12:29:20,913 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x10001b4a78c010b, negotiated timeout = 5000
+2020-04-25 12:29:21,033 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x10001b4a78c010b closed
+2020-04-25 12:29:21,033 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x10001b4a78c010b
+2020-04-25 13:07:30,544 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-25 13:07:30,547 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-25 13:07:30,547 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.6-arch1-1
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-25 13:07:30,548 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=116MB
+2020-04-25 13:07:30,550 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-25 13:07:30,550 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=153MB
+2020-04-25 13:07:30,554 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@23f6e06a
+2020-04-25 13:07:30,559 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-25 13:07:30,565 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-25 13:07:30,571 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-25 13:07:30,579 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-04-25 13:07:30,579 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-25 13:07:30,587 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:51712, server: localhost/127.0.0.1:2181
+2020-04-25 13:07:30,595 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x10001b4a78c010f, negotiated timeout = 5000
+2020-04-25 13:07:30,712 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x10001b4a78c010f closed
+2020-04-25 13:07:30,712 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x10001b4a78c010f
+2020-04-29 19:47:00,961 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-29 19:47:00,967 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-29 19:47:00,967 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-29 19:47:00,968 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-29 19:47:00,968 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-29 19:47:00,968 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-29 19:47:00,968 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-29 19:47:00,968 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-29 19:47:00,968 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-29 19:47:00,968 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-29 19:47:00,968 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-29 19:47:00,968 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.7-arch1-1
+2020-04-29 19:47:00,969 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-29 19:47:00,969 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-29 19:47:00,969 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-29 19:47:00,969 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=114MB
+2020-04-29 19:47:00,970 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-29 19:47:00,971 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-29 19:47:00,976 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@27b954f6
+2020-04-29 19:47:00,981 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-29 19:47:00,989 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-29 19:47:00,999 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-29 19:47:01,013 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-29 19:47:01,013 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-29 19:47:01,030 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:54262, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-29 19:47:01,040 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x100020b06a00070, negotiated timeout = 5000
+2020-04-29 19:47:01,166 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x100020b06a00070 closed
+2020-04-29 19:47:01,166 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x100020b06a00070
+2020-04-29 20:10:43,430 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-04-29 20:10:43,434 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-04-29 20:10:43,434 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-04-29 20:10:43,434 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-04-29 20:10:43,434 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-04-29 20:10:43,435 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-04-29 20:10:43,435 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-04-29 20:10:43,435 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-04-29 20:10:43,435 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-04-29 20:10:43,435 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-04-29 20:10:43,435 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-04-29 20:10:43,435 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.7-arch1-1
+2020-04-29 20:10:43,435 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-04-29 20:10:43,435 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-04-29 20:10:43,435 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-04-29 20:10:43,435 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=114MB
+2020-04-29 20:10:43,437 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-04-29 20:10:43,437 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-04-29 20:10:43,444 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@4beadb94
+2020-04-29 20:10:43,450 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-04-29 20:10:43,458 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-04-29 20:10:43,470 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-04-29 20:10:43,487 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-04-29 20:10:43,487 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-04-29 20:10:43,504 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:54660, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-04-29 20:10:43,516 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x100020b06a0008c, negotiated timeout = 5000
+2020-04-29 20:10:43,542 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x100020b06a0008c.
+EndOfStreamException: Unable to read additional data from server sessionid 0x100020b06a0008c, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-04-29 20:10:43,646 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x100020b06a0008c closed
+2020-04-29 20:10:43,646 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x100020b06a0008c
+2020-05-02 12:32:12,093 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-05-02 12:32:12,096 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-05-02 12:32:12,096 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-05-02 12:32:12,096 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-05-02 12:32:12,096 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-05-02 12:32:12,096 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-05-02 12:32:12,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-05-02 12:32:12,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-05-02 12:32:12,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-05-02 12:32:12,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-05-02 12:32:12,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-05-02 12:32:12,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.8-arch1-1
+2020-05-02 12:32:12,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-05-02 12:32:12,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-05-02 12:32:12,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-05-02 12:32:12,097 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=113MB
+2020-05-02 12:32:12,098 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-05-02 12:32:12,098 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-05-02 12:32:12,102 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@55d2295b
+2020-05-02 12:32:12,106 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-05-02 12:32:12,110 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-05-02 12:32:12,116 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-05-02 12:32:12,127 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-05-02 12:32:12,127 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-05-02 12:32:12,138 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:53138, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-05-02 12:32:12,145 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x10002f3a6b6000f, negotiated timeout = 5000
+2020-05-02 12:32:12,264 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x10002f3a6b6000f
+2020-05-02 12:32:12,264 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x10002f3a6b6000f closed
+2020-05-02 12:32:27,909 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-05-02 12:32:27,911 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-05-02 12:32:27,911 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-05-02 12:32:27,911 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-05-02 12:32:27,911 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-05-02 12:32:27,911 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-05-02 12:32:27,912 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-05-02 12:32:27,912 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-05-02 12:32:27,912 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-05-02 12:32:27,912 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-05-02 12:32:27,912 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-05-02 12:32:27,912 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.8-arch1-1
+2020-05-02 12:32:27,912 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-05-02 12:32:27,912 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-05-02 12:32:27,912 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-05-02 12:32:27,912 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=114MB
+2020-05-02 12:32:27,913 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-05-02 12:32:27,913 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-05-02 12:32:27,917 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@1912e755
+2020-05-02 12:32:27,921 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-05-02 12:32:27,925 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-05-02 12:32:27,932 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-05-02 12:32:27,948 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/0:0:0:0:0:0:0:1:2181.
+2020-05-02 12:32:27,949 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-05-02 12:32:27,959 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /0:0:0:0:0:0:0:1:53274, server: localhost/0:0:0:0:0:0:0:1:2181
+2020-05-02 12:32:27,967 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/0:0:0:0:0:0:0:1:2181, session id = 0x10002f3a6b60011, negotiated timeout = 5000
+2020-05-02 12:32:27,991 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x10002f3a6b60011.
+EndOfStreamException: Unable to read additional data from server sessionid 0x10002f3a6b60011, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-05-02 12:32:28,094 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x10002f3a6b60011 closed
+2020-05-02 12:32:28,094 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x10002f3a6b60011
+2020-05-02 12:41:45,665 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:zookeeper.version=3.6.0--b4c89dc7f6083829e18fae6e446907ae0b1f22d7, built on 02/25/2020 14:38 GMT
+2020-05-02 12:41:45,668 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:host.name=moon
+2020-05-02 12:41:45,669 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.version=11.0.6
+2020-05-02 12:41:45,669 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.vendor=Oracle Corporation
+2020-05-02 12:41:45,669 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.home=/usr/lib/jvm/java-11-openjdk
+2020-05-02 12:41:45,669 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.class.path=/opt/maven/boot/plexus-classworlds-2.6.0.jar
+2020-05-02 12:41:45,669 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.library.path=/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib
+2020-05-02 12:41:45,669 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.io.tmpdir=/tmp
+2020-05-02 12:41:45,669 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:java.compiler=<NA>
+2020-05-02 12:41:45,670 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.name=Linux
+2020-05-02 12:41:45,670 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.arch=amd64
+2020-05-02 12:41:45,670 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.version=5.6.8-arch1-1
+2020-05-02 12:41:45,670 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.name=lulatheboo
+2020-05-02 12:41:45,670 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.home=/home/lulatheboo
+2020-05-02 12:41:45,670 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:user.dir=/home/lulatheboo/documents/sd/proj/sauron/eye
+2020-05-02 12:41:45,670 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.free=113MB
+2020-05-02 12:41:45,672 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.max=1964MB
+2020-05-02 12:41:45,672 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():Environment@98] - Client environment:os.memory.total=149MB
+2020-05-02 12:41:45,677 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1005] - Initiating client connection, connectString=localhost:2181 sessionTimeout=5000 watcher=pt.ulisboa.tecnico.sdis.zk.ZKNaming$1@47948de7
+2020-05-02 12:41:45,682 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():X509Util@77] - Setting -D jdk.tls.rejectClientInitiatedRenegotiation=true to disable client-initiated TLS renegotiation
+2020-05-02 12:41:45,688 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxnSocket@239] - jute.maxbuffer value is 1048575 Bytes
+2020-05-02 12:41:45,696 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ClientCnxn@1703] - zookeeper.request.timeout value is 0. feature enabled=false
+2020-05-02 12:41:45,711 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1154] - Opening socket connection to server localhost/127.0.0.1:2181.
+2020-05-02 12:41:45,712 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1156] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2020-05-02 12:41:45,721 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@986] - Socket connection established, initiating session, client: /127.0.0.1:33506, server: localhost/127.0.0.1:2181
+2020-05-02 12:41:45,727 [myid:localhost:2181] - INFO  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1420] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x10002f3a6b6001e, negotiated timeout = 5000
+2020-05-02 12:41:45,746 [myid:localhost:2181] - WARN  [pt.tecnico.sauron.eye.EyeApp.main(localhost:2181):ClientCnxn$SendThread@1266] - An exception was thrown while closing send thread for session 0x10002f3a6b6001e.
+EndOfStreamException: Unable to read additional data from server sessionid 0x10002f3a6b6001e, likely server has closed socket
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doIO(ClientCnxnSocketNIO.java:75)
+	at org.apache.zookeeper.ClientCnxnSocketNIO.doTransport(ClientCnxnSocketNIO.java:348)
+	at org.apache.zookeeper.ClientCnxn$SendThread.run(ClientCnxn.java:1262)
+2020-05-02 12:41:45,849 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main()-EventThread:ClientCnxn$EventThread@566] - EventThread shut down for session: 0x10002f3a6b6001e
+2020-05-02 12:41:45,849 [myid:] - INFO  [pt.tecnico.sauron.eye.EyeApp.main():ZooKeeper@1618] - Session: 0x10002f3a6b6001e closed

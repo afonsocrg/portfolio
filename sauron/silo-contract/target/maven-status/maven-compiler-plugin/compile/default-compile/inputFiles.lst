@@ -1,0 +1,8 @@
+/home/lulatheboo/documents/sd/proj/sauron/silo-contract/target/generated-sources/protobuf/grpc-java/pt/tecnico/sauron/silo/grpc/GossipServiceGrpc.java
+/home/lulatheboo/documents/sd/proj/sauron/silo-contract/src/main/java/pt/tecnico/sauron/silo/contract/VectorTimestamp.java
+/home/lulatheboo/documents/sd/proj/sauron/silo-contract/src/main/java/pt/tecnico/sauron/silo/contract/exceptions/InvalidVectorTimestampException.java
+/home/lulatheboo/documents/sd/proj/sauron/silo-contract/target/generated-sources/protobuf/java/pt/tecnico/sauron/silo/grpc/Gossip.java
+/home/lulatheboo/documents/sd/proj/sauron/silo-contract/target/generated-sources/protobuf/grpc-java/pt/tecnico/sauron/silo/grpc/ReportServiceGrpc.java
+/home/lulatheboo/documents/sd/proj/sauron/silo-contract/target/generated-sources/protobuf/java/pt/tecnico/sauron/silo/grpc/Silo.java
+/home/lulatheboo/documents/sd/proj/sauron/silo-contract/target/generated-sources/protobuf/grpc-java/pt/tecnico/sauron/silo/grpc/ControlServiceGrpc.java
+/home/lulatheboo/documents/sd/proj/sauron/silo-contract/target/generated-sources/protobuf/grpc-java/pt/tecnico/sauron/silo/grpc/QueryServiceGrpc.java

@@ -1,0 +1,159 @@
+//
+// Protocol buffers definition for Silo server
+//
+syntax = "proto3";
+package pt.tecnico.sauron.silo.grpc;
+
+import "google/type/latlng.proto";
+import "google/protobuf/timestamp.proto";
+
+message VecTimestamp {
+    repeated int32 timestamps = 1;
+}
+
+message Cam {
+    string name = 1;
+    google.type.LatLng coords = 2;
+}
+
+message JoinRequest {
+    Cam cam = 1;
+    string opId = 2;
+    VecTimestamp prev = 3;
+}
+
+message JoinResponse {
+    VecTimestamp new = 1;
+}
+
+message InfoRequest {
+    string name = 1;
+}
+
+message InfoResponse {
+    google.type.LatLng coords = 1;
+    VecTimestamp new = 2;
+}
+
+enum ObservationType {
+    UNSPEC = 0;
+    CAR = 1;
+    PERSON = 2;
+}
+
+message Observation {
+    ObservationType type = 1;
+    string observationId = 2;
+}
+
+message ReportRequest {
+    string camName = 1;
+    repeated Observation observations = 2;
+    string opId = 3;
+    VecTimestamp prev = 4;
+}
+
+message ReportResponse {
+    int32 numAcked = 1;
+    VecTimestamp new = 2;
+}
+
+service ReportService {
+    rpc CamJoin(JoinRequest) returns (JoinResponse);
+    rpc CamInfo(InfoRequest) returns (InfoResponse);
+    rpc Report(ReportRequest) returns (ReportResponse);
+}
+
+message Report {
+    Observation observation = 1;
+    google.protobuf.Timestamp timestamp = 2;
+    Cam cam = 3;
+}
+
+message TrackRequest {
+    ObservationType type = 1;
+    string id = 2;
+    VecTimestamp prev = 3;
+}
+
+message TrackResponse {
+    Report report = 1;
+    VecTimestamp new = 2;
+}
+
+message TrackMatchRequest {
+    ObservationType type = 1;
+    string pattern = 2;
+    VecTimestamp prev = 3;
+}
+
+message TrackMatchResponse {
+    repeated Report reports = 1;
+    VecTimestamp new = 2;
+}
+
+message TraceRequest {
+    ObservationType type = 1;
+    string id = 2;
+    VecTimestamp prev = 3;
+}
+
+message TraceResponse {
+    repeated Report reports = 1;
+    VecTimestamp new = 2;
+}
+
+service QueryService {
+    rpc Track (TrackRequest) returns (TrackResponse);
+    rpc TrackMatch (TrackMatchRequest) returns (TrackMatchResponse);
+    rpc Trace (TraceRequest) returns (TraceResponse);
+}
+
+message PingRequest {
+    string text = 1;
+}
+
+message PingResponse {
+    string text = 1;
+}
+
+message ClearRequest {
+    // empty
+}
+
+message ClearResponse {
+    // empty
+}
+
+message InitCamsRequest {
+    repeated Cam cams = 1;
+    string opId = 2;
+    VecTimestamp prev = 3;
+}
+
+message InitCamsResponse {
+    // empty
+}
+
+message InitObservationsItem {
+    Observation observation = 1;
+    google.protobuf.Timestamp timestamp = 2;
+    Cam cam = 3;
+}
+
+message InitObservationsRequest {
+    repeated InitObservationsItem observations = 1;
+    string opId = 2;
+    VecTimestamp prev = 3;
+}
+
+message InitObservationsResponse {
+    // empty
+}
+
+service ControlService {
+    rpc Ping(PingRequest) returns (PingResponse);
+    rpc Clear(ClearRequest) returns (ClearResponse);
+    rpc InitCams(InitCamsRequest) returns (InitCamsResponse);
+    rpc InitObservations(InitObservationsRequest) returns (InitObservationsResponse);
+}

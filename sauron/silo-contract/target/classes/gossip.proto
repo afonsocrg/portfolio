@@ -1,0 +1,58 @@
+//
+// Protocol buffers definition for Gossip protocol
+//
+syntax = "proto3";
+package pt.tecnico.sauron.silo.grpc;
+
+import "google/protobuf/timestamp.proto";
+import "silo.proto";
+
+message CamJoinCommand {
+    JoinRequest request = 1;
+}
+
+message ReportCommand {
+    ReportRequest request = 1;
+    google.protobuf.Timestamp observationInstant = 2;
+}
+
+message ClearCommand {
+    // empty
+}
+
+message InitCamsCommand {
+    InitCamsRequest request = 1;
+}
+
+message InitObservationsCommand {
+    InitObservationsRequest request = 1;
+}
+
+
+message Record {
+    string opId = 1;        // universal operation ID
+    VecTimestamp prev = 2;  // client timestamp on update creation
+    VecTimestamp ts = 3;    // ts returned to the client
+
+    int32 replicaId = 4;    // Id of replica that received the update
+
+    oneof commands {        // command
+        CamJoinCommand camJoin = 5;
+        ReportCommand report = 6;
+        InitCamsCommand initCams = 7;
+        InitObservationsCommand initObservations = 8;
+     };
+}
+
+message GossipRequest {
+    VecTimestamp replicaTimeStamp = 1; // sender replica update log timestamp
+                                       // on gossip sending instant
+    int32 senderId = 2;                // gossip message sender. Needed to update timestampTables
+    repeated Record records = 3;
+}
+
+message GossipResponse {}
+
+service GossipService {
+    rpc Gossip(GossipRequest) returns (GossipResponse);
+}

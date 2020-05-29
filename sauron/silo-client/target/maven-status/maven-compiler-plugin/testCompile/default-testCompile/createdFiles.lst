@@ -1,0 +1,10 @@
+pt/tecnico/sauron/silo/client/CamJoinIT.class
+pt/tecnico/sauron/silo/client/BaseIT.class
+pt/tecnico/sauron/silo/client/TraceIT.class
+pt/tecnico/sauron/silo/client/SiloIT.class
+pt/tecnico/sauron/silo/client/ClearIT.class
+pt/tecnico/sauron/silo/client/ReportIT.class
+pt/tecnico/sauron/silo/client/PingIT.class
+pt/tecnico/sauron/silo/client/TrackMatchIT.class
+pt/tecnico/sauron/silo/client/TrackIT.class
+pt/tecnico/sauron/silo/client/CamInfoIT.class

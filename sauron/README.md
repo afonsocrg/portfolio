@@ -17,7 +17,7 @@ This system is composed of several cameras (Cam) that detect and identify those 
 
 In the second iteration of this project, we replicated the Silo Server, to improve its availability and performance. We wanted to assure high availability and fault tolerance, so we needed to sacrifice the consistency (See Brewer's/CAP Theorem). We implemented an adaptation of the Gossip algorithm.
 
-##Concurrency
+### Concurrency
 
 Regarding the concurrent model, we decided to use thread-safe data structures for reading and writing. 
 Declaring the functions as `synchronized` was worse because they wouldn't be fine-grained and could

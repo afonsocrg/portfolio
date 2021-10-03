@@ -1,0 +1,7 @@
+log/
+target/
+client/keys/
+server/keys/
+ha_client/keys
+*.db
+global.keystore.jks

@@ -1,0 +1,6 @@
+ballAlg
+ballAlg-mpi
+ballQuery
+*.swp
+*.out
+analysis.txt

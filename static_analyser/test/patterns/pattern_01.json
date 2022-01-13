@@ -1,0 +1,26 @@
+[
+    {"vulnerability": "Generic Vulnerability",
+    "sources": ["source", "src", "src1", "src2", "src3", "src4", "src5", "src6", "src7", "src8"],
+    "sanitizers": ["sanitizer"],
+    "sinks": ["sink", "snk", "snk1", "snk2", "snk3", "x", "y", "z"]},
+
+    {"vulnerability": "VulnA",
+    "sources": ["srcA1", "srcA2", "srcA3"],
+    "sanitizers": ["sanA1"],
+    "sinks": ["snkA1", "snkA2", "snkA3"]},
+        
+    {"vulnerability": "VulnB",
+    "sources": ["srcB1", "srcB2", "srcB2"],
+    "sanitizers": ["sanB1"],
+    "sinks": ["snkB1", "snkB2", "snkB3"]},
+
+    {"vulnerability": "Command Injection",
+    "sources": ["readline","req.headers","file_path"],
+    "sanitizers": ["escape", "sanitize"],
+    "sinks": ["exec", "execSync", "spawn", "spawnSync", "execFile", "execFileSync"]},
+  
+    {"vulnerability":"DOM XSS",
+    "sources":["document.referrer", "document.URL", "document.location"],
+    "sanitizers":["encodeURI"],
+    "sinks":["eval", "document.write", "document.innerHTML", "setAttribute"]}
+]

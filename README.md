@@ -23,6 +23,7 @@ I'm trying to keep these projects readable to most of you, therefore I'm doing m
 | October-November 2019 | [compGraphics](https://github.com/afonsocrg/portfolio/tree/master/compGraphics), [scotlandYardBot](https://github.com/afonsocrg/portfolio/tree/master/scotlandYardBot) |
 | December 2019 | [qlearnBot](https://github.com/afonsocrg/portfolio/tree/master/qlearnBot) |
 | February-May 2020 | [OG Compiler](https://github.com/afonsocrg/portfolio/tree/master/og_compiler) |
-| September-November 2021 | [Vulnerability Analysis](vuln_analysis) |
-| September-December 2021 | [Distributed Storage](https://github.com/Beu-Wolf/DAD2020-GStore) |
+| September-November 2020 | [Vulnerability Analysis](vuln_analysis) |
+| September-December 2020 | [Distributed Storage](https://github.com/Beu-Wolf/DAD2020-GStore) |
+| October 2020-January 2021 | [Distributed Storage](https://github.com/Beu-Wolf/DAD2020-GStore) |
 | February-May 2021 | [HPC - Ball Tree Algorithm](ball_algo) |

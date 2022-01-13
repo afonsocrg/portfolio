@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Blue-Gate Client</string>
+    <string name="edit_message">Enter a message</string>
+
+    <string name="button_send_alice">Open as Alice</string>
+    <string name="button_send_bob">Open as Bob</string>
+    <string name="button_register">Register Bob</string>
+    <string name="button_replay">Replay</string>
+</resources>

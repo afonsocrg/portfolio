@@ -1,0 +1,10 @@
+# Compile class files
+*.class
+
+
+# vim tmp files
+*.sw[po]
+
+
+# security keys
+keys/

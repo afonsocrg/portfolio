@@ -28,3 +28,4 @@ I'm trying to keep these projects readable to most of you, therefore I'm doing m
 | October 2020-January 2021 | [Blue Gate](blueGate), [Static Analyser](static_analyser)|
 | February-May 2021 | [HPC - Ball Tree Algorithm](ball_algo) |
 | March-May 2021 | [Game Stonks](gameStonks), [Contact Tracing](https://github.com/afonsocrg/contactTracing) |
+| October-November 2021 | [It Management Course](it_mgmt) |

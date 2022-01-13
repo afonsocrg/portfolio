@@ -1,0 +1,51 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Ensure this Project is for Docker Provider
+ENV['VAGRANT_DEFAULT_PROVIDER'] = "docker"
+
+Vagrant.configure("2") do |config|
+
+  config.ssh.insert_key = false
+
+  # Create Management (mgmt) node
+  config.vm.define "mgmt" do |mgdock|
+    mgdock.vm.hostname = "mgmt"
+    mgdock.vm.network :private_network, ip: "192.168.56.10", netmask: "24"
+    # Provider Docker
+    mgdock.vm.provider "docker" do |dock|
+      dock.image = "agilabs/vagrant-provider:focal"
+      dock.remains_running = true
+      dock.name = "mgmt"
+      dock.has_ssh = true
+      dock.privileged = true
+      dock.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:ro"]
+    end # of dock
+    # Shared folders
+    mgdock.vm.synced_folder "labs/", "/home/vagrant/labs", docker_consistency: "cached"
+    # Provisioning
+    mgdock.vm.provision :shell, path: "bootstrap-mgmt-docker.sh"
+  end # of mgdock
+
+  # Create VM for fun
+  config.vm.define "funny" do |fdock|
+    fdock.vm.hostname = "funny"
+    fdock.vm.network :private_network, ip: "192.168.56.11", netmask: "24"
+    # Provider Docker
+    fdock.vm.provider "docker" do |dock|
+      #override.vm.box = nil
+      dock.image = "agilabs/vagrant-provider:focal"
+      dock.remains_running = true
+      dock.name = "funny"
+      dock.has_ssh = true
+      dock.privileged = true
+      dock.ports = [ "8080:80" ]
+      dock.volumes = ["/sys/fs/cgroup:/sys/fs/cgroup:ro"]
+    end # of dock
+    # Shared folders
+    fdock.vm.synced_folder "labs/", "/home/vagrant/labs", docker_consistency: "cached"
+    # Provisioning
+    fdock.vm.provision "shell", inline: 'sudo apt-get -y update; sudo apt-get -y install sl'
+  end # of fdock 
+
+end # of config

@@ -11,15 +11,18 @@ I'm trying to keep these projects readable to most of you, therefore I'm doing m
 ## Project timeline
 | Date|Project|
 |---	|---	|
-|May 2015|[Thirty One Game](https://github.com/afonsocrg/portfolio/tree/master/thirtyOne)|
-|October-November 2017|[MasterMind](https://github.com/afonsocrg/portfolio/tree/master/masterMind), [Word Guru](https://github.com/afonsocrg/portfolio/tree/master/wordGuru)|
-|April 2018|[Sparse Matrices](https://github.com/afonsocrg/portfolio/tree/master/sparseMatrices), [Thermometer puzzle solver](https://github.com/afonsocrg/portfolio/tree/master/thermProbSolver)|
-|May 2018|[Project Manager](https://github.com/afonsocrg/portfolio/tree/master/projectManager)|
-|October-November 2018|[Circuit Router](https://github.com/afonsocrg/portfolio/tree/master/circuitRouter), [School Manager](https://github.com/afonsocrg/portfolio/tree/master/schoolManager)|
-|March 2019|[Network Analysis](https://github.com/afonsocrg/portfolio/tree/master/networkAnalysis)|
-|April-May 2019|[Max Flows](https://github.com/afonsocrg/portfolio/tree/master/maxFlows)|
-|March-May 2019|[iGo](https://github.com/afonsocrg/portfolio/tree/master/iGo)|
-|September-October 2019|[qaForum](https://github.com/afonsocrg/portfolio/tree/master/qaForum)|
-|October-November 2019|[compGraphics](https://github.com/afonsocrg/portfolio/tree/master/compGraphics), [scotlandYardBot](https://github.com/afonsocrg/portfolio/tree/master/scotlandYardBot)|
-|December 2019|[qlearnBot](https://github.com/afonsocrg/portfolio/tree/master/qlearnBot)|
-|February-May 2020|[OG Compiler](https://github.com/afonsocrg/portfolio/tree/master/og_compiler)|
+| May 2015 | [Thirty One Game](https://github.com/afonsocrg/portfolio/tree/master/thirtyOne) |
+| October-November 2017 | [MasterMind](https://github.com/afonsocrg/portfolio/tree/master/masterMind), [Word Guru](https://github.com/afonsocrg/portfolio/tree/master/wordGuru) |
+| April 2018 | [Sparse Matrices](https://github.com/afonsocrg/portfolio/tree/master/sparseMatrices), [Thermometer puzzle solver](https://github.com/afonsocrg/portfolio/tree/master/thermProbSolver) |
+| May 2018 | [Project Manager](https://github.com/afonsocrg/portfolio/tree/master/projectManager) |
+| October-November 2018 | [Circuit Router](https://github.com/afonsocrg/portfolio/tree/master/circuitRouter), [School Manager](https://github.com/afonsocrg/portfolio/tree/master/schoolManager) |
+| March 2019 | [Network Analysis](https://github.com/afonsocrg/portfolio/tree/master/networkAnalysis) |
+| April-May 2019 | [Max Flows](https://github.com/afonsocrg/portfolio/tree/master/maxFlows) |
+| March-May 2019 | [iGo](https://github.com/afonsocrg/portfolio/tree/master/iGo) |
+| September-October 2019 | [qaForum](https://github.com/afonsocrg/portfolio/tree/master/qaForum) |
+| October-November 2019 | [compGraphics](https://github.com/afonsocrg/portfolio/tree/master/compGraphics), [scotlandYardBot](https://github.com/afonsocrg/portfolio/tree/master/scotlandYardBot) |
+| December 2019 | [qlearnBot](https://github.com/afonsocrg/portfolio/tree/master/qlearnBot) |
+| February-May 2020 | [OG Compiler](https://github.com/afonsocrg/portfolio/tree/master/og_compiler) |
+| September-November 2021 | [Vulnerability Analysis](vuln_analysis) |
+| September-December 2021 | [Distributed Storage](https://github.com/Beu-Wolf/DAD2020-GStore) |
+| February-May 2021 | [HPC - Ball Tree Algorithm](ball_algo) |

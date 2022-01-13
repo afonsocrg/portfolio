@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+\newcommand{\softmax}[2]{ [softmax(#1)]_{#2} }
+\begin{multline}
+J_{jk} = \frac{\partial \softmax{z}{j}}{\partial z_{k}} =
+\frac{\partial}{\partial z_{k}} \frac{exp(z_{j})}{\sum_{i=1}^{K} exp(z_{i})} =
+\left\{
+\begin{array}{ll}
+	-\frac{exp(z_{j}) exp(z_{k})}{\left[ \sum_{i=1}^{K} exp(z_{i}) \right]^{2}}, & j \neq k \\
+	\frac{\partial}{\partial z_{j}} \frac{exp(z_{j})}{\sum_{i=1}^{K} exp(z_{i})}, & j = k
+\end{array}
+\right.
+\\ =
+\left\{
+\begin{array}{ll}
+	- \softmax{z}{j} \softmax{z}{k}, & j \neq k \\
+	\softmax{z}{j} (1 - \softmax{z}{j}), & j = k
+\end{array}
+\right.
+\end{multline}
+
+\newcommand{\sumezi}{\left(\sum_{i=1}^{K} exp(z_{i}) \right)}
+\begin{equation}
+\begin{split}
+	\frac{\partial}{\partial z_{j}} \frac{exp(z_{j})}{\sum_{i=1}^{K} exp(z_{i})} = \\
+=
+\frac
+	{\left( \frac{\partial}{\partial z_{j}} exp(z_{j}) \right) \sumezi - exp(z_{j}) \frac{\partial}{\partial z_{j}} \sumezi}
+	{\sumezi^{2}} = \\
+=
+\frac
+	{exp(z_{j}) \left(\sumezi - exp(2z_j) \right)}
+	{ \sumezi ^{2}} = \\
+\frac
+	{exp(z_{j}) \left(\sumezi - exp(z_j) \right)}
+	{\sumezi ^{2}} = \\
+\frac
+	{\softmax{z}{j} \left(\sumezi - exp(z_{j}) \right)}
+	{\sumezi} = \\
+\softmax{z}{j} (1 - \softmax{z}{j})
+\end{split}
+\end{equation}
+\end{document}

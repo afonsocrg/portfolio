@@ -1,0 +1,20 @@
+o predict esta a fazer
+
+Y = XW, por isso temos (n_inp x 1) = (n_inp x n_feat) (n_feat x 1)
+
+Y: (n_inp x 1)
+X: (n_inp x n_feat)
+W: (n_feat x 1)
+
+
+
+Grad_W: (n_feat x 1)
+ => X^T X W: (n_feat x 1)
+    (n_feat x n_inp) (n_inp x n_feat) (n_feat x 1)
+    = (n_feat x n_feat) (n_feat x 1) = 
+    = (n_feat x 1) CHECK
+
+ => X^T Y: (n_feat x 1)
+    (n_feat x n_inp) (n_inp x 1)
+    = (n_feat x 1) CHECK
+

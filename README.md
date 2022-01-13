@@ -29,3 +29,4 @@ I'm trying to keep these projects readable to most of you, therefore I'm doing m
 | February-May 2021 | [HPC - Ball Tree Algorithm](ball_algo) |
 | March-May 2021 | [Game Stonks](gameStonks), [Contact Tracing](https://github.com/afonsocrg/contactTracing) |
 | October-November 2021 | [It Management Course](it_mgmt) |
+| November 2021 - February 2022 | [Deep Learning](deepLearning) |

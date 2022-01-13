@@ -1,0 +1,121 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+\newcommand{\softmax}[1]{ [softmax(z)]_{#1} }
+\newcommand{\sumezi}{\left(\sum_{i=1}^{K} exp(z_{i}) \right)}
+\newcommand{\pz}[1]{ \frac{\partial}{\partial z_{#1}}}
+
+\begin{equation}
+	L(z; y = j) = -log\softmax{j}
+\end{equation}
+
+\begin{equation}
+	\begin{split}
+	\nabla L(z; y=j) &=
+		\left[\begin{matrix}
+			\pz{1}L(z; y=j) & \dots & \pz{K}L(z;y=j)
+		\end{matrix}\right] \\
+	&=	\left[\begin{matrix}
+			\pz{1}-log\softmax{j}
+			& \dots
+			& \pz{K}-log\softmax{j}
+		\end{matrix}\right] \\
+	&=  \left[\begin{matrix}
+		-\frac{\pz{1}\softmax{j}}{\softmax{j}}
+		& \dots
+		& -\frac{\pz{K}\softmax{j}}{\softmax{j}}
+		\end{matrix}\right] \\
+	&=	-\frac{1}{\softmax{j}}J_{j}
+	\end{split}
+\end{equation}
+\begin{equation}
+	H = \nabla^{2}L(z;y=j)
+\end{equation}
+\begin{equation}
+	\begin{split}
+		H_{ab} &= \pz{a} \left( \nabla L(z;y=j)\right)_{b}\\
+		&= \pz{a} -\frac{1}{\softmax{j}}
+			\pz{b}\softmax{j} \\
+		&= \left\{\begin{array}{lll}
+				\pz{a}-\frac{1}{\softmax{j}}
+					\cdot (-\softmax{j}
+					\softmax{b}) & , & b \neq j \\
+				\pz{a}-\frac{1}{\softmax{j}}
+					\cdot \softmax{j}
+							(1-\softmax{j})
+									& , & b = j
+			\end{array}
+		   \right. \\
+		&= \left\{\begin{array}{lll}
+				\pz{a}\softmax{b} & , & b \neq j \\
+				\pz{a}-(1-\softmax{j}) & , & b = j
+				\end{array}
+			\right. \\
+		&= \left\{\begin{array}{lll}
+				\pz{a}\softmax{b} & , & b \neq j \\
+				\pz{a} \softmax{j} & , & b = j
+				\end{array}
+			\right. \\
+		&= \pz{a}\softmax{b} \\
+		&= \left\{\begin{array}{lll}
+				-\softmax{a}\softmax{b} & , & a \neq b \\
+				\softmax{a}(1 - \softmax{a})
+				\end{array}
+			\right.
+	\end{split}
+\end{equation}
+
+\begin{equation}
+	\begin{split}
+		X^{T}HX &= \left( \sum_{a}\softmax{a}
+					(1-\softmax{a})x_{a}^{2}\right) \\
+					&\quad -\sum_{a \neq b}
+						\softmax{a}\softmax{b}x_{a}x_{b} \\
+				&= \left( \sum_{a}\softmax{a}x_{a}^{2}
+					- \softmax{a}^{2}x_{a}^{2}\right) \\
+					&\quad-\left[
+						\left( 
+							\sum_{a}\softmax{a}x_{a}
+						\right)
+						\left(
+							\sum_{a}\softmax{a}x_{a}
+						\right) \right.\\
+						&\left. \qquad - \sum_{a}
+									\softmax{a}^{2}x_{a}^{2}
+								\vphantom{\left(\sum\right)}
+						 \right] \\
+				&= \sum_{a}\softmax{a}x_{a}^2 -
+					\left( \sum_{a}\softmax{a}x_{a}\right)^2 \\
+				&= \left(\sum_{a}\softmax{a}x_{a}^2\right)
+					\left(\sum_{a}\softmax{a}\right) - \\
+					&\quad \left( \sum_{a}
+						\softmax{a}x_{a}\right)^2 \\
+				&= \left(\sum_{a}(\sqrt{\softmax{a}}\cdot x_{a})^2\right)
+					\left(\sum_{a}\sqrt{\softmax{a}}^2\right) - \\
+					&\quad \left( \sum_{a}
+						\sqrt{\softmax{a}}\cdot
+						\sqrt{\softmax{a}}\cdot x_{a}\right)^2 \\
+				&\geq 0 \qquad \text{by Cauchy-Schwarz}
+	\end{split}
+\end{equation}
+$H$ is Positive Semi-Definite, thus $L(z;y=j)$ is convex.
+\subsection*{Cauchy-Schwarz}
+\begin{equation}
+	\begin{split}
+		\lvert \langle \vec{u},\vec{v} \rangle \rvert &\leq
+		\lVert \vec{u} \rVert \cdot \lVert \vec{v} \rVert \\
+		\Leftrightarrow \bigg\lvert 
+						\sum_i u_i v_i \bigg\rvert &\leq
+			\sqrt{\sum_i u_i^2} \cdot
+				\sqrt{\sum_i v_i^2} \\
+		\Leftrightarrow \bigg\lvert
+				\sum_i u_i v_i \bigg\rvert^2 &\leq
+			\sqrt{\sum_i u_i^2}^2 \cdot
+				\sqrt{\sum_i v_i^2}^2 \\
+		\Leftrightarrow \left(
+				\sum_i u_i v_i \right)^2 &\leq
+			\left( \sum_i u_i^2 \right)
+				\left( \sum_i v_i^2 \right)
+	\end{split}
+\end{equation}
+\end{document}

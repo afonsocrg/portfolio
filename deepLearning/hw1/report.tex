@@ -1,0 +1,990 @@
+\documentclass[10pt]{article}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\newcommand{\softmax}[1]{ [softmax(z)]_{#1} }
+\newcommand{\sumezi}{\left(\sum_{i=1}^{K} exp(z_{i})\right)}
+\newcommand{\pz}[1]{ \frac{\partial}{\partial z_{#1}}}
+\newcommand{\img}[1]{\begin{figure}[H]\centering\includegraphics[width=\textwidth]{#1}\end{figure}}
+
+\makeatletter
+\renewcommand{\@seccntformat}[1]{}
+\makeatother
+
+
+\begin{document}
+
+\title{Homework 1 - Group 6}
+\author{Afonso Gonçalves \and João Simões \and Marcelo Santos}
+\maketitle
+
+\par
+Before solving these exercises, we want to recall some derivative rules that will be helpful throughout this document:
+\begin{itemize}
+	\item Reciprocal Rule: $\frac{\partial}{\partial x} \frac{1}{f(x)} = \frac{-f'(x)}{f(x)^{2}}$
+	\item Quocient Rule: $\frac{\partial}{\partial x}\frac{f(x)}{g(x)} = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^{2}}$
+	\item Chain Rule: $\frac{\partial}{\partial x}f(g(x)) = f'(g(x)) \cdot g'(x)$
+\end{itemize}
+
+\section{Question 1}
+
+
+\subsection{1.1}
+\begin{equation}
+\begin{aligned}
+    \sigma'(z) {} &= \left( \frac{1}{1 + e^{-z}} \right)'
+    = \frac{-(1+e^{-z})'}{(1 + e^{-z})^{2}}
+    = \frac{e^{-z}}{(1 + e^{-z})^{2}}
+    \\ \\
+    &= \frac{1 + e^{-z} - 1}{(1 + e^{-z})^{2}}
+    = \frac{1 + e^{-z}}{(1 + e^{-z})^{2}} - \frac{1}{(1 + e^{-z})^{2}}
+    \\ \\
+    &= \frac{1}{1 + e^{-z}} - \frac{1}{1 + e^{-z}} \cdot \frac{1}{1 + e^{-z}}
+    \\ \\
+    &= \sigma(z) - \sigma(z)\cdot \sigma(z)
+    \\ \\
+    &= \sigma(z)(1-\sigma(z))
+    \\ \\
+    &Q.E.D.
+\end{aligned}
+\end{equation}
+
+\subsection{1.2}
+We can derive
+\begin{equation}
+\begin{aligned}
+  (-log(\sigma(z)))' {} & = -\frac{1}{\sigma(z)}\sigma'(z) \text{, from the Chain Rule (4)}
+  \\ \\ &
+  = -\frac{1}{\sigma(z)}\sigma(z)(1-\sigma(z))
+  \\ \\ &
+  = \sigma(z) - 1
+\end{aligned}
+\end{equation}
+
+The second derivative is trivially calculated with:
+$$
+(-log(\sigma(z)))'' = (\sigma(z) - 1)' = \sigma'(z) = \sigma(z)(1-\sigma(z))
+$$
+
+To demonstrate that the binary logistic loss is convex as a function of $z$, we can recall the following theorem from {Convexity and differentiable functions}\footnote{\url{https://math.ucr.edu/~res/math133/convex-functions.pdf}}:
+
+\begin{quote}
+\textbf{Theorem 2}: Let $K \subset \mathbb{R}$ be an interval, and let $f$ be a real valued function on $K$ with a continuous second derivative. If $f''$ is nonnegative everywhere, then $f$ is convex on $K$.
+\end{quote}
+
+We know that:
+\begin{equation}
+\begin{aligned}
+  {} & 0 < \sigma(z) < 1, \forall z \in \mathbb{R}
+  \\ \\ &
+  \Leftrightarrow -1 < -\sigma(z) < 0, \forall z \in \mathbb{R}
+  \\ \\ &
+  \Leftrightarrow 0 < 1 -\sigma(z) < 1, \forall z \in \mathbb{R}
+  \\ \\ &
+  \Leftrightarrow 0 < \sigma(z)(1 -\sigma(z)) < 1, \forall z \in \mathbb{R}
+  \\ \\ &
+  \Leftrightarrow 0 < (-log(\sigma(z)))'' < 1, \forall z \in \mathbb{R} \\ \\
+\end{aligned}
+\end{equation}
+
+Hence, we conclude that the second derivative of $-log(\sigma(z))$ is strictly positive and consequently prove that the binary logistic loss is convex as a function of $z$.
+
+\subsection{1.3}
+We know that the Jacobian Matrix is "the matrix of all the function's first-order partial derivatives"\footnote{\url{https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant}}, hence we can derive the following:
+
+\begin{equation}
+\begin{aligned}
+  J_{jk} {} & = \frac{\partial [softmax(z)]_{j}}{\partial z_{k}}
+  \\ \\ &
+  = \frac{\partial}{\partial z_{k}} \frac{exp(z_{j})}{\sum_{i=1}^{K} exp(z_{i})}
+\end{aligned}
+\end{equation}
+
+
+If $j \neq k$, we have that
+\begin{equation}
+\begin{aligned}
+  \frac{\partial}{\partial z_{k}} \frac{exp(z_{j})}{\sum_{i=1}^{K} exp(z_{i})} {} & = exp(z_{j}) \times \frac{\partial}{\partial z_{k}}\frac{1}{\sum_{i=1}^{K} exp(z_{i})}
+  \\ \\ &
+  = exp(z_{j}) \times \frac{-\frac{\partial}{\partial z_{k}}\left(\sum_{i=1}^{K} exp(z_{i})\right)}{\left[\sum_{i=1}^{K} exp(z_{i})\right]^{2}} \\
+		&\text{, from the Reciprocal Rule (1)}
+  \\ \\ &
+  = exp(z_{j}) \times \frac{-\frac{\partial}{\partial z_{k}}exp(z_{k})}{\left[\sum_{i=1}^{K} exp(z_{i})\right]^{2}}
+  \\ \\ &
+  = -\frac{exp(z_{j})exp(z_{k})}{\left[\sum_{i=1}^{K} exp(z_{i})\right]^{2}}
+  \\ \\ &
+  = -\frac{exp(z_{j})}{\sum_{i=1}^{K} exp(z_{i})}\frac{exp(z_{k})}{\sum_{i=1}^{K} exp(z_{i})}
+  \\ \\ &
+  = -[softmax(z)]_{j} [softmax(z)]_{k}
+\end{aligned}
+\end{equation}
+
+If $j = k$, we have that
+\begin{equation}
+\begin{aligned}
+  &\frac{\partial}{\partial z_{j}} \frac{exp(z_{j})}{\sum_{i=1}^{K} exp(z_{i})} {}\\ \\
+  &= \frac
+	{\left( \frac{\partial}{\partial z_{j}} exp(z_{j}) \right) \left(\sum_{i=1}^{K} exp(z_{i}) \right) - exp(z_{j}) \frac{\partial}{\partial z_{j}} \left(\sum_{i=1}^{K} exp(z_{i}) \right)}
+  {\left(\sum_{i=1}^{K} exp(z_{i}) \right)^{2}} \\&\text{, from the Quotient Rule (2)} \\ \\
+																				  &= \frac
+	{exp(z_{j})\left(\sum_{i=1}^{K} exp(z_{i}) \right) - exp(z_j)exp(z_j)}
+	{\left(\sum_{i=1}^{K} exp(z_{i}) \right)^{2}} \\ \\
+																				  &= \frac
+	{exp(z_{j}) \left(\left(\sum_{i=1}^{K} exp(z_{i}) \right) - exp(z_j) \right)}
+	{\left(\sum_{i=1}^{K} exp(z_{i}) \right) ^{2}} \\ \\
+																				  &= \frac{exp(z_{j})}{\sum_{i=1}^{K} exp(z_{i})} \times
+  \frac{\left(\sum_{i=1}^{K} exp(z_{i}) \right) - exp(z_j)}{\sum_{i=1}^{K} exp(z_{i})} \\ \\
+																				  &= \frac{exp(z_{j})}{\sum_{i=1}^{K} exp(z_{i})}\left(1-
+  \frac{exp(z_j)}{\sum_{i=1}^{K} exp(z_{i})}\right) \\ \\
+																				  &= [softmax(z)]_{j} (1 - [softmax(z)]_{j})
+\end{aligned}
+\end{equation}
+
+We can conclude that the Jacobian matrix is a symmetric matrix with each entry $J_{jk}$ defined as:
+
+\begin{equation}
+\begin{aligned}
+  J_{jk} {} &= \frac{\partial [softmax(z)]_{j}}{\partial z_{k}} \\
+			&= \begin{cases}
+	    -[softmax(z)]_{j} [softmax(z)]_{k},& j \neq k \\
+	    [softmax(z)]_{j} (1 - [softmax(z)]_{j}),& j = k \\
+    \end{cases}
+\end{aligned}
+\end{equation}
+
+\subsection{1.4}
+
+\subsubsection{Gradient Calculation}
+The gradient of the given loss function, with respect to $z$, is given by:
+\begin{equation}
+\begin{aligned}
+  \nabla L(z; y=j) {} & = \left[\begin{matrix}
+			\pz{1}L(z; y=j) & \dots & \pz{K}L(z;y=j)
+		\end{matrix}\right]
+  \\ \\ &
+  = \left[\begin{matrix}
+			\pz{1}-log\softmax{j}
+			& \dots
+			& \pz{K}-log\softmax{j}
+		\end{matrix}\right]
+  \\ \\ &
+  = \left[\begin{matrix}
+		-\frac{\pz{1}\softmax{j}}{\softmax{j}}
+		& \dots
+		& -\frac{\pz{K}\softmax{j}}{\softmax{j}}
+		\end{matrix}\right] \\
+		&\text{, from the Chain Rule (4)}
+  \\ \\ &
+  = \frac{-1}{\softmax{j}}\left[\begin{matrix}
+		\pz{1}\softmax{j}
+		& \dots
+		& \pz{K}\softmax{j}
+		\end{matrix}\right]
+\end{aligned}
+\end{equation}
+
+From the previous exercise, we can conclude that
+
+\begin{equation}
+\begin{aligned}
+  J_{k} {} & = \left\{
+    \begin{array}{ll}
+	    \frac{-1}{\softmax{j}} \cdot -[softmax(z)]_{j} [softmax(z)]_{k}, & k \neq j
+      \\
+	    \frac{-1}{\softmax{j}} \cdot [softmax(z)]_{j} (1 - [softmax(z)]_{j}), & k = j
+    \end{array}
+  \right.
+  \\ \\ &
+  = \begin{cases}
+	    [softmax(z)]_{k}, & k \neq j
+      \\
+	    [softmax(z)]_{j} - 1, & k = j
+    \end{cases}
+\end{aligned}
+\end{equation}
+
+
+\subsubsection{Hessian calculation}
+
+The Hessian of the Loss function is given as $H = \nabla^{2}L(z;y=j)$ and each entry of the Hessian is:
+
+\begin{equation}
+\begin{aligned}
+  H_{ab} {} & = \pz{a} \left( \nabla L(z;y=j)\right)_{b}
+  \\ \\ &
+  = \left\{
+    \begin{array}{ll}
+	    \pz{a}[softmax(z)]_{b}, & b \neq j
+      \\
+	    \pz{a}\left([softmax(z)]_{j} - 1\right), & b = j
+    \end{array}
+  \right.
+  \\ \\ &
+  = \left\{
+    \begin{array}{ll}
+	    \pz{a}[softmax(z)]_{b}, & b \neq j
+      \\
+	    \pz{a}[softmax(z)]_{j}, & b = j
+    \end{array}
+  \right.
+  \\ \\ &
+  = \pz{a}[softmax(z)]_{b}
+  \\ \\ &
+  = \left\{\begin{array}{lll}
+				-\softmax{a}\softmax{b} & , & a \neq b \\
+				\softmax{a}(1 - \softmax{a})& , & a = b
+				\end{array}
+			\right.
+\end{aligned}
+\end{equation}
+
+\subsubsection{Convexity proof}
+
+We know that
+\begin{enumerate}
+    \item A function $f$ is convex if and only if it has a Positive Semi-Definite Hessian;
+    \item A symmetric matrix $A \in \mathbb{R}^{n \times n}$ is Positive Semi-Definite if, for any $X \in \mathbb{R}^{n}, X^{T}AX \geq 0$;
+\end{enumerate}
+
+From the previous exercise, we know that the Hessian of the loss function is symmetric, due to the Commutative property of the multiplication \\($-\softmax{a}\softmax{b} = -\softmax{b}\softmax{a}$).
+Moreover, we have that
+
+\begin{equation}
+\begin{aligned}
+  & X^{T}HX = {} \\ & = \left( \sum_{a}\softmax{a}
+					(1-\softmax{a})x_{a}^{2}\right) \\
+					&\quad -\sum_{a \neq b}
+						\softmax{a}\softmax{b}x_{a}x_{b}
+  \\ \\ &
+  = \left( \sum_{a}\softmax{a}x_{a}^{2}
+					- \softmax{a}^{2}x_{a}^{2}\right) \\
+					&\quad-\left[
+						\left( 
+							\sum_{a}\softmax{a}x_{a}
+						\right)
+						\left(
+							\sum_{a}\softmax{a}x_{a}
+						\right) \right.
+						\left. - \sum_{a}
+									\softmax{a}^{2}x_{a}^{2}
+								\vphantom{\left(\sum\right)}
+						 \right]
+  \\ \\ &
+  = \sum_{a}\softmax{a}x_{a}^{2} - \sum_{a}\softmax{a}^{2}x_{a}^{2} \\
+					&\quad
+            -\left(\sum_{a}\softmax{a}x_{a}\right)^{2}
+						\left. + \sum_{a}
+									\softmax{a}^{2}x_{a}^{2}
+								\vphantom{\left(\sum\right)}
+						 \right.
+  \\ \\ &
+  = \sum_{a}\softmax{a}x_{a}^2 -
+					\left( \sum_{a}\softmax{a}x_{a}\right)^2
+  \\ \\ &
+  = \left(\sum_{a}\softmax{a}x_{a}^2\right)
+					\left(\sum_{a}\softmax{a}\right) -
+					\left(\sum_{a}\softmax{a}x_{a}\right)^2
+  \\ \\ &
+  = \left(\sum_{a}\left(\sqrt{\softmax{a}}\cdot x_{a}\right)^2\right)
+					\left(\sum_{a}\sqrt{\softmax{a}}^2\right) - \\
+					&\quad \left( \sum_{a}
+						\sqrt{\softmax{a}}\cdot
+						\sqrt{\softmax{a}}\cdot x_{a}\right)^2
+  \\ \\ &
+  = \left(\sum_{a}\left(\sqrt{\softmax{a}}\cdot x_{a}\right)^2\right)
+					\left(\sum_{a}\sqrt{\softmax{a}}^2\right) - \\
+					&\quad \left( \sum_{a}
+						\sqrt{\softmax{a}}\cdot x_{a}\cdot
+						\sqrt{\softmax{a}}\right)^2
+\end{aligned}
+\end{equation}
+
+
+From Cauchy-Schwarz, we derive
+
+\begin{equation}
+\begin{aligned}
+  {} & \qquad \lvert \langle \vec{u},\vec{v} \rangle \rvert \leq \lVert \vec{u} \rVert \cdot \lVert \vec{v} \rVert
+  \\ \\ &
+  \Leftrightarrow \bigg\lvert \sum_i u_i v_i \bigg\rvert \leq \sqrt{\sum_i u_i^2} \cdot \sqrt{\sum_i v_i^2}
+  \\ \\ &
+  \Leftrightarrow \bigg\lvert
+				\sum_i u_i v_i \bigg\rvert^2 \leq
+			\sqrt{\sum_i u_i^2}^2 \cdot
+				\sqrt{\sum_i v_i^2}^2
+  \\ \\ &
+  \Leftrightarrow \left(
+				\sum_i u_i v_i \right)^2 \leq
+			\left( \sum_i u_i^2 \right)
+				\left( \sum_i v_i^2 \right)
+  \\ \\ &
+  \Leftrightarrow 0 \leq
+			\left( \sum_i u_i^2 \right)
+				\left( \sum_i v_i^2 \right) - \left(
+				\sum_i u_i v_i \right)^2
+\end{aligned}
+\end{equation}
+
+Therefore, we conclude that
+
+\begin{equation}
+\begin{aligned}
+  X^{T}HX {} & = \left(\sum_{a}\left(\sqrt{\softmax{a}}\cdot x_{a}\right)^2\right)
+					\left(\sum_{a}\sqrt{\softmax{a}}^2\right) - \\
+					&\quad \left( \sum_{a}
+						\sqrt{\softmax{a}}\cdot x_{a}\cdot
+						\sqrt{\softmax{a}}\right)^2
+  \\ \\ &
+  \geq 0 \quad \text{by Cauchy-Schwarz}
+\end{aligned}
+\end{equation}
+
+\textbf{i.e.}, H is Positive Semi-Definite.
+
+From 1), we prove that $L(z;y=j)$ is convex with respect to $z$.
+
+
+\subsection{1.5}
+
+\subsubsection{Convexity Proof}
+
+We know that the multinomial logistic loss is $L : \mathbb{R}^{m} \rightarrow \mathbb{R}$ and, from the previous exercise, we know that $L$ is convex w.r.t. $z$. Moreover, we know that $z$ is an affine function of $W$ and $b$: $z = W\phi(x) + b$.
+
+We can express $L(W, b)$ as a the composition of an affine map $z : \mathbb{R}^{n} \rightarrow \mathbb{R}^{m}$ with a convex function $L : \mathbb{R}^{m} \rightarrow \mathbb{R}$: $L(W, b) = L(z(W, b)) = L(W\phi(x) + b)$.
+From the hint given above, we can conclude that the multinomial logistic loss is convex with respect to $(W, b)$.
+
+\subsubsection{Generalization}
+
+From "Convexity Theory and Gradient Methods - Angelia Nedić"\footnote{\url{https://www.ima.umn.edu/materials/2013-2014/ND5.27-6.13.14/20872/IMAConvexity2014-p2.pdf}} and "Convex Optimization — Boyd \& Vandenberghe"\footnote{\url{https://web.stanford.edu/class/ee364a/lectures/functions.pdf}}, we know that
+
+\begin{quote}
+    The composition of two functions
+    $$f(x) = h(g(x)) = h(g_{1}(x), g_{2}(x), ... , g_{p}(x))$$ $$h: \mathbb{R}^{p} \rightarrow \mathbb{R} \mbox{ , } g: \mathbb{R}^{m} \rightarrow \mathbb{R}^{p}$$\\ is convex if and only if
+    \begin{itemize}
+        \item 1. each $g_i$ is convex, $h$ is convex and nondecreasing in each argument
+        \item 2. each $g_i$ is concave, $h$ is convex and nonincreasing in each argument
+    \end{itemize}
+\end{quote}
+
+When applied to this case, the multinomial logistic loss function is denoted by $h$, and $z(W, b)$ is denoted by $g$.
+
+We cannot generalize that the multinomial logistic loss is convex with respect to $W$ and $b$: If $z(W, b)$ is not convex w.r.t. $(W, b)$, then the composition will not be convex w.r.t. $(W, b)$ and consequently a local minimum will not necessarily be a global minimum.
+
+For example, if $z(W, b) = sin(\lVert W \rVert) \cdot b$, $z$ is not convex w.r.t. $(W, b)$, thus the loss function will not be either.
+
+\newpage
+\section{Question 2}
+\subsection{2.1}
+First, let's prove that $L$ is convez w.r.t $z$:
+
+The first derivative of $L$ w.r.t. to $z$ is:
+\begin{equation}
+\begin{aligned}
+  \nabla_{z} L(z; y) {} & = \nabla_{z}\frac{1}{2}\|z-y\|^{2}_{2}
+  \\ \\ &
+  = \frac{1}{2} \nabla_{z}\|z-y\|^{2}_{2}
+  \\ \\ &
+  = \frac{1}{2} \nabla_{z}(z^{T}z - 2y^{T}z + \|y\|^{2})
+  \\ \\ &
+  = \frac{2z - 2y^{T}}{2}
+  \\ \\ &
+  = z - y^{T}
+\end{aligned}
+\end{equation}
+
+Thus, the second derivative is:
+\begin{equation}
+\begin{aligned}
+  \nabla^{2}_{z} L(z; y) {} & = \nabla_{z}(z - y^{T})
+  \\ \\ &
+  = I
+\end{aligned}
+\end{equation}
+
+Since the second derivative of $L$ w.r.t. $z$ is strictly positive, we know that $L$ is convex w.r.t. $z$.
+
+We also know that, by definition, $z$ is an affine function of $(W, b)$: $$z(W, b) = W^{T}\phi(x) + b$$.
+
+Thus, from the hint given in question 1.5, we conclude that $L(z; y)$ is the composition of an affine function $z$ with a convex function $L(z; y)$, thus we prove that $L(W, b) = L(z(W, b))$ is convex w.r.t $(W, b)$.
+
+\newpage
+\subsection{2.2.a}
+
+In this exercise, we are training Linear Regression model to predict the price of a property, given the features describing it. We will use the Stochastic Gradient Descent to approximate the model parameters to the minimizer of the loss function:
+
+\begin{equation}
+\begin{aligned}
+W^{k+1} & {} = W^{k} - \eta_{k} \nabla_{W}(L(W^{k};(x_{t},y_{t})))
+\end{aligned}
+\end{equation}
+
+The loss function we aim to minimize is given in the following code snippet:
+
+\begin{lstlisting}[language=Python]
+def evaluate(self, X, y):
+    """
+    return the mean squared error between the
+    model's predictions for X
+    and the ground truth y values
+    """
+    yhat = self.predict(X) # phi(X)W
+    error = yhat - y
+
+    # sum(error_i * error_i) -> squared error norm
+    squared_error = np.dot(error, error)
+
+    mean_squared_error = squared_error / y.shape[0]
+    return np.sqrt(mean_squared_error)
+\end{lstlisting}
+
+Hence we can describe it as:
+
+$$
+L(W, \phi(X), Y) = \sqrt{\frac{\| \phi(X)W - Y \|^2}{N}}
+$$
+
+And its derivative will be:
+
+\begin{equation}
+\begin{aligned}
+  \nabla_W L(W, \phi(X), Y) {} & = \nabla_W \sqrt{\frac{\| W\phi(X) - Y \|^2}{N}}
+  \\ \\ &
+  = \frac{1}{\sqrt{N}} \nabla_W \sqrt{\| W\phi(X) - Y \|^2}
+  \\ \\ &
+  = \frac{\nabla_W \| W\phi(X) - Y \|^2}{2\sqrt{N} \times \sqrt{\| W\phi(X) - Y \|^2}}
+  \\ \\ &
+  = \frac{\nabla_W (W^2 \phi(X)^2 - 2W\phi(X)Y + Y^2)}{2\sqrt{N \times \| W\phi(X) - Y \|^2}}
+  \\ \\ &
+  = \frac{2\phi(X)^T\phi(X)W - 2\phi(X)^TY}{2\sqrt{N \times \| W\phi(X) - Y \|^2}}
+  \\ \\ &
+  = \frac{\phi(X)^T\phi(X)W - \phi(X)^TY}{\sqrt{N \times \| W\phi(X) - Y \|^2}}
+  \\ \\ &
+  = \frac{\phi(X)^T(\phi(X)W - Y)}{\sqrt{N \times \| W\phi(X) - Y \|^2}}
+  \\ \\ &
+  = \frac{\phi(X)^T(\hat{Y} - Y)}{\sqrt{N \times \| \hat{Y} - Y \|^2}}  \quad\text(N = 1)
+  \\ \\ &
+  = \frac{\phi(X)^T(\hat{Y} - Y)}{\| \hat{Y} - Y \|}
+\end{aligned}
+\end{equation}
+
+After training this model for 150 epochs, we got the following results.
+
+\img{results/q2/2_a/linreg_v3/loss.png}
+%![Loss graph](results/q2/2_a/linreg_v3/loss.png)
+
+The first graph depicts the loss in each epoch, which indicates how far the model predictions were from the real values.
+Hence, lower losses mean that the model is more accurate.
+
+We can see that in the beginning of the training, the loss had a value of 0.521 and 0.727 for the train and test sets, respectively, which rapidly decreased to values between 0.2 and 0.3 in the first 10 epochs.
+After this moment, the training loss kept decreasing, reaching a minimum loss of 0.111 on epoch 150.
+However, the test loss started increasing, having values from 0.195 at epoch 71 to 0.239, at epoch 148, and finishing the experiment with a value of 0.238.
+
+We can explain this drift between the test and train loss functions because \textbf{the model is overfitting the training set}, i.e. the model is adjusting its weights based only on the gradients obtained from the training set.
+One can use regularization to diminish this problem.
+
+We can also note that the model gets some loss spikes during the experiments.
+We hypothesise this result comes from the randomness of the stochastic gradient descent.
+Stochastic optimization algorithms may, sometimes, update the model parameters in the wrong "direction", leading to slight increases in the attained loss.
+
+Below, we have the plot of the distance from the analytical solution in each epoch:
+\img{results/q2/2_a/linreg_v3/dist.png}
+%![Dist graph](results/q2/2_a/linreg_v3/dist.png)
+
+The analytical solution corresponds to the model parameters (weights) that minimize the loss function for the training data set.
+This value is analytically calculated by a closed form expression.
+We can see the analytical solution as the target parameters we want our model to learn, and the distance between that solution and the model parameters as "how far are we from the optimized weights".
+
+The initial parameters start with a distance of 2.879 and monotonically decreases in further epochs, reaching a final distance of 1.452.
+After experimenting training the model for 1000 epochs, we could see that the distance kept reducing, reaching a minimum 0.669.
+
+From this result, we can infer that the model is correctly learning the parameters that best predict the prices of the desired properties.
+
+\subsection{2.2.b}
+Our single layer feedforward network is given by the following expression:
+\begin{equation}
+\begin{aligned}
+f(x) = z^{(2)}(x) &= o(W^{(2)}\cdot h(x) + b^{(2)})
+      = W^{(2)}\cdot h(x) + b^{(2)} \\
+     &= W^{(2)}\cdot g(z^{(1)}(x)) + b^{(2)} \\
+     &= W^{(2)}\cdot g(W^{(1)}\cdot x + b^{(1)}) + b^{(2)}
+\end{aligned}
+\end{equation}
+Where:
+\begin{itemize}
+    \item $o(x) = x$. This applies for regression networks.
+    \item $g(x) = ReLU(x)$, which is our activation function.
+\end{itemize}
+
+Throughout the training of the model, we are tasked with reducing the loss given by:
+$$
+L(f(x), y) = \frac{1}{2}\|f(x)-y\|^{2} = \frac{1}{2}\|z^{(2)}(x)-y\|^{2}
+$$
+
+By the gradient rules, we have that:
+$$
+\nabla_{f(x)}L(f(x), y) = f(x) - y \\
+\nabla_{z^{(2)}}L(f(x), y) = z^{(2)} - y
+$$
+
+For the hidden layer gradients, we have the following expressions:
+$$
+\nabla_{h^{(l)}}L(f(x),y) = W^{(l+1)^{T}}\nabla_{z^{(l+1)}}L(f(x),y)
+$$
+$$
+\nabla_{z^{(l)}}L(f(x),y) =
+\nabla_{h^{(l)}}L(f(x),y)\odot g'(z^{(l)})
+$$
+$$
+g'(x) = 1_{x>0}
+$$
+$$
+\nabla_{W^{(l)}L(f(x),y)} =
+\nabla_{z^{(l)}}L(f(x),y)h^{(l-1)^{T}}
+$$
+$$
+\nabla_{b^{(l)}}L(f(x),y) =
+\nabla_{z^{(l)}}L(f(x),y)
+$$
+We can apply them throughout all layers, starting from $\nabla_{z^{(2)}}L(f(x), y) = z^{(2)} - y$
+
+The reported loss graph is the following:
+
+\img{results/q2/2_b/loss_lr1e-3_150ep.png}
+%![Neural Network Loss](results/q2/2_b/loss_lr1e-3_150ep.png)
+
+In the initial epochs, the loss values were high, but quickly lowered toward 0.2. In the following epochs, the most significant changes happened in the form of spikes, most likely due to steps in the wrong direction in gradient descent.
+Compared to the linear model, there was a smaller gap between the training and test sets, hinting that in the neural network overfitting did not occur. Furthermore, we obtained a smaller loss at the final epoch in the neural network model.
+
+
+\section{Question 3}
+\subsection{3.1.a}
+The graph below depicts the accuracy scores attained by the perceptron in each epoch, for the validation and test data sets.
+
+\img{results/q3/1_a/acc_20-epochs.png}
+% ![20Epochs](results/q3/1_a/acc_20-epochs.png)
+
+We can see that the accuracy scores vary between 0.7 and 0.8 and that the perceptron has a similar performance for the validation and test sets, however with slightly higher scores for the former (the biggest difference is 0.0113). We believe the perceptron had a similar performance in both data sets since none of them contained data the perceptron trained with.
+
+We can also note that the accuracy score oscillates drastically in each epoch, reaching amplitudes around 10\% in some epochs. This result may suggest that the perceptron already reached its maximum accuracy.
+For this reason, we decided to analyze the accuracy scores the perceptron gets in 100 and 1000 epochs. The obtained results are shown in the graphs below:
+
+\img{results/q3/1_a/acc_100-epochs.png}
+%![100Epochs](results/q3/1_a/acc_100-epochs.png)
+\img{results/q3/1_a/acc_1000-epochs.png}
+%![1000Epochs](results/q3/1_a/acc_1000-epochs.png)
+
+The maximum accuracy obtained in these runs was 0.840, which corroborates the previous idea.
+
+We know that the perceptron is a Linear classifier and is unable to represent non-linearly separable problems. The limited accuracy results obtained in this experiment suggest that the classification problem of this exercise may be too complex to be represented in a single perceptron and that we would need a more complex model, such as a Neural Network to achieve better results. This explains why the perceptron is underfitting the training data and having such low accuracies.
+
+Finally, we verified that adding a learning rate to the perceptron did not change the accuracy results.
+
+\subsection{3.1.b}
+After implementing and running the logistic regression model, we obtained the following results:
+
+\img{results/q3/1_b/acc_10-epochs_lr-1e-3.png}
+%![20Epochs](results/q3/1_b/acc_10-epochs_lr-1e-3.png)
+
+We can observe that this model achieves accuracy scores similar to the ones attained by the previous model, but with much less oscillation. 
+
+We believe the smoother results stem from the gradient that is calculated in the logistic regression, which is given as:
+
+$$
+\nabla = e_y \phi(x)^T - \sum_y P_w(y' | x)e_{y'}\phi(x)^T
+$$
+
+This gradient corresponds to a matrix where each column $y'$ equals $\phi(x)$ multiplied by the probability the model assigned to the class $y'$, except for the gold class.
+Applying this gradient to the weight matrix tunes up the weights of the correct class and tunes down the weights of every incorrect class, according to the probability assigned to that class.
+This means that the higher the score the model gives to an incorrect class, the higher the gradient that will be applied to the weights of that same class.
+Contrarily, the perceptron algorithm only updates the weights of the gold and incorrectly predicted classes, leaving the other classes as they were.
+
+\subsection{3.2.a}
+Multi-layer perceptrons with non-linear activations are more expressive than a single perceptron because the non-linear activation functions allow to perform non-linear operations on the input data. The combination of these non-linear activations, across different layers, allows to create more complex models that represent more complex problems, hence the increased expressiveness.
+
+This statement is supported by the following theorems:
+
+\textbf{Theorem (Hornik et al. (1989))}: An NN with one hidden layer and a linear output can approximate arbitrarily well any continuous function, given enough hidden units.
+
+\textbf{Theorem (Montufar et al. (2014))}: The number of linear regions carved out by a deep neural network with D inputs, depth L, and K hidden units per layer with ReLU activations is:
+$$
+O\left(
+  \left(
+  \begin{array}{ll}
+    K
+    \\
+    D
+  \end{array}
+  \right)^{D(L-1)} K^D
+\right)
+$$
+This means that, for a fixed number of hidden units, the networks are exponentially more expressive (Lecture 05 slides\footnote{\url{https://fenix.tecnico.ulisboa.pt/downloadFile/563568428828553/lecture_05.pdf}}).
+
+Note that if the activation functions of a multi-layer perceptron are linear, then it is equivalent to a single perceptron and wil not be able to model more complex problems. (With linear activation functions it is possible to represent the entire feedforward process into a single matrix).
+
+The results obtained in 3.1.a hint that the problem may be too complex to be represented by a single perceptron (which follows a linear model). A more complex model, such as a multi-layer perceptron with non-linear activation functions may be able to better model this problem and to consequently have higher accuracy scores for this classification task.
+
+\newpage
+\subsection{3.2.b}
+After implementing and executing the MLP, we got the accuracy results depicted below:
+
+\img{results/q3/2_b/acc_20-epochs.png}
+%![20Epochs](results/q3/2_b/acc_20-epochs.png)
+
+This shows that this model attained higher accuracy scores than the perceptron, as expected.
+
+Below we compare the accuracy of the perceptron, the logistic regression and the MLP:
+
+\img{results/q3/2_b/q3_comparison.png}
+%![Comparison](results/q3/2_b/q3_comparison.png)
+
+\section{Question 4}
+\subsection{4.1}
+After tuning training the Logistic Regression model for 20 epochs, with learning rates of $\{0.001, 0.01, 0.1\}$, we concluded that the best learning rate for this problem is $0.001$.
+This learning rate granted the lowest loss values and the highest accuracy scores.
+
+Below, we present the accuracy and loss plots for this learning rate:
+%![Plot 1](results/q4/1/acc.png)
+\img{results/q4/1/acc.png}
+
+%![Plot 1](results/q4/1/loss.png)
+\img{results/q4/1/loss.png}
+
+
+\subsection{4.2}
+For this experiment, we tuned the hyperparameters one by one, while leaving the others at their default value, and compared the different hyperparameter values using the attained accuracy in the validation data set.
+For each tuned hyperparameter, we generated a plot that helped comparing the results, and a table that frames the accuracy range and the final accuracy.
+
+We discuss our results hyperparameter by hyperparameter:
+
+\subsubsection{Learning Rate}
+
+\img{tuning/learning_rate.png}
+% ![Learning Rate Tuning Plot](tuning/learning_rate.png)
+
+\begin{center}
+\begin{tabular}{||l|c|c|c||}
+\hline
+Parameters            & Min. Acc. & Max. Acc. & Final Acc. \\
+\hline
+\hline
+Learning Rate = 0.1   & 0.101     & 0.203     & 0.203      \\
+\hline
+Learning Rate = 0.01  & 0.802     & 0.875     & 0.868      \\
+\hline
+Learning Rate = 0.001 & 0.777     & 0.867     & 0.867      \\
+\hline
+\end{tabular}
+\end{center}
+
+From the plot above, we can see that the configuration with Learning Rate of 0.1 (`LR=0.1`) reported accuracy scores much lower than the other two configurations.
+Moreover, it got a constant accuracy of 0.101 for every epoch except for the last one.
+We hypothesize that the low accuracy results are due to the learning rate being too high, which may make the model adjusting its parameters too much, in each SGD step.
+Hence, we decided to test the outlier configuration for 50 epochs, to analyse what happened to the accuracy.
+We observed that the accuracy varied between 0.101 and 0.231, reaching the final epoch with a value of 0.170 and a final test accuracy of 0.173.
+From this observation, we can conclude that \textbf{the learning rate of 0.1 is too high for this particular problem}, as lower learning rates present better results.
+We could not find any explanation for having constant accuracy during the first epochs, for this configuration.
+
+
+When it comes to pick the best Learning Rate, we can observe that the configuration with `LR=0.01` presented the highest minimum, maximum and final accuracy scores.
+Moreover, we can observe that, in the first epochs, `LR=0.001` got lower accuracy results than `LR=0.01`, which suggests that the lower learning rate is learning more slowly, which makes sense.
+For this reason, \textbf{we chose `LR=0.01` for the final configuration}.
+
+Nonetheless, we cannot say for sure that 0.01 is the best Learning Rate value for this problem, since both `LR=0.01` and `LR=0.001` configurations got very similar results.
+In fact, when experimenting with other configuration combinations, we got higher accuracy results with a lower `LR`:
+
+\begin{center}
+\begin{tabular}{||l|c|c|c||}
+\hline
+Parameters           & Min. Acc. & Max. Acc. & Final Acc. \\
+\hline\hline
+Learning Rate = 0.1  & 0.822     & 0.868     & 0.858      \\
+\hline
+Learning Rate = 0.01 & 0.820     & 0.878     & 0.878      \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Hidden Size}
+
+\img{tuning/hidden_layer_size.png}
+% ![Learning Rate Tuning Plot](tuning/hidden_layer_size.png)
+
+
+\begin{center}
+\begin{tabular}{||l|c|c|c||}
+\hline
+Parameters        & Min. Acc. & Max. Acc. & Final Acc. \\
+\hline\hline
+Hidden Size = 100 & 0.822     & 0.868     & 0.858      \\
+\hline
+Hidden Size = 200 & 0.802     & 0.875     & 0.868      \\
+\hline
+\end{tabular}
+\end{center}
+
+We could not identify a big difference in the performance these configurations, as the one that has the greater accuracy varies in different epochs.
+We opted to \textbf{choose the `HS=200` configuration as it yielded higher maximum and final accuracy.}
+
+Note that choosing a smaller Hidden Layer would also be a valid option since it would require smaller weight matrices and would need to perform less computations.
+
+
+\subsubsection{Dropout Probability}
+
+\img{tuning/dropout.png}
+% ![Learning Rate Tuning Plot](tuning/dropout.png)
+
+\begin{center}
+\begin{tabular}{||l|c|c|c||}
+\hline
+Parameters    & Min. Acc. & Max. Acc. & Final Acc. \\
+\hline\hline
+Dropout = 0.3 & 0.802     & 0.875     & 0.868      \\
+\hline
+Dropout = 0.5 & 0.741     & 0.845     & 0.845      \\
+\hline
+\end{tabular}
+\end{center}
+We can observe that the `Dropout=0.3` configuration has higher accuracies than the `Dropout=0.5` configuration in every epoch, hence it is a good candidate for the best value for the Dropout.
+
+We cogitate that this may happen because a higher Dropout probabilities will deactivate more units during the feedforward, which may lead to a slower learning curve.
+
+After testing the configuration `Dropout=0.5` for 50 epochs, we observed that the maximum and final accuracy values were 0.856 and 0.848, respectively.
+This is still lower than the values got by the other configuration.
+
+
+\subsubsection{Activation Function}
+
+\img{tuning/activation_function.png}
+% ![Learning Rate Tuning Plot](tuning/activation_function.png)
+
+\begin{center}
+\begin{tabular}{||l|c|c|c||}
+\hline
+Parameters          & Min. Acc. & Max. Acc. & Final Acc. \\
+\hline\hline
+Activation = `relu` & 0.802     & 0.875     & 0.868      \\
+\hline
+Activation = `tanh` & 0.795     & 0.839     & 0.837      \\
+\hline
+\end{tabular}
+\end{center}
+We can observe that, with the exception of epoch 3, the `Activation=relu` configuration got higher accuracy results than the `Activation=tanh` activation.
+Moreover, the gap between the accuracy of both configurations is larger than the one in other hyperparameters.
+This indicates that the `relu` Activation function might be the best suited for this problem.
+
+After researching about this topic, we found that
+\begin{quote}
+"Due to vanishing gradient problem, \[...\] sigmoid and tanh functions are avoided; \[...\] The ReLU function is the most widely used function and performs better than other activation functions in most of the cases"  
+Activation Functions in Neural Networks\footnote{\url{https://www.ijeast.com/papers/310-316,Tesma412,IJEAST.pdf}}
+\end{quote}
+
+and that
+\begin{quote}
+"A property of the tanh function is that it can only attain a gradient of 1, only when the value of the input is 0, that is when x is zero. This makes the tanh function produce some dead neurons during computation. \[...\] This limitation of the tanh function spurred further research in activation functions to resolve the problem, and it birthed the rectified linear unit (ReLU) activation function."  
+Activation Functions: Comparison of Trends in Practice and Research for Deep Learning\footnote{\url{https://arxiv.org/pdf/1811.03378.pdf}}
+\end{quote}
+
+These conclusions suggest that the `ReLU` activation function is more likely to yield better accuracy scores, which is verified in the results of this experiment.
+
+\subsubsection{Optimizer}
+
+\img{tuning/optimizer.png}
+% ![Learning Rate Tuning Plot](tuning/optimizer.png)
+
+\begin{center}
+\begin{tabular}{||l|c|c|c||}
+\hline
+Parameters         & Min. Acc. & Max. Acc. & Final Acc. \\
+\hline\hline
+Optimizer = `Adam` & 0.101     & 0.101     & 0.101      \\
+\hline
+Activation = `SGD` & 0.802     & 0.875     & 0.868      \\
+\hline
+\end{tabular}
+\end{center}
+The first interesting result is that the accuracy of the `Adam` optimizer is constant during every epoch and has much lower accuracy compared to `SGD`.
+This may hint that `Adam` may not be the best optimizer for this problem, however we cannot generalize this result for other scenarios.
+
+We further investigated this result and launched several tests, one for each hyperparameter combination that used the `Adam` optimizer, and got the following results:
+
+\img{tuning/adam.png}
+% ![Adam tuning](tuning/adam.png)
+
+This exercise showed that some configurations still had low accuracy scores, but 5 configurations managed to have accuracy scores above 0.500.
+The best registered configuration for the `Adam` optimizer had `LR=0.001`, `HS=100`, `Dropout=0.3`, `Activation=tanh`, `Optimizer=adam`, and `HL=1`. This configuration got accuracy values ranging between 0.746 and 0.814, with a final accuracy of 0.812.
+
+Interestingly enough, we could also notice that, from the top 10 configurations that use the `Adam` optimizer, only one of them used the `ReLU` activation function, bein ranked in 3rd place with accuracy values ranging between 0.718 and 0.771, with a final accuracy of 0.771.
+
+
+\subsubsection{"Best" Configuration}
+
+After analyzing all the hyperparameters, we hypothesize the best configuration is:
+\begin{center}
+\begin{tabular}{||l|c||}
+\hline
+Parameter           & Value \\
+\hline\hline
+Learning Rate       & 0.01  \\
+\hline
+Hidden Size         & 200   \\
+\hline
+Dropout             & 0.3   \\
+\hline
+Activation Function & ReLu  \\
+\hline
+Optimizer           & SGD   \\
+\hline
+\end{tabular}
+\end{center}
+After running this configuration we got the following result:
+
+\img{tuning/best.png}
+% ![Best configuration accuracy](tuning/best.png)
+
+Since the best hyperparameters coincided always with the default parameters, the best configuration ended up being the default one.
+For this reason, the accuracy obtained in this experiment is the same as the accuracy we got in every other test, with the default value for the tuned hyperparameter.
+
+However, the extra experiments made when tuning the Learning Rate and the Optimizer suggested that we could have better accuracy scores for other hyperparamenter combinations.
+For this reason, we tested the accuracy for every combination and exported those values to a file (available in the {\bf data/} directory).
+We also developed a helper script ({\bf graph.py}) to easily visualize this information.
+
+We concluded that the best configuration for this problem and for this number of epochs is:
+\begin{center}
+\begin{tabular}{||l|c|c||}
+\hline
+Parameter           & "Best" & Actual Best \\
+\hline\hline
+Learning Rate       & 0.01   & {\bf 0.001}  \\
+\hline
+Hidden Size         & 200    & {\bf 100}    \\
+\hline
+Dropout             & 0.3    & 0.3         \\
+\hline
+Activation Function & ReLU   & ReLU        \\
+\hline
+Optimizer           & SGD    & SGD         \\
+\hline
+\end{tabular}
+\end{center}
+We can compare the accuracies of both configurations in the following graph:
+
+\img{tuning/best_vs_actual_best.png}
+% ![Best vs Actual Best](tuning/best_vs_actual_best.png)
+\begin{center}
+\begin{tabular}{||l|c|c|c||}
+\hline
+Parameters  & Min. Acc. & Max. Acc. & Final Acc. \\
+\hline\hline
+"Best"      & 0.802     & 0.875     & 0.868      \\
+\hline
+Actual Best & 0.820     & 0.878     & 0.878      \\
+\hline
+\end{tabular}
+\end{center}
+We can see that this configuration got an accuracy 1\% higher in the "Actual Best" configuration.
+
+
+The fact that the best configuration does not correspond to the combination of the best hyperparameter individually may indicate that the hyperparameters influence each other.
+This hypothesis is supported by the results obtained when experimenting different configurations for the `Adam` optimizer.
+
+\subsection{4.3}
+After executing the "Best" configuration with 1, 2 and 3 hidden layers, we got the following results:
+
+\img{tuning/layers.png}
+% !["Best" configuration with 1, 2 and 3 layers](tuning/layers.png)
+\begin{center}
+\begin{tabular}{||l|c|c|c||}
+\hline
+Parameters & Min. Acc. & Max. Acc. & Final Acc. \\
+\hline\hline
+1 Layer    & 0.802     & 0.875     & 0.868      \\
+\hline
+2 Layers   & 0.790     & 0.871     & 0.868      \\
+\hline
+3 Layers   & 0.758     & 0.870     & 0.863      \\
+\hline
+\end{tabular}
+\end{center}
+Although having the configuration with three layers took longer to learn, all of them finished the experiment with a similar accuracy score.
+Moreover, every configuration is the higher scorer in, at least, one epoch.
+
+If we were to choose the best, \textbf{we would pick the configuration with one layer for three reasons}:
+First, its accuracy scores varied between the larger of the minimum and the larger of the maximum;
+Second, having fewer layers leads to fewer computations and possibly faster results; and
+Third, it is the top scorer in more than 50\% of the epochs.
+
+
+The results gotten in the previous question made us look for the best configuration considering different network depths.
+We called it `Actual Best All Layers` and below we can see its configuration:
+\begin{center}
+\begin{tabular}{||l|c|c|c||}
+\hline
+Parameter           & "Best" & Actual Best & Actual Best All Layers \\\hline
+\hline
+Learning Rate       & 0.01   & {\bf 0.001}   & {\bf 0.001}              \\
+\hline
+Hidden Size         & 200    & {\bf 100}     & 200                    \\
+\hline
+Dropout             & 0.3    & 0.3         & 0.3                    \\
+\hline
+Activation Function & ReLU   & ReLU        & ReLU                   \\
+\hline
+Optimizer           & SGD    & SGD         & SGD                    \\
+\hline
+Hidden Layers       & 1      & 1           & {\bf 2}                  \\
+\hline
+\end{tabular}
+\end{center}
+We got the following results:
+
+\img{tuning/all_bests.png}
+% !["Best" configuration with 1, 2 and 3 layers](tuning/all_bests.png)
+\begin{center}
+\begin{tabular}{||l|c|c|c||}
+\hline
+Parameters             & Min. Acc. & Max. Acc. & Final Acc. \\\hline
+\hline
+"Best"                 & 0.802     & 0.875     & 0.868      \\
+\hline
+Actual Best            & 0.820     & 0.878     & 0.878      \\
+\hline
+Actual Best All Layers & 0.811     & 0.884     & 0.884      \\
+\hline
+\end{tabular}
+\end{center}
+We can see that this last configuration has higher accuracy scores in almost every epoch.
+
+\end{document}

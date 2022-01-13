@@ -25,5 +25,6 @@ I'm trying to keep these projects readable to most of you, therefore I'm doing m
 | February-May 2020 | [OG Compiler](og_compiler) |
 | September-November 2020 | [Vulnerability Analysis](vuln_analysis) |
 | September-December 2020 | [Distributed Storage](G-Store) |
-| October 2020-January 2021 | [Blue Gate](blueGate) [Static Analysis Tool](static_analyser)|
+| October 2020-January 2021 | [Blue Gate](blueGate), [Static Analyser](static_analyser)|
 | February-May 2021 | [HPC - Ball Tree Algorithm](ball_algo) |
+| March-May 2021 | [Game Stonks](gameStonks), [Contact Tracing](https://github.com/afonsocrg/contactTracing) |

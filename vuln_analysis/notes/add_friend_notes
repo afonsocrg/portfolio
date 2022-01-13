@@ -1,0 +1,58 @@
+-- Verifica se o utilizador existe ou se e o proprio user
+SELECT * (tem 5 colunas)
+FROM Users
+WHERE username <> <logged_in> ????
+AND username = <input> ????
+
+
+
+-- Verifica se ja sao amigos ou se existe um pedido pendente
+SELECT * FROM (
+    SELECT u1, u2
+    FROM Friends
+    WHERE username1 = <loggedin>
+    AND username2 = <input>
+    FROM FriendsRequests
+    WHERE username1 = <input>
+    AND username2 = <loggedin>
+)
+WHERE username1=<loggedin>
+AND  username2=<input>
+
+
+INSERT INTO FriendsRequests @username
+
+
+
+Comentar no final do query pode estraga-lo (ele espera parentesis)
+
+ssofadmin' OR ''='
+    -> Nao da 500!
+    -> Introduce an existing username different from yours.
+
+ksjfladskfj' OR ''='
+    -> Nao da 500!
+    -> Introduce an existing username different from yours.
+
+
+ssofadmin' OR 1=1 LIMIT 1#
+    -> ... is already your friend, or a request from him is pending.
+
+
+
+' OR username LIKE 'ssof_dmin
+    500
+
+
+ssofadmin'#
+    SQL Error
+
+
+ssofadmin')#
+    500
+
+' OR username<>'asdf' LIMIT 1#
+    500
+
+' OR username<> 'asdf' AND username='ssofadmin
+    500

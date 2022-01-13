@@ -1,0 +1,13 @@
+(Ponces, 1234)
+
+Tentamos fazer SQLi na password adicionando mais valores alêm do username e da password
+-> Só existem 2 colunas no INSERT
+
+21 is Max to username
+
+
+INSERT INTO Users (username, password) VALUES ('', '');
+
+INSERT INTO Users (username, password) VALUES ('  teste', 'teste'); SELECT * FROM Users; #  '  , '');
+
+conta5', 'pass');#

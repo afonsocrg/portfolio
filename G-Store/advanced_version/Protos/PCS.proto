@@ -1,0 +1,36 @@
+syntax="proto3";
+
+service PCSGrpcService {
+	rpc LaunchServer (LaunchServerRequest) returns (LaunchServerReply);
+	rpc LaunchClient (LaunchClientRequest) returns (LaunchClientReply);
+	rpc Ping (PCSPingRequest) returns (PCSPingReply);
+}
+
+message LaunchServerRequest {
+	string id = 1;
+	int32 port = 2;
+	int32 min_delay = 3;
+	int32 max_delay = 4;
+}
+
+message LaunchServerReply {
+	bool ok = 1;
+}
+
+message LaunchClientRequest {
+	string script_file = 1;
+	int32 port = 2;
+	int32 id = 3;
+}
+
+message LaunchClientReply {
+	bool ok = 1;
+}
+
+message PCSPingRequest {
+
+}
+
+message PCSPingReply {
+
+}

@@ -24,6 +24,6 @@ I'm trying to keep these projects readable to most of you, therefore I'm doing m
 | December 2019 | [qlearnBot](qlearnBot) |
 | February-May 2020 | [OG Compiler](og_compiler) |
 | September-November 2020 | [Vulnerability Analysis](vuln_analysis) |
-| September-December 2020 | [Distributed Storage](https://github.com/Beu-Wolf/DAD2020-GStore) |
+| September-December 2020 | [Distributed Storage](G-Store) |
 | October 2020-January 2021 | [Blue Gate](blueGate) [Static Analysis Tool](static_analyser)|
 | February-May 2021 | [HPC - Ball Tree Algorithm](ball_algo) |

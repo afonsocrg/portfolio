@@ -1,0 +1,64 @@
+syntax="proto3";
+
+service PuppetMasterServerGrpcService {
+	rpc Status (ServerStatusRequest) returns (ServerStatusReply);
+	rpc Crash (CrashRequest) returns (CrashReply);
+	rpc Freeze (FreezeRequest) returns (FreezeReply);
+	rpc Unfreeze (UnfreezeRequest) returns (UnfreezeReply);
+	rpc Ping (ServerPingRequest) returns (ServerPingReply);
+	rpc PartitionSchema (PartitionSchemaRequest) returns (PartitionSchemaReply);
+}
+
+message ServerStatusRequest {
+
+}
+
+message ServerStatusReply {
+	bool success = 1;
+}
+
+message CrashRequest {
+
+}
+
+message CrashReply {
+	bool success = 1;
+}
+
+message FreezeRequest {
+
+}
+
+message FreezeReply {
+	bool success = 1;
+}
+
+message UnfreezeRequest {
+
+}
+
+message UnfreezeReply {
+	bool success = 1;
+}
+
+message ServerPingRequest {
+
+}
+
+message ServerPingReply {
+
+}
+
+message PartitionInfo {
+	repeated string serverIds = 1;
+}
+
+
+message PartitionSchemaRequest {
+	map<string, PartitionInfo> partitionServers = 1;
+	map<string, string> serverUrls = 2;
+}
+
+message PartitionSchemaReply {
+	// empty
+}

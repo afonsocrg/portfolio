@@ -1,0 +1,58 @@
+syntax="proto3";
+
+service ClientServerGrpcService {
+	rpc ReadObject (ReadObjectRequest) returns (ReadObjectReply);
+	rpc WriteObject (WriteObjectRequest) returns (WriteObjectReply);
+	rpc ListServer (ListServerRequest) returns (ListServerReply);
+	rpc ListGlobal (ListGlobalRequest) returns (ListGlobalReply);
+}
+
+message ObjectId {
+	string partition_id = 1;
+	string object_key = 2;
+}
+
+message ObjectVersion {
+	int32 counter = 1;
+	int32 client_id = 2;
+}
+
+message ObjectInfo {
+	ObjectId key = 1;
+	ObjectVersion version = 2;
+	string value = 3;
+
+}
+
+message ReadObjectRequest {
+	ObjectId key = 1;
+}
+
+message ReadObjectReply {
+	ObjectInfo object = 1;
+}
+
+
+message WriteObjectRequest {
+	ObjectInfo object = 1;
+}
+
+message WriteObjectReply {
+	ObjectVersion newVersion = 1;
+}
+
+message ListServerRequest {
+
+}
+
+message ListGlobalRequest {
+
+}
+
+message ListServerReply {
+	repeated ObjectInfo objects = 1;
+}
+
+message ListGlobalReply {
+	repeated ObjectInfo objects = 1;	
+}
